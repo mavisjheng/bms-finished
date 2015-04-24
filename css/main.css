@@ -72,18 +72,6 @@
   font-size: 36px;  
 }
 
-.widget-content > .unit-total-voltage,
-.widget-content > .unit-total-amp,
-.infobox-data > .value-cell-voltage,
-.infobox-data > .value-cell-amp {
-  font-size: 20px; 
-}
-
-.infobox-data > .unit-cell-voltage,
-.infobox-data > .unit-cell-amp {
-  font-size: 16px; 
-}
-
 .percentage .percent {
   font-size: 24px; 
 }
@@ -315,47 +303,6 @@
   border-width: 0px 1px 0px 0px;
 }
 
-.infobox {
-  display: inline-block;
-  width: 295px;
-  height: 200px;
-  color: #555;
-  background-color: #FFF;
-  box-shadow: none;
-  border-radius: 0;
-  margin: -1px 0 0 -1px;
-  padding: 8px 3px 6px 9px;
-  border: 1px dotted;
-  border-color: #D8D8D8 !important;
-  vertical-align: middle;
-  text-align: left;
-  position: relative;
-  text-align: center;
-}
-
-.infobox-data {  
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center; 
-  min-width: 130px; 
-  position: relative;
-  margin-top: -8%;
-}
-
-.infobox > .infobox-progress {
-  padding-top: 0;
-  display: inline-block;
-  vertical-align: top;  
-}
-
-.infobox-small > .infobox-data {
-  display: inline-block;
-  text-align: center;
-  vertical-align: bottom;
-  max-width: 72px;
-  min-width: 0;
-}
-
 .percentage {
   font-weight: bold;
   display: inline-block;
@@ -432,15 +379,13 @@
 /*----- common style items end -----*/
 
 
-/*----- discharge date tables @ discharge.html begins -----*/
-#future-discharge-table > tbody > tr > td,
-#past-discharge-table > tbody > tr > td {
+/*----- discharge date table @ repeat-discharge.html begins -----*/
+#future-discharge-table > tbody > tr > td {
   text-align: center;
   font-size: 15px;
 }
 
-#future-discharge-table_wrapper .row:first-child,
-#past-discharge-table_wrapper .row:first-child {
+#future-discharge-table_wrapper .row:first-child {
   border-top: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
@@ -448,8 +393,7 @@
   padding-bottom: 2px;
 }
 
-#future-discharge-table_wrapper .row:last-child,
-#past-discharge-table_wrapper .row:last-child {
+#future-discharge-table_wrapper .row:last-child {
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
@@ -457,38 +401,31 @@
   padding-bottom: 6px;
 }
 
-#future-discharge-table > thead > tr > th:first-child,
-#past-discharge-table > thead > tr > th:first-child {
+#future-discharge-table > thead > tr > th:first-child {
   border-left-color: #dddddd;
   border-right-color: #dddddd;
 }
 
-#future-discharge-table_filter, #past-discharge-table_filter {
+#future-discharge-table_filter {
   text-align: left;
 }
 
-#future-discharge-table_paginate, #past-discharge-table_paginate {
+#future-discharge-table_paginate {
   margin-right: -10px;
-}
-
-#discharge-tables {
-  padding: 0px;
 }
 
 .discharge-submit {
   padding-bottom: 6px;
 }
 
-#future-discharge .table-header,
-#past-discharge .table-header {
+#future-discharge .table-header {
   margin-bottom: 0px;
 }
 
-#future-discharge th,
-#past-discharge th {
+#future-discharge th {
   text-align: center;
 }
-/*----- discharge-date-tables @ discharge.html ends -----*/
+/*----- discharge-date-table @ repeat-discharge.html ends -----*/
 
 
 /*----- cell page begins -----*/
@@ -596,48 +533,7 @@
 
 
 /*----- index page table begins -----*/
-#index-discharge-date_wrapper .row:first-child,
-#index-alarm-log_wrapper .row:first-child {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 
-#index-discharge-date_wrapper .row:last-child,
-#index-alarm-log_wrapper .row:last-child {
-  border-bottom: 1px solid #e0e0e0;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #EFF3F8;
-}
-
-.timely-status.col-md-2 {
-  width: 20%;
-}
-
-.more-discharge, .more-alarm {
-  display: none;
-}
-
-#system-infobox-data.infobox-data {
-  margin-top: 0%;
-}
-
-.infobox-green3 {
-  color: green;    /* system state */
-}
-
-input[type=radio].ace + .lbl.bold {
-  font-weight: bold;   /* 历史电压电流 */
-}
-
-#index-discharge-date th,
-#index-alarm-log th {
-  text-align: center;
-}
-
-#pre-discharge, #next-discharge, #pre-alarm, #next-alarm {
-    color: white;
-}
 /*----- index page table ends -----*/
 
 
@@ -653,3 +549,18 @@ input[type=radio].ace + .lbl.bold {
   height: 41px;
 }
 /*----- sidebar ends here -----*/
+
+
+/*----- sync-rate page begins here -----*/
+#sync-table > thead > tr > th:nth-child(2) {
+  border-right-color: #dddddd;
+}
+/*----- sync-rate page ends here -----*/
+
+
+/*----- network page begins here -----*/
+#lan thead > tr > th:nth-child(2),
+#wan thead > tr > th:nth-child(2) {
+  border-right-color: #dddddd;
+}
+/*----- network page ends here -----*/

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>电池列表 - 蓄电池全过程管理系统</title>
+    <title>电池采样时间设定 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
     <link rel="stylesheet" href="css/ace/ace.css" />
-    <!-- morris styles & script -->
-    <link rel="stylesheet" href="css/morris/morris.css ">
-    <!-- progressbar styles -->
-    <script src="js/progressbars/progressbar.js"></script>
     <!-- main styles -->
     <link rel="stylesheet" href="css/main.css" />
     <!--[if lte IE 9]>
@@ -801,524 +797,99 @@
         <!-- /.sidebar -->
         <div class="main-content">
             <div class="main-content-inner">
+                <!-- breadcrumbs -->
                 <div id="breadcrumbs" class="breadcrumbs">
                     <ul class="breadcrumb">
-                        <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a></li>
-                        <li class="active">电池列表</li>
+                        <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
+                        </li>
+                        <li class="active">电池采样时间设定</li>
                     </ul>
-                    <!-- /.nav-search -->
                 </div>
-                <!-- /.breadcrumb -->
+                <!-- /.breadcrumbs -->
                 <div class="page-content">
-                    <div class="widget-box widget-color-grey no-border">
-                        <div class="widget-header">
-                            <h5 class="widget-title" id="system-name1">系统AA / 模组R
-                            </h5>
-                            <span class="badge badge-danger">整组更换</span>
-                            <div class="widget-toolbar">
-                                <a class="system-switch" data-action="back" style="margin-right:5px; color:#FFF">
-                                    <i class="ace-icon fa fa-arrow-left"></i>
-                                </a>
-                                <a class="system-switch" data-action="next" style="margin-right:5px; color:#FFF">
-                                    <i class="ace-icon fa fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="widget-body system-widget">
-                            <div class="widget-main">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 1</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="33">
-                                                    <span class="percent">33</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3</span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 2</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="90">
-                                                    <span class="percent">90</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 3</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="48">
-                                                    <span class="percent">48</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 4</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="71">
-                                                    <span class="percent">71</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 5</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="10">
-                                                    <span class="percent">10</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 6</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="56">
-                                                    <span class="percent">56</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="space-2"></div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <form>
+                                <table class="table table-striped table-bordered" id="sync-table">
+                                    <thead>
+                                        <tr>
+                                            <th>名称</th>
+                                            <th>数值</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>电池采样时间</td>
+                                            <td>
+                                                <select name="sync-rate" class="form-control">
+                                                    <option value="">5分钟</option>
+                                                    <option value="">10分钟</option>
+                                                    <option value="">15分钟</option>
+                                                    <option value="">20分钟</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="hr hr-12 hr-dotted"></div>
+                                <div class="center">
+                                    <button type="submit" class="btn btn-info btn-lg btn-white btn-round">
+                                        <i class="ace-icon fa fa-check-square-o "></i><span class="bolder">&nbsp;更新</span>
+                                    </button>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-box widget-color-grey no-border">
-                        <div class="widget-header">
-                            <h5 class="widget-title" id="system-name2">系统AA / 模组S</h5>
-                        </div>
-                        <div class="widget-body system-widget">
-                            <div class="widget-main">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 7</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="62">
-                                                    <span class="percent">62</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3</span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 8</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="9">
-                                                    <span class="percent">9</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 9</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="16">
-                                                    <span class="percent">16</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 10</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="100">
-                                                    <span class="percent">100</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 11</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="20">
-                                                    <span class="percent">20</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 12</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="89">
-                                                    <span class="percent">89</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-box widget-color-grey no-border">
-                        <div class="widget-header">
-                            <h5 class="widget-title" id="system-name3">系统AA / 模组T</h5>
-                        </div>
-                        <div class="widget-body system-widget">
-                            <div class="widget-main">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 13</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="27">
-                                                    <span class="percent">27</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3</span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 14</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="4">
-                                                    <span class="percent">4</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 15</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="44">
-                                                    <span class="percent">44</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 16</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="82">
-                                                    <span class="percent">82</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 17</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">单个更换</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="41">
-                                                    <span class="percent">41</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 18</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="56">
-                                                    <span class="percent">56</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-box widget-color-grey no-border">
-                        <div class="widget-header">
-                            <h5 class="widget-title" id="system-name4">系统AA / 模组U</h5>
-                        </div>
-                        <div class="widget-body system-widget">
-                            <div class="widget-main">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 19</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="35">
-                                                    <span class="percent">35</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3</span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 20</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="94">
-                                                    <span class="percent">94</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 21</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="20">
-                                                    <span class="percent">20</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 22</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="49">
-                                                    <span class="percent">49</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 23</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">单个更换</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="62">
-                                                    <span class="percent">62</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-green2">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 24</h5>
-                                            </div>
-                                            <div class="widget-body" style="margin-top:5%">
-                                                <div class="easy-pie-chart percentage color-green" data-percent="58">
-                                                    <span class="percent">58</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- /.page content -->
+                <!-- /.page-content -->
             </div>
+            <!-- /.main-content-inner -->
         </div>
-        <!-- basic scripts -->
-        <!--[if !IE]> -->
-        <script type="text/javascript">
-        window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
-        </script>
-        <!-- <![endif]-->
-        <!--[if IE]>
+        <!-- /.main-content -->
+    </div>
+    <!-- /.main-container -->
+    <!-- basic scripts -->
+    <!--[if !IE]> -->
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
+    </script>
+    <!-- <![endif]-->
+    <!--[if IE]>
         <script type="text/javascript">
             window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
         </script>
         <![endif]-->
-        <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
-        </script>
-        <script src="js/ace/bootstrap.js"></script>
-        <!-- page specific plugin scripts -->
-        <!-- dataTables -->
-        <script src="js/ace/dataTables/jquery.dataTables.js"></script>
-        <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
-        <!-- easy pie chart -->
-        <script src="js/ace/jquery.easypiechart.js"></script>
-        <!-- morris line chart -->
-        <script src="js/morris/raphael-min.js"></script>
-        <script src="js/morris/morris.min.js"></script>
-        <!-- ace scripts -->
-        <script src="js/ace/ace/elements.scroller.js"></script>
-        <script src="js/ace/ace/elements.colorpicker.js"></script>
-        <script src="js/ace/ace/elements.fileinput.js"></script>
-        <script src="js/ace/ace/elements.typeahead.js"></script>
-        <script src="js/ace/ace/elements.wysiwyg.js"></script>
-        <script src="js/ace/ace/elements.spinner.js"></script>
-        <script src="js/ace/ace/elements.treeview.js"></script>
-        <script src="js/ace/ace/elements.wizard.js"></script>
-        <script src="js/ace/ace/elements.aside.js"></script>
-        <script src="js/ace/ace/ace.js"></script>
-        <script src="js/ace/ace/ace.ajax-content.js"></script>
-        <script src="js/ace/ace/ace.touch-drag.js"></script>
-        <script src="js/ace/ace/ace.sidebar.js"></script>
-        <script src="js/ace/ace/ace.sidebar-scroll-1.js"></script>
-        <script src="js/ace/ace/ace.submenu-hover.js"></script>
-        <script src="js/ace/ace/ace.widget-box.js"></script>
-        <script src="js/ace/ace/ace.settings.js"></script>
-        <script src="js/ace/ace/ace.settings-rtl.js"></script>
-        <script src="js/ace/ace/ace.settings-skin.js"></script>
-        <script src="js/ace/ace/ace.widget-on-reload.js"></script>
-        <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
-        <!-- main script -->
-        <script src="js/main.js"></script>
-        <script src="js/celllist.js"></script>
+    <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
+    </script>
+    <script src="js/ace/bootstrap.js"></script>
+    <!-- page specific plugin scripts -->
+    <!-- ace scripts -->
+    <script src="js/ace/ace/elements.scroller.js"></script>
+    <script src="js/ace/ace/elements.colorpicker.js"></script>
+    <script src="js/ace/ace/elements.fileinput.js"></script>
+    <script src="js/ace/ace/elements.typeahead.js"></script>
+    <script src="js/ace/ace/elements.wysiwyg.js"></script>
+    <script src="js/ace/ace/elements.spinner.js"></script>
+    <script src="js/ace/ace/elements.treeview.js"></script>
+    <script src="js/ace/ace/elements.wizard.js"></script>
+    <script src="js/ace/ace/elements.aside.js"></script>
+    <script src="js/ace/ace/ace.js"></script>
+    <script src="js/ace/ace/ace.ajax-content.js"></script>
+    <script src="js/ace/ace/ace.touch-drag.js"></script>
+    <script src="js/ace/ace/ace.sidebar.js"></script>
+    <script src="js/ace/ace/ace.sidebar-scroll-1.js"></script>
+    <script src="js/ace/ace/ace.submenu-hover.js"></script>
+    <script src="js/ace/ace/ace.widget-box.js"></script>
+    <script src="js/ace/ace/ace.settings.js"></script>
+    <script src="js/ace/ace/ace.settings-rtl.js"></script>
+    <script src="js/ace/ace/ace.settings-skin.js"></script>
+    <script src="js/ace/ace/ace.widget-on-reload.js"></script>
+    <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
+    <!-- main script -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>

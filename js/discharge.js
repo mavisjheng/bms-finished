@@ -1,9 +1,9 @@
 $(document).ready(function() {
     //dataTable
-    $('#future-discharge-table, #past-discharge-table').dataTable({
-        lengthMenu: [7, 10, 20, 30, 50, "All"],
+    $('#future-discharge-table').dataTable({
+        lengthMenu: [8, 10, 20, 30, 50, "All"],
         length: false,
-        ordering: true,
+        ordering: false,
         paging: true,
         info: true,
         filter: true,

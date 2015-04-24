@@ -61,76 +61,82 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
-                    <li class="grey">
-                        <a href="celllist.html">
-                            <i class="fa fa-search-plus fa-2x"></i>
-                            <span class="navbar-menu-text-size">电池列表</span>
+                    <li class="red">
+                        <a href="discharge.html">
+                            <i class="fa fa-bolt fa-2x"></i>
+                            <span class="navbar-menu-text-size">核对性放电</span>
                         </a>
                     </li>
-                    <li class="grey">
+                    <li class="green">
+                        <a href="search.html" class="test">
+                            <i class="fa fa-search fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统查询</span>
+                        </a>
+                    </li>
+                    <li class="green">
                         <a href="log.html" class="test">
                             <i class="fa fa-history fa-2x"></i>
                             <span class="navbar-menu-text-size">系统日志</span>
-                            <span id="system_log_count" class="badge badge-danger" runat="server">0</span>
+                            <span id="system_log_count" class="badge badge-danger" runat="server">9</span>
                         </a>
                     </li>
-                    <li class="grey">
+                    <li class="green">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <i class="fa fa-cog fa-2x"></i>
-                            <span class="navbar-menu-text-size">系统设置</span>
+                            <i class="fa fa-files-o fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统报表</span>
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge.html">
-                                    <i class="ace-icon fa fa-plug"></i> 放电排程
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="notification.html">
-                                    <i class="ace-icon fa fa-bell"></i> 告警配置
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-wrench"></i> 网络配置
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-excel-o"></i> 核对性放电报表
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="red">
+                    <li class="green">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <i class="fa fa-cog fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统设定</span>
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="repeat-discharge.html">
+                                    <i class="ace-icon fa fa-random"></i> 重复性放电设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="sync-rate.html">
+                                    <i class="ace-icon fa fa-clock-o"></i> 电池采样时间设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="user.html">
+                                    <i class="ace-icon fa fa-user"></i> 联系人与密码设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="alert.html">
+                                    <i class="ace-icon fa fa-bell"></i> 告警设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="network.html">
+                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="grey">
                         <a href="about.html">
                             <i class="fa fa-info-circle fa-2x"></i>
                             <span class="navbar-menu-text-size">关于我们</span>
                         </a>
-                    </li>
-                    <!--li class="login-btn red">
-                        <a href="login.html">
-                            <i class="fa fa-sign-in fa-2x"></i>
-                            <span class="navbar-menu-text-size">登入系统<span>
-                        </a>
-                    </li-->
-                    <li class="light-blue">
-                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img src="img/phar.png" />
-                            <span class="navbar-menu-text-size">Hi,田总</span>
-                            <i class="ace-icon fa fa-caret-down"></i>
-                        </a>
-                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                <a href="user.html">
-                                    <i class="ace-icon fa fa-user"></i> 个人配置
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="index.html">
-                                    <i class="ace-icon fa fa-power-off"></i> 登出
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -805,40 +811,62 @@
                 <!-- /.breadcrumb -->
                 <div class="page-content">
                     <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="widget-box widget-color-green">
-                                <div class="widget-header">
-                                    <h5 class="widget-title">系统状态</h5>
-                                </div>
-                                <div id="system-status" class="widget-body">
-                                    <div class="widget-main">
-                                        <div class="easy-pie-chart percentage color-green3" data-percent="81" data-size="160">
-                                            <span class="percent" id="main-percent">81</span><span class="unit">%</span>
+                        <div class="space-6"></div>
+                        <div class="col-sm-6">
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="widget-box widget-color-grey center">
+                                        <div class="widget-header">
+                                            <h5 class="widget-title font-white">管理通信站总数</h5>
                                         </div>
-                                        <div id="system-hr" class="hr hr-double hr8"></div>
-                                        <div id="system-infobox-data" class="infobox-data infobox-green3">
-                                            <span class="infobox-data-number">正常</span>
+                                        <div class="widget-body">
+                                            <span class="bigger-275 bolder color-dark">100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-right:0px;">
+                                    <div class="widget-box widget-color-grey center">
+                                        <div class="widget-header">
+                                            <h5 class="widget-title font-white">浮充电状态</h5>
+                                        </div>
+                                        <div class="widget-body">
+                                            <span class="bigger-275 bolder color-dark">65</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-left:0px;">
+                                    <div class="widget-box widget-color-grey center">
+                                        <div class="widget-header">
+                                            <h5 class="widget-title font-white">均充电状态</h5>
+                                        </div>
+                                        <div class="widget-body">
+                                            <span class="bigger-275 bolder color-dark">17</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12 col-md-8">
-                            <div id="history-chart" class="widget-box widget-color-purple">
-                                <div class="widget-header">
-                                    <h5 class="widget-title">历史电压电流</h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="widget-box widget-color-grey center">
+                                        <div class="widget-header">
+                                            <h5 class="widget-title font-white">核对性放电</h5>
+                                        </div>
+                                        <div class="widget-body">
+                                            <span class="bigger-275 bolder color-dark">10</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="widget-body">
-                                    <div id="history-label" class="widget-main">
-                                        <label class="history-label">
-                                            <input type="radio" name="history-chart-type" class="ace" value="voltage" checked/>
-                                            <span class="lbl bold">历史电压</span>
-                                        </label>
-                                        <label class="history-label" style="margin-left:5%;">
-                                            <input type="radio" name="history-chart-type" class="ace" value="current" />
-                                            <span class="lbl bold">历史电流</span>
-                                        </label>
-                                        <div id="history-morris-chart" style="height: 200px"></div>
+                                <div class="col-sm-6">
+                                    <div class="widget-box widget-color-grey center">
+                                        <div class="widget-header">
+                                            <h5 class="widget-title font-white">供电状态</h5>
+                                        </div>
+                                        <div class="widget-body">
+                                            <span class="bigger-275 bolder color-dark">8</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -846,402 +874,53 @@
                     </div>
                     <div class="space-6"></div>
                     <div class="row">
-                        <div class="timely-status col-md-2">
-                            <div class="widget-box widget-color-brown">
-                                <div class="widget-header">
-                                    <h5 class="widget-title font-white">单体电压</h5>
-                                    <div class="widget-toolbar">
-                                        <span class="badge badge-success">正常</span>
-                                    </div>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="widget-content">
-                                            <span class="bigger-275 bolder color-brown">47.3 </span><span class="bigger-150 bolder color-brown">(V)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timely-status col-md-2">
-                            <div class="widget-box widget-color-brown">
-                                <div class="widget-header">
-                                    <h5 class="widget-title font-white">控母电压</h5>
-                                    <div class="widget-toolbar">
-                                        <span class="badge badge-danger">警告</span>
-                                    </div>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="widget-content">
-                                            <span class="bigger-275 bolder color-brown">200 </span><span class="bigger-150 bolder color-brown">(V)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timely-status col-md-2">
-                            <div class="widget-box widget-color-brown">
-                                <div class="widget-header">
-                                    <h5 class="widget-title font-white">合母电压</h5>
-                                    <div class="widget-toolbar">
-                                        <span class="badge badge-success">正常</span>
-                                    </div>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="widget-content">
-                                            <span class="bigger-275 bolder color-brown">47.3 </span><span class="bigger-150 bolder color-brown">(V)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timely-status col-md-2">
-                            <div class="widget-box widget-color-brown">
-                                <div class="widget-header">
-                                    <h5 class="widget-title">总电流</h5>
-                                    <div class="widget-toolbar">
-                                        <span class="badge badge-danger">警告</span>
-                                    </div>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="widget-content">
-                                            <span class="bigger-275 bolder color-brown">200 </span><span class="bigger-150 bolder color-brown">(A)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timely-status col-md-2">
-                            <div class="widget-box widget-color-brown">
-                                <div class="widget-header">
-                                    <h5 class="widget-title font-white">直流母线电阻</h5>
-                                    <div class="widget-toolbar">
-                                        <span class="badge badge-success">正常</span>
-                                    </div>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main padding-4">
-                                        <div class="widget-content">
-                                            <span class="bigger-275 bolder color-brown">47.3 </span><span class="bigger-150 bolder color-brown">(Ω)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hr hr-double hr20"></div>
-                    <div class="widget-box widget-color-blue">
-                        <div class="widget-header">
-                            <h5 class="widget-title" id="module-name">系统AA / 模组R</h5>
-                            <div class="widget-toolbar">
-                                <a class="module-switch" data-action="back" style="margin-right:5px; color:#FFF">
-                                    <i class="ace-icon fa fa-arrow-left"></i>
-                                </a>
-                                <a class="module-switch" data-action="next" style="margin-right:5px; color:#FFF">
-                                    <i class="ace-icon fa fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="widget-body" id="module-widget">
-                            <div class="widget-main">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 1</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="33" data-size="100">
-                                                    <span class="percent">33</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3</span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">0 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 2</h5>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="90" data-size="100">
-                                                    <span class="percent">90</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 3</h5>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="48" data-size="100">
-                                                    <span class="percent">48</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 4</h5>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="71" data-size="100">
-                                                    <span class="percent">71</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">120.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">12 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 5</h5>
-                                                <div class="widget-toolbar">
-                                                    <span class="badge badge-danger">警告</span>
-                                                </div>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="10" data-size="100">
-                                                    <span class="percent">10</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">119.3 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">13 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-2">
-                                        <div class="widget-box widget-color-blue3 right-border">
-                                            <div class="widget-header widget-header-small">
-                                                <h5 class="widget-title">电池 6</h5>
-                                            </div>
-                                            <div class="space-6"></div>
-                                            <div class="widget-body">
-                                                <div class="easy-pie-chart percentage color-green4" data-percent="56" data-size="100">
-                                                    <span class="percent">56</span><span class="unit">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="infobox-data infobox-purple2">
-                                                <span class="value-cell-voltage color-blue5">111.5 </span> <span class="unit-cell-voltage color-blue5">(V)</span>
-                                                <span class="value-cell-amp color-blue5">17 </span> <span class="unit-cell-amp color-blue5">(A)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hr hr-double hr20"></div>
-                    <div class="row">
                         <div class="col-sm-3">
-                            <div class="table-header background-color-redpurple">
-                                <h5 class="table-title">排定放电日程</h5>
-                                <div class="widget-toolbar">
-                                    <a id="pre-discharge" data-action="back">
-                                        <i class="ace-icon fa fa-arrow-left"></i>
-                                    </a>
-                                    <a id="next-discharge" data-action="next">
-                                        <i class="ace-icon fa fa-arrow-right"></i>
-                                    </a>
+                            <div class="widget-box widget-color-brown center">
+                                <div class="widget-header">
+                                    <h5 class="widget-title font-white">需核对性放电</h5>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-content">
+                                        <span class="bigger-275 bolder color-brown">47</span>
+                                    </div>
                                 </div>
                             </div>
-                            <table id="index-discharge-date" class="table table-bordered table-hover color-brown">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>日期&nbsp;时间</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="table-content">
-                                    <tr class="less-discharge">
-                                        <td>1</td>
-                                        <td>03/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="less-discharge">
-                                        <td>2</td>
-                                        <td>04/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="less-discharge">
-                                        <td>3</td>
-                                        <td>05/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="less-discharge">
-                                        <td>4</td>
-                                        <td>06/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="less-discharge">
-                                        <td>5</td>
-                                        <td>07/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="more-discharge">
-                                        <td>6</td>
-                                        <td>08/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="more-discharge">
-                                        <td>7</td>
-                                        <td>09/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="more-discharge">
-                                        <td>8</td>
-                                        <td>10/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="more-discharge">
-                                        <td>9</td>
-                                        <td>11/03/2015 10:00</td>
-                                    </tr>
-                                    <tr class="more-discharge">
-                                        <td>10</td>
-                                        <td>12/03/2015 10:00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
-                        <div class="col-sm-9">
-                            <div class="table-header background-color-redpurple">
-                                <h5 class="table-title">即时告警</h5>
-                                <div class="widget-toolbar">
-                                    <a id="pre-alarm" data-action="back">
-                                        <i class="ace-icon fa fa-arrow-left"></i>
-                                    </a>
-                                    <a id="next-alarm" data-action="next">
-                                        <i class="ace-icon fa fa-arrow-right"></i>
-                                    </a>
+                        <div class="col-sm-3">
+                            <div class="widget-box widget-color-brown center">
+                                <div class="widget-header">
+                                    <h5 class="widget-title font-white">通信故障</h5>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-content">
+                                        <span class="bigger-275 bolder color-brown">1</span>
+                                    </div>
                                 </div>
                             </div>
-                            <table id="index-alarm-log" class="table table-bordered table-hover color-brown">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>位置</th>
-                                        <th>讯息</th>
-                                        <th>发生时间</th>
-                                        <th>数值</th>
-                                        <th>处理状态</th>
-                                        <th>备注信息</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="table-content">
-                                    <tr class="less-alarm">
-                                        <td>1</td>
-                                        <td>基站 E</td>
-                                        <td>通讯故障</td>
-                                        <td>08/15/2014 21:36</td>
-                                        <td></td>
-                                        <td>已处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="less-alarm">
-                                        <td>2</td>
-                                        <td>系统 2, 模组 C, 电池 1</td>
-                                        <td>电阻错误</td>
-                                        <td>08/10/2014 11:06</td>
-                                        <td>0</td>
-                                        <td>未处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="less-alarm">
-                                        <td>3</td>
-                                        <td>基站 C</td>
-                                        <td>通讯故障</td>
-                                        <td>08/15/2014 21:36</td>
-                                        <td></td>
-                                        <td>待处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="less-alarm">
-                                        <td>4</td>
-                                        <td>系统 4, 模组 D, 电池 4</td>
-                                        <td>温度过高</td>
-                                        <td>08/15/2014 21:36</td>
-                                        <td>40</td>
-                                        <td>已处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="less-alarm">
-                                        <td>5</td>
-                                        <td>系统 4, 模组 C, 电池 5</td>
-                                        <td>电流错误</td>
-                                        <td>08/17/2014 00:20</td>
-                                        <td>7.84A</td>
-                                        <td>未处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="more-alarm">
-                                        <td>6</td>
-                                        <td>系统 4, 模组 C, 电池 5</td>
-                                        <td>电流过低</td>
-                                        <td>08/19/2014 12:00</td>
-                                        <td>7.84A</td>
-                                        <td>待处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="more-alarm">
-                                        <td>7</td>
-                                        <td>系统 6, 模组 A, 电池 3</td>
-                                        <td>电流过高</td>
-                                        <td>08/20/2014 13:02</td>
-                                        <td>20A</td>
-                                        <td>已处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="more-alarm">
-                                        <td>8</td>
-                                        <td>系统 4, 模组 C, 电池 5</td>
-                                        <td>电阻过低</td>
-                                        <td>08/21/2014 17:48</td>
-                                        <td>2Ω</td>
-                                        <td>未处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="more-alarm">
-                                        <td>9</td>
-                                        <td>基站 A</td>
-                                        <td>通讯故障</td>
-                                        <td>08/31/2014 15:03</td>
-                                        <td></td>
-                                        <td>待处理</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="more-alarm">
-                                        <td>10</td>
-                                        <td>系统 4, 模组 C, 电池 5</td>
-                                        <td>电压错误</td>
-                                        <td>09/02/2014 21:28</td>
-                                        <td>1V</td>
-                                        <td>已处理</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="widget-box widget-color-brown center">
+                                <div class="widget-header">
+                                    <h5 class="widget-title font-white">报警</h5>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-content">
+                                        <span class="bigger-275 bolder color-brown">13</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="widget-box widget-color-brown center">
+                                <div class="widget-header">
+                                    <h5 class="widget-title">报警处理中</h5>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-content">
+                                        <span class="bigger-275 bolder color-brown">2</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

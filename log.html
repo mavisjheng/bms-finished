@@ -59,76 +59,82 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
-                    <li class="grey">
-                        <a href="celllist.html">
-                            <i class="fa fa-search-plus fa-2x"></i>
-                            <span class="navbar-menu-text-size">电池列表</span>
+                    <li class="red">
+                        <a href="discharge.html">
+                            <i class="fa fa-bolt fa-2x"></i>
+                            <span class="navbar-menu-text-size">核对性放电</span>
                         </a>
                     </li>
-                    <li class="grey">
+                    <li class="green">
+                        <a href="search.html" class="test">
+                            <i class="fa fa-search fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统查询</span>
+                        </a>
+                    </li>
+                    <li class="green">
                         <a href="log.html" class="test">
                             <i class="fa fa-history fa-2x"></i>
                             <span class="navbar-menu-text-size">系统日志</span>
-                            <span id="system_log_count" class="badge badge-danger" runat="server">0</span>
+                            <span id="system_log_count" class="badge badge-danger" runat="server">9</span>
                         </a>
                     </li>
-                    <li class="grey">
+                    <li class="green">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <i class="fa fa-cog fa-2x"></i>
-                            <span class="navbar-menu-text-size">系统设置</span>
+                            <i class="fa fa-files-o fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统报表</span>
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge.html">
-                                    <i class="ace-icon fa fa-plug"></i> 放电排程
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="notification.html">
-                                    <i class="ace-icon fa fa-bell"></i> 告警配置
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-wrench"></i> 网络配置
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-excel-o"></i> 核对性放电报表
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="red">
+                    <li class="green">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <i class="fa fa-cog fa-2x"></i>
+                            <span class="navbar-menu-text-size">系统设定</span>
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="repeat-discharge.html">
+                                    <i class="ace-icon fa fa-random"></i> 重复性放电设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="sync-rate.html">
+                                    <i class="ace-icon fa fa-clock-o"></i> 电池采样时间设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="user.html">
+                                    <i class="ace-icon fa fa-user"></i> 联系人与密码设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="alert.html">
+                                    <i class="ace-icon fa fa-bell"></i> 告警设定
+                                </a>
+                            </li>
+                            <div class="hr hr-8"></div>
+                            <li>
+                                <a href="network.html">
+                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="grey">
                         <a href="about.html">
                             <i class="fa fa-info-circle fa-2x"></i>
                             <span class="navbar-menu-text-size">关于我们</span>
                         </a>
-                    </li>
-                    <!--li class="login-btn red">
-                        <a href="login.html">
-                            <i class="fa fa-sign-in fa-2x"></i>
-                            <span class="navbar-menu-text-size">登入系统<span>
-                        </a>
-                    </li-->
-                    <li class="light-blue">
-                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img src="img/phar.png" />
-                            <span class="navbar-menu-text-size">Hi,田总</span>
-                            <i class="ace-icon fa fa-caret-down"></i>
-                        </a>
-                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                <a href="user.html">
-                                    <i class="ace-icon fa fa-user"></i> 个人配置
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="index.html">
-                                    <i class="ace-icon fa fa-power-off"></i> 登出
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
