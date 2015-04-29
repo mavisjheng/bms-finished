@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // date-range-picker
-    $('input[name=cell-history-range]').daterangepicker({
+    $('input[name=date-range-picker]').daterangepicker({
         'applyClass': 'btn-sm btn-success',
         'cancelClass': 'btn-sm btn-default',
         locale: {

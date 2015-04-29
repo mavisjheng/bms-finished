@@ -117,7 +117,7 @@
                             <div class="hr hr-8"></div>
                             <li>
                                 <a href="alert.html">
-                                    <i class="ace-icon fa fa-bell"></i> 告警设定
+                                    <i class="ace-icon fa fa-bell"></i> 报警设定
                                 </a>
                             </li>
                             <div class="hr hr-8"></div>
@@ -811,9 +811,9 @@
                 <div class="page-content">
                     <div class="row">
                         <div class="space-2"></div>
-                        <!-- user password box -->
-                        <div class="col-sm-4">
-                            <div class="widget-box widget-color-green">
+                        <div class="col-sm-offset-1 col-sm-4">
+                            <!-- change password box -->
+                            <div class="widget-box widget-color-green2">
                                 <div class="widget-header">
                                     <h5 class="widget-title">修改密码</h5>
                                 </div>
@@ -848,25 +848,26 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.user password box -->
-                        <!-- subscribe widget box -->
-                        <div class="col-sm-4">
-                            <div class="widget-box widget-color-green">
+                            <!-- /.change password box -->
+                            <div class="space-8"></div>
+                            <!-- discharge confirmation box -->
+                            <div class="widget-box widget-color-green2">
                                 <div class="widget-header">
-                                    <h5 class="widget-title">订阅告警通知</h5>
+                                    <h5 class="widget-title">核对性放电确认</h5>
                                 </div>
                                 <div class="widget-body">
                                     <div class="widget-main padding-8">
                                         <form>
-                                            <div class="form-group radio center">
+                                            <div class="center">
                                                 <label>
-                                                    <input type="radio" name="subscribe" class="ace" value="yes" />
-                                                    <span class="lbl">&nbsp;订阅</span>
+                                                    <input type="radio" name="confirm" class="ace" value="on" />
+                                                    <span class="lbl">&nbsp;开启</span>
                                                 </label>
+                                            </div>
+                                            <div class="center">
                                                 <label>
-                                                    <input type="radio" name="subscribe" class="ace" value="no" />
-                                                    <span class="lbl">&nbsp;取消订阅</span>
+                                                    <input type="radio" name="confirm" class="ace" value="off" />
+                                                    <span class="lbl">&nbsp;关闭</span>
                                                 </label>
                                             </div>
                                             <div class="hr hr-12 hr-dotted"></div>
@@ -879,8 +880,150 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- /.discharge confirmation box -->
                         </div>
-                        <!-- /.subscribe widget box -->
+                        <!-- user info -->
+                        <div class="space-2"></div>
+                        <div class="col-sm-7">
+                            <table class="table table-striped table-bordered table-hover" id="user-info-table">
+                                <thead>
+                                    <tr>
+                                        <th>联系人</th>
+                                        <th>邮箱</th>
+                                        <th>电话</th>
+                                        <th>编辑</th>
+                                        <th>
+                                            <button>
+                                                <i class="ace-icon fa fa-plus bigger-120 tooltip-success" data-rel="tooltip" data-placement="top" title="添加联系人"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>郑而臻</td>
+                                        <td>jhengej@china-elink.com</td>
+                                        <td>13500763921</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>杨智翔</td>
+                                        <td>yangch@china-elink.com</td>
+                                        <td>18604117278</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>耿乐</td>
+                                        <td>genle@china-elink.com</td>
+                                        <td>13942871542</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>于文彬</td>
+                                        <td>yuhwb@china-elink.com</td>
+                                        <td>13542872229</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>过程</td>
+                                        <td>quachen@china-elink.com</td>
+                                        <td>18602311846</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>程迪</td>
+                                        <td>chendi@china-elink.com</td>
+                                        <td>13929625411</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>陈玉明</td>
+                                        <td>chenym@china-elink.com</td>
+                                        <td>13993262047</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>简芳</td>
+                                        <td>chienfeng@china-elink.com</td>
+                                        <td>18309685566</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <button class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑联系人"></i>
+                                                </button>
+                                                <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除联系人"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.user info -->
                     </div>
                 </div>
                 <!-- /.page content -->

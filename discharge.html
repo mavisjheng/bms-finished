@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>放电排程 - 蓄电池全过程管理系统</title>
+    <title>核对性放电 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
@@ -117,7 +117,7 @@
                             <div class="hr hr-8"></div>
                             <li>
                                 <a href="alert.html">
-                                    <i class="ace-icon fa fa-bell"></i> 告警设定
+                                    <i class="ace-icon fa fa-bell"></i> 报警设定
                                 </a>
                             </li>
                             <div class="hr hr-8"></div>
@@ -803,295 +803,223 @@
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
                         </li>
-                        <li class="active">放电排程</li>
+                        <li class="active">核对性放电</li>
                     </ul>
                 </div>
                 <!-- breadcrumbs -->
                 <!-- page content -->
                 <div class="page-content">
                     <div class="row">
-                        <div class="col-sm-1"></div>
-                        <!-- on demand and future discharge setting -->
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <!-- on demand discharge setting -->
-                                <div class="col-sm-12">
-                                    <div class="space-4"></div>
-                                    <div class="widget-box widget-color-blue3">
-                                        <div class="widget-header">
-                                            <h5 class="widget-title">即时放电设定</h5>
-                                        </div>
-                                        <div class="widget-body">
-                                            <div class="widget-main padding-2">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 text-left">
-                                                            放电&nbsp;&#37;
-                                                        </label>
-                                                        <div class="radio center">
-                                                            <label>
-                                                                <input type="radio" name="discharge-percentage" class="ace" value="50" />
-                                                                <span class="lbl">50&#37;</span>
-                                                            </label>
-                                                            <label>
-                                                                <input type="radio" name="discharge-percentage" class="ace" value="100" />
-                                                                <span class="lbl">100&#37;</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 text-left">自订放电&nbsp;&#37;</label>
-                                                        <input type="text" name="custom-discharge-percentage" placeholder="%" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 text-left">CC数设定</label>
-                                                        <input type="text" name="on-demand-cc" placeholder="1CC &#61; 15分钟" />
-                                                    </div>
-                                                    <div class="center discharge-submit">
-                                                        <button type="submit" class="btn btn-purple btn-lg btn-white btn-round">
-                                                            <i class="ace-icon fa fa-check-circle"></i><span class="bolder">&nbsp;确认</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.on demand discharge setting -->
-                                <!-- future discharge setting -->
-                                <div class="col-sm-12">
-                                    <div class="space-4"></div>
-                                    <div class="widget-box widget-color-red3">
-                                        <div class="widget-header">
-                                            <h5 class="widget-title">重复放电设定</h5>
-                                        </div>
-                                        <div class="widget-body">
-                                            <div class="widget-main padding-2">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 text-center">
-                                                            重复间隔
-                                                        </label>
-                                                        <div class="form-group col-sm-8">
-                                                            <select name="repeat-time-num" class="form-control">
-                                                                <option value="" disabled selected>数值</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                                <option value="8">8</option>
-                                                                <option value="9">9</option>
-                                                                <option value="10">10</option>
-                                                            </select>
-                                                            <select name="repeat-time-unit" class="form-control">
-                                                                <option value="" disabled selected>区段</option>
-                                                                <option value="day">日</option>
-                                                                <option value="month">月</option>
-                                                                <option value="year">年</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-4 text-center">CC数设定</label>
-                                                        <input type="text" name="repeat-demand-cc" placeholder="1CC &#61; 15分钟" />
-                                                    </div>
-                                                    <div class="center discharge-submit">
-                                                        <button type="submit" class="btn btn-danger btn-lg btn-white btn-round">
-                                                            <i class="ace-icon fa fa-check-circle"></i><span class="bolder">&nbsp;确认</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.future discharge setting -->
-                            </div>
-                        </div>
-                        <!-- /. on demand and future discharge setting -->
-                        <!-- future/past discharge date -->
-                        <div class="space-6"></div>
+                        <div class="space-4"></div>
+                        <!-- need to do discharge -->
                         <div class="col-sm-6">
-                            <div class="tabbable">
-                                <!-- tab header icon -->
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a data-toggle="tab" href="#future-discharge"><span class="bolder font-15">未来放电</span></a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#past-discharge"><span class="bolder font-15">过去放电</span></a>
-                                    </li>
-                                </ul>
-                                <!-- tab content -->
-                                <div class="tab-content" id="discharge-tables">
-                                    <!-- future-discharge-date tab -->
-                                    <div id="future-discharge" class="tab-pane active">
-                                        <div>
-                                            <div class="table-header">
-                                                <div class="widget-toolbar no-border">
-                                                    <a data-action="settings" href="#"><i class="ace-icon fa fa-cog blue"></i></a>
-                                                </div>
-                                            </div>
-                                            <table id="future-discharge-table" class="table table-striped table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>已排定放电日</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>05/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>06/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>06/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>07/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>07/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>08/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>08/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>09/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>09/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>12/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>12/18/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>01/03/2016 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>02/03/2016 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>03/03/2016 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>04/03/2016 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>05/03/2016 10:00</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                            <div>
+                                <div class="table-header">需核对性放电电池组
+                                    <div class="widget-toolbar no-border">
+                                        <a data-action="settings" href="#"><i class="ace-icon fa fa-cog blue"></i></a>
                                     </div>
-                                    <!-- /.future-discharge-date tab -->
-                                    <!-- past-discharge-date tab -->
-                                    <div id="past-discharge" class="tab-pane">
-                                        <div>
-                                            <div class="table-header">
-                                                <div class="widget-toolbar no-border">
-                                                    <a data-action="settings" href="#"><i class="ace-icon fa fa-cog blue"></i></a>
-                                                </div>
-                                            </div>
-                                            <table id="past-discharge-table" class="table table-striped table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>已执行放电纪录</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>03/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>04/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>05/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>06/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>06/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>07/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>07/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>08/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>08/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>09/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>09/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>12/03/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>12/18/2014 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>01/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>02/03/2015 10:00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>03/03/2015 10:00</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <!-- /.past-discharge-date tab -->
                                 </div>
-                                <!-- /.tab content -->
+                                <div>
+                                    <a type="button" class="btn btn-sm btn-round btn-danger" id="start-discharge-btn" href="discharge-setting.html">
+                                        <i class="icon-only ace-icon fa fa-bolt">开始放电</i>
+                                    </a>
+                                </div>
+                                <table id="need-discharge-table" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>时间</th>
+                                            <th>组别</th>
+                                            <th>放电深度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>05/03/2015 10:00</td>
+                                            <td>大连市 中山站 甲組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/03/2015 10:00</td>
+                                            <td>大连市 中山站 乙組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/18/2015 10:00</td>
+                                            <td>大连市 中山站 丙組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/03/2015 10:00</td>
+                                            <td>大连市 中山站 丁組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 甘井子站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 甘井子站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 甘井子站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 甘井子站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 沙河口站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 沙河口站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 沙河口站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 沙河口站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 西岗站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 西岗站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 西岗站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 西岗站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <!-- /.future discharge date -->
+                        <!-- /.need to do discharge -->
+                        <!-- discharge-ing -->
+                        <div class="col-sm-6">
+                            <div>
+                                <div class="table-header">正在核对性放电电池组
+                                    <div class="widget-toolbar no-border">
+                                        <a data-action="settings" href="#"><i class="ace-icon fa fa-cog blue"></i></a>
+                                    </div>
+                                </div>
+                                <table id="discharge-ing-table" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>时间</th>
+                                            <th>组别</th>
+                                            <th>放电深度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>05/03/2015 10:00</td>
+                                            <td>大连市 中山站 甲組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/03/2015 10:00</td>
+                                            <td>大连市 中山站 乙組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/18/2015 10:00</td>
+                                            <td>大连市 中山站 丙組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/03/2015 10:00</td>
+                                            <td>大连市 中山站 丁組</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 甘井子站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 甘井子站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 甘井子站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 甘井子站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 沙河口站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 沙河口站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 沙河口站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 沙河口站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>大连市 西岗站 甲組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/03/2015 10:00</td>
+                                            <td>大连市 西岗站 乙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08/18/2015 10:00</td>
+                                            <td>大连市 西岗站 丙組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>09/03/2015 10:00</td>
+                                            <td>大连市 西岗站 丁組</td>
+                                            <td>50%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /. discharge-ing -->
                     </div>
                 </div>
                 <!-- /.page-content -->

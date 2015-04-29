@@ -1,36 +1,3 @@
-/* system-status */
-#system-status {
-  height: 263px;
-}
-
-#system-hr {
-  background-color: #77ab59;
-}
-
-#system-status .percentage .percent {
-  font-size: 48px; 
-}
-
-#system-status .percentage .unit {
-  font-size: 24px;
-  vertical-align: top;  
-}
-
-/* system-charts */
-#history-label {
-  margin-top: -2px;
-  margin-bottom: 2%; 
-}
-
-.history-label {
-  color: #2e8965;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-#history-chart {
-  height: 304px;
-}
 
 /* -----------------------------------------
    Start same value
@@ -44,7 +11,6 @@
   font-weight: bold;
 }
 
- /* end */
  .navbar-brand {
   font-weight: bold;
 }
@@ -62,25 +28,6 @@
   
 }
 
-.widget-content {
-  text-align: center;  
-  height: 60px;  
-}
-
-.widget-content > .value-total-voltage,
-.widget-content > .value-total-amp {
-  font-size: 36px;  
-}
-
-.percentage .percent {
-  font-size: 24px; 
-}
-
-.percentage .unit {
-  font-size: 16px;
-  vertical-align: top;  
-}
-
 /* -----------------------------------------
    Color
 ----------------------------------------- */
@@ -92,139 +39,9 @@
   color: #9e9e9e;
 }
 
-.color-green {
-  color: #2e8965;
-  border-color: #2e8965;
-}
-
-.color-green3 {
-  color: rgb(41, 147, 41);
-  border-color: rgb(41, 147, 41);
-}
-
-.color-green4 {
-  color: rgb(41, 147, 41);
-  border-color: rgb(41, 147, 41);
-}
-
-.color-blue4 {
-  color: #A0C8FA;
-  border-color: #A0C8FA;
-}
-
-.color-blue5 {
-  color: #6379aa;
-  border-color: #6379aa;
-}
-
-.color-purple3 {
-  color: #5f47b0;
-  border-color: #5f47b0;
-}
-
-.background-color-redpurple {
-  background: #A25067;
-  border-color: #A25067;
-}
-
-.background-color-brown {
-  background: #997744;
-  border-color: #997744
-}
-
-.background-color-brown2 {
-  background: #C86446;
-  border-color: #C86446
-}
-
-.background-color-brown3 {
-  background: #DC8C78;
-  border-color: #DC8C78
-}
-
-.background-color-purple {
-  background: #6f3cc4;
-  border-color: #6f3cc4
-}
-
-.background-color-purple2 {
-  background: #5f47b0;
-  border-color: #5f47b0
-}
-
-.background-color-purple3 {
-  background: #B97DE6;
-  border-color: #B97DE6
-}
-
-.background-color-blue4 {
-  background: #A0C8FA;
-  border-color: #A0C8FA
-}
-
-.background-color-grey {
-  background: #666;
-  border-color: #666
-}
-
-.custom-progressbar.blue .percent,
-.custom-progressbar.blue .description {
-  color: #0a97b9;
-}
-.custom-progressbar.red .percent,
-.custom-progressbar.red .description {
-  color: #c04b59;
-  }  
-.custom-progressbar.yellow .percent,
-.custom-progressbar.yellow .description {
-  color: #d69840;
-}
-.custom-progressbar.green .percent,
-.custom-progressbar.green .description {
-  color: #47a877;
-}
-.custom-progressbar.purple .percent,
-.custom-progressbar.purple .description {
- color: #5f47b0;
-}
-
 /* -----------------------------------------
    Custom progressbar
 ----------------------------------------- */
-.custom-progressbar {
-  display: inline-block;
-  position: relative;
-}
-.custom-progressbar svg {
-  display: block;
-  width: 100%;
-}
-.custom-progressbar .percent,
-.custom-progressbar .description {
-  display: inline-block;
-  width: 100%;
-  position: absolute;
-}
-.custom-progressbar .percent {
-  top: 50%;
-  left: 0;
-  margin-top: -55px;
-  font-size: 64px;
-}
-.custom-progressbar .percent span {
-  font-size: 24px;
-  padding-top: 10px;
-  vertical-align: text-top;
-  display: inline-block;
-}
-.custom-progressbar .description {
-  top: 50%;
-  left: 0;
-  margin-top: 40px;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 
 /* Shung add 0309 */
 
@@ -360,6 +177,10 @@
   background: #82af6f;
 }
 
+.bkgd-brown {
+  background: #CC9966;
+}
+
 .edit-blue {
   color: #478FCA;
 }
@@ -379,13 +200,19 @@
 /*----- common style items end -----*/
 
 
-/*----- discharge date table @ repeat-discharge.html begins -----*/
-#future-discharge-table > tbody > tr > td {
+/*----- discharge.html & discharge-setting.html & repeat-discharge.html begins here -----*/
+#need-discharge-table > tbody > tr > td,
+#discharge-ing-table > tbody > tr > td,
+#discharge-list-table > tbody > tr > td,
+#future-discharge-date > tbody > tr > td {
   text-align: center;
   font-size: 15px;
 }
 
-#future-discharge-table_wrapper .row:first-child {
+#need-discharge-table_wrapper .row:first-child,
+#discharge-ing-table_wrapper .row:first-child,
+#discharge-list-table_wrapper .row:first-child,
+#future-discharge-date_wrapper .row:first-child {
   border-top: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
@@ -393,7 +220,10 @@
   padding-bottom: 2px;
 }
 
-#future-discharge-table_wrapper .row:last-child {
+#need-discharge-table_wrapper .row:last-child,
+#discharge-ing-table_wrapper .row:last-child,
+#discharge-list-table_wrapper .row:last-child,
+#future-discharge-date_wrapper .row:last-child {
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
@@ -401,31 +231,33 @@
   padding-bottom: 6px;
 }
 
-#future-discharge-table > thead > tr > th:first-child {
-  border-left-color: #dddddd;
+#need-discharge-table > thead > tr > th:first-child,
+#discharge-ing-table > thead > tr > th:first-child,
+#discharge-list-table > thead > tr > th:first-child,
+#future-discharge-date > thead {
   border-right-color: #dddddd;
+  text-align: center;
+  font-size: 15px;
 }
 
-#future-discharge-table_filter {
+#need-discharge-table_filter,
+#discharge-ing-table_filter,
+#discharge-list-table_filter,
+#future-discharge-date_filter {
   text-align: left;
 }
 
-#future-discharge-table_paginate {
+#need-discharge-table_paginate,
+#discharge-ing-table_paginate,
+#discharge-list-table_paginate,
+#future-discharge-date_paginate {
   margin-right: -10px;
 }
 
-.discharge-submit {
-  padding-bottom: 6px;
+#start-discharge-btn {
+  float: right;
 }
-
-#future-discharge .table-header {
-  margin-bottom: 0px;
-}
-
-#future-discharge th {
-  text-align: center;
-}
-/*----- discharge-date-table @ repeat-discharge.html ends -----*/
+/*----- discharge.html & discharge-setting.html ends here -----*/
 
 
 /*----- cell page begins -----*/
@@ -489,45 +321,40 @@
 
 
 /*----- log page begins here -----*/
-.add-mgbm-8 {
-  margin-bottom: 5px;
-  margin-top: -6px;
-}
-
-#user-log-table, #alarm-log-table {
+#alarm-log-table {
   margin-bottom: 8px;
 } 
-
-#log-tab-content {
-  padding: 10px 22px 16px 22px;
-}
 
 .bkgd-table-blue {
   background-color: #EFF3F8;
 }
 
-#alarm-log-table_wrapper, #user-log-table_wrapper {
+#alarm-log-table_wrapper {
   margin-top: -5px;
+  border: 1px solid #e0e0e0;
 }
 
-#alarm-log-table_length, #user-log-table_length {
+#alarm-log-table_length {
   padding-top: 10px;
   padding-left: 10px;
   margin-bottom: -30px;
 }
 
-#alarm-log-table_info, #user-log-table_info {
+#alarm-log-table_info {
   padding-left: 10px;
   margin-bottom: -15px;
 }
 
-#alarm-log-table_paginate, #user-log-table_paginate {
+#alarm-log-table_paginate {
   padding-bottom: 10px;
 }
 
-#alarm-log-table_filter label,
-#user-log-table_filter label {
+#alarm-log-table_filter label {
   margin-right: 10px;
+}
+
+.DTTT_container {
+  padding-right: 10px;
 }
 /*----- log page ends here -----*/
 
@@ -537,11 +364,11 @@
 /*----- index page table ends -----*/
 
 
-/*----- notification page begins here -----*/
+/*----- alert page begins here -----*/
 #system-alarm-setting td {
   text-align: center;
 }
-/*----- notification page ends here -----*/
+/*----- alert page ends here -----*/
 
 
 /*-----sidebar begins here -----*/
@@ -564,3 +391,15 @@
   border-right-color: #dddddd;
 }
 /*----- network page ends here -----*/
+
+
+/*----- user page begins here -----*/
+#user-info-table thead > tr > th:nth-child(5) {
+  border-right-color: #dddddd;
+}
+
+#user-info-table {
+  font-size: 14px;
+}
+/*----- user page ends here -----*/
+
