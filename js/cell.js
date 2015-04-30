@@ -1,8 +1,9 @@
 $(document).ready(function() {
     // date-range-picker
     $('input[name=date-range-picker]').daterangepicker({
-        'applyClass': 'btn-sm btn-success',
-        'cancelClass': 'btn-sm btn-default',
+        dateLimit: { months: 1 },
+        applyClass: 'btn-sm btn-success',
+        cancelClass: 'btn-sm btn-default',
         locale: {
             applyLabel: '确认',
             cancelLabel: '取消',
@@ -18,8 +19,8 @@ $(document).ready(function() {
     });
 
     // dataTable
-    $('#cell-history').dataTable({
-        lengthMenu: [5, 10, 20, 30, 50, "All"],
+    $('#cell-history-table').dataTable({
+        lengthMenu: [ [5, 10, 20, 30, 50, -1], [5, 10, 20, 30, 50, "所有"] ],
         length: false,
         ordering: true,
         paging: true,
