@@ -256,17 +256,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   color: #2d5a6b;
   font-family: sans-serif;
 }
-
-#cell-history_wrapper .row:first-child {
-  padding-top: 6px;
-  padding-bottom: 2px;
-}
-
-#cell-history_wrapper .row:last-child {
-  border-bottom: 1px solid #e0e0e0;
-  padding-top: 6px;
-  padding-bottom: 4px;
-}
 /*----- cell page ends -----*/
 
 
