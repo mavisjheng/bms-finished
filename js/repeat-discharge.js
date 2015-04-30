@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //dataTable
-    $('#future-discharge-date').dataTable({
-        lengthMenu: [8, 10, 20, 30, 50, "所有"],
+    $('#future-discharge-table').dataTable({
+        lengthMenu: [ [8, 10, 20, 30, 50, -1], [8, 10, 20, 30, 50, "所有"] ],
         length: false,
         ordering: false,
         paging: true,

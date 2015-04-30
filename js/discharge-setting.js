@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //dataTable
     $('#discharge-list-table').dataTable({
-        lengthMenu: [8, 10, 20, 30, 50, "所有"],
+        lengthMenu: [ [8, 10, 20, 30, 50, -1], [8, 10, 20, 30, 50, "所有"] ],
         length: false,
         ordering: false,
         paging: true,

@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
- .navbar-brand {
+.navbar-brand {
   font-weight: bold;
 }
  
@@ -39,26 +39,7 @@
   color: #9e9e9e;
 }
 
-/* -----------------------------------------
-   Custom progressbar
------------------------------------------ */
-
 /* Shung add 0309 */
-
-.table-header > .table-title {
-  line-height: 36px;
-  padding: 0;
-  margin: 0;
-  display: inline;
-  font-weight: bold;
-}
-
-.table-content {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .navbar .navbar-brand {
   color: #ffffff;
   font-size: 24px;
@@ -169,16 +150,20 @@
   color: white;
 }
 
-.bkgd-green1 {
-  background: #459171;
+.bkgd-green {
+  background: #6B8E23;
 }
 
-.bkgd-green2 {
-  background: #82af6f;
+.bkgd-lightgray {
+  background: #778899;
+}
+
+.bkgd-red {
+  background: #DA5430;
 }
 
 .bkgd-brown {
-  background: #CC9966;
+  background: #8B4513;
 }
 
 .edit-blue {
@@ -197,22 +182,26 @@
 .widget-color-brown {
   border-color: #7E5C35;
 }
+
+.table-header {
+  font-weight: bolder;
+  font-size: 15px;
+  color: #FFF;
+  line-height: 38px;
+  padding-left: 12px;
+  margin-bottom: 1px;
+}  /* change font-weight and font-size */
 /*----- common style items end -----*/
 
 
-/*----- discharge.html & discharge-setting.html & repeat-discharge.html begins here -----*/
-#need-discharge-table > tbody > tr > td,
-#discharge-ing-table > tbody > tr > td,
-#discharge-list-table > tbody > tr > td,
-#future-discharge-date > tbody > tr > td {
+/*----- all table setting begins here -----*/
+
+table[id$="table"] > tbody > tr > td {
   text-align: center;
   font-size: 15px;
 }
 
-#need-discharge-table_wrapper .row:first-child,
-#discharge-ing-table_wrapper .row:first-child,
-#discharge-list-table_wrapper .row:first-child,
-#future-discharge-date_wrapper .row:first-child {
+div[id$="table_wrapper"] .row:first-child {
   border-top: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
@@ -220,10 +209,7 @@
   padding-bottom: 2px;
 }
 
-#need-discharge-table_wrapper .row:last-child,
-#discharge-ing-table_wrapper .row:last-child,
-#discharge-list-table_wrapper .row:last-child,
-#future-discharge-date_wrapper .row:last-child {
+div[id$="table_wrapper"] .row:last-child {
   border-left: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
@@ -231,33 +217,29 @@
   padding-bottom: 6px;
 }
 
-#need-discharge-table > thead > tr > th:first-child,
-#discharge-ing-table > thead > tr > th:first-child,
-#discharge-list-table > thead > tr > th:first-child,
-#future-discharge-date > thead {
-  border-right-color: #dddddd;
+table[id$="table"] > thead > tr > th {
   text-align: center;
   font-size: 15px;
 }
 
-#need-discharge-table_filter,
-#discharge-ing-table_filter,
-#discharge-list-table_filter,
-#future-discharge-date_filter {
-  text-align: left;
+table[id$="table"] > thead > tr > th:last-child {
+  border-right-color: #dddddd;
 }
 
-#need-discharge-table_paginate,
-#discharge-ing-table_paginate,
-#discharge-list-table_paginate,
-#future-discharge-date_paginate {
+div[id$="table_paginate"], div[id$="table_filter"] {
   margin-right: -10px;
+  margin-top: 10px;
 }
+
+/*----- all table setting ends here -----*/
+
+
+/*----- discharge.html begins here -----*/
 
 #start-discharge-btn {
   float: right;
 }
-/*----- discharge.html & discharge-setting.html ends here -----*/
+/*----- discharge.html ends here -----*/
 
 
 /*----- cell page begins -----*/
@@ -359,9 +341,23 @@
 /*----- log page ends here -----*/
 
 
-/*----- index page table begins -----*/
+/*----- index page begins -----*/
 
-/*----- index page table ends -----*/
+.legendLabel {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 22px;
+  padding-left: 2px;
+  font-size: 18px;
+  font-weight: bolder;
+}      /* change the pie chart label size */
+
+#stable-station-list, #charge-station-list, #discharge-station-list, #supply-station-list {
+  display: none;
+}      /* hide these tables in the beginning*/
+
+/*----- index page ends -----*/
 
 
 /*----- alert page begins here -----*/

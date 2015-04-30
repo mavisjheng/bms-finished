@@ -18795,7 +18795,8 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
 }
 .grid2,
 .grid3,
-.grid4 {
+.grid4,
+.grid5 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -18807,7 +18808,8 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
 }
 .grid2:first-child,
 .grid3:first-child,
-.grid4:first-child {
+.grid4:first-child,
+.grid5:first-child {
   border-left: none;
 }
 .grid2 {
@@ -18818,6 +18820,10 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
 }
 .grid4 {
   width: 23%;
+  padding: 0 1%;
+}
+.grid5 {
+  width: 18%;
   padding: 0 1%;
 }
 .draggable-placeholder {
@@ -19012,7 +19018,8 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
 @media only screen and (max-width: 360px) {
   .grid2,
   .grid3,
-  .grid4 {
+  .grid4,
+  .grid5 {
     float: none;
     display: block;
     width: 96%;
@@ -19024,7 +19031,8 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
   }
   .grid2 > [class*="pull-"],
   .grid3 > [class*="pull-"],
-  .grid4 > [class*="pull-"] {
+  .grid4 > [class*="pull-"],
+  .grid5 > [class*="pull-"] {
     float: none !important;
     display: inline-block;
     position: absolute;
@@ -19034,7 +19042,8 @@ input.typeahead.scrollable ~ .tt-dropdown-menu {
   }
   .grid2:last-child,
   .grid3:last-child,
-  .grid4:last-child {
+  .grid4:last-child,
+  .grid5:last-child {
     border-bottom-width: 0;
   }
 }

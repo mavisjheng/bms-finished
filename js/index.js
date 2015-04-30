@@ -1,152 +1,109 @@
 $(document).ready(function() {
-    // dataTable
-    $('#index-discharge-date, #index-alarm-log').dataTable({
-        length: false,
-        paging: false,
-        info: false,
-        filter: false
+    // pie chart
+    var placeholder = $('#station-piechart').css({'width':'100%' , 'height':'200px'});
+    var data = [
+        { label: "浮充电状态",  data: 65, color: "#6B8E23"},
+        { label: "均充电状态",  data: 17, color: "#778899"},
+        { label: "核对性放电",  data: 10, color: "#DA5430"},
+        { label: "供电状态",  data: 8, color: "#8B4513"}
+    ]
+
+    $.plot(placeholder, data, {
+        series: {
+            pie: {
+                show: true,
+            }
+        },
+        grid: {
+            hoverable: true
+        }
     });
 
-    // easy-pie-chart
-    $('.easy-pie-chart.color-green3').each(function() {
-        var $box = $(this).closest('.infobox');
-        var barColor = $(this).css('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
-        var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-        var size = parseInt($(this).data('size')) || 50;
-        $(this).easyPieChart({
-            barColor: function colorChange(percentage) {
-                if (percentage < 50) {
-                    return '#d4301d';
-                } else if (percentage > 49 && percentage < 80){
-                    return '#f6a509';
-                } else {
-                    return '#77ab59';
+    // pie chart tooltip and corresponding tables while hover on the chart
+    var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
+
+    var noAllStation = $("#stable-station-list, #charge-station-list, #discharge-station-list, #supply-station-list");
+    var noStableStation = $("#every-station-list, #charge-station-list, #discharge-station-list, #supply-station-list");
+    var noChargeStation = $("#every-station-list, #stable-station-list, #discharge-station-list, #supply-station-list");
+    var noDischargeStation = $("#every-station-list, #stable-station-list, #charge-station-list, #supply-station-list");
+    var noSupplyStation = $("#every-station-list, #stable-station-list, #charge-station-list, #discharge-station-list");
+
+    var lastIndex = null;
+    $('#station-piechart').on('plothover', function (event, pos, item) {
+        if(item) {
+            if (lastIndex != item.seriesIndex) {
+                lastIndex = item.seriesIndex;
+                var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
+                $tooltip.show().children(0).text(tooltip_text);
+                if(item.seriesIndex === 0) {
+                    $("#stable-station-list").show();
+                    noStableStation.hide();
                 }
-            },
-            trackColor: trackColor,
-            scaleColor: false,
-            lineCap: 'round',
-            lineWidth: parseInt(size / 10),
-            animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
-            size: size
-        });
-    });
-
-    $('.easy-pie-chart.color-green4').each(function() {
-        var $box = $(this).closest('.infobox');
-        var barColor = $(this).css('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
-        var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-        var size = parseInt($(this).data('size')) || 50;
-        $(this).easyPieChart({
-            barColor: function colorChange(percentage) {
-                if (percentage < 50) {
-                    return '#d4301d';
-                } else if (percentage > 49 && percentage < 80){
-                    return '#f6a509';
-                } else {
-                    return '#77ab59';
+                else if(item.seriesIndex === 1) {
+                    $("#charge-station-list").show();
+                    noChargeStation.hide();
                 }
-            },
-            trackColor: trackColor,
-            scaleColor: false,
-            lineCap: 'round',
-            lineWidth: parseInt(size / 10),
-            animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
-            size: size
-        });
-    });
-
-    // update system main capacity percentage automatically
-    var percentStr = $('.easy-pie-chart.percentage #main-percent').text();
-    var percentInt = parseInt(percentStr);
-    var percentage = percentInt;
-
-    function updateStatus(percentage) {
-        $('.easy-pie-chart.percentage #main-percent').text(percentage);
-        $('.easy-pie-chart.percentage.color-green3').data('easyPieChart').update(percentage);
-    }
-
-    setInterval(function() {
-        // percentage decreases 1 every 5 seconds until reach to 0%
-        percentage--;
-        if (percentage < 0) {
-            percentage = 100;
-        }
-        // update
-        updateStatus(percentage);
-    }, 5000);
-
-    //create random percentage when module-switch clicked
-    $('.module-switch').click(function() {
-        $('#module-widget .easy-pie-chart.percentage').each(function() {
-            var cellPercent = Math.floor(Math.random() * 100 + 1);
-            $(this).find('.percent').text(cellPercent);
-            $(this).data('easyPieChart').update(cellPercent);
-        });
-
-        var systemTree = ['系统AA / 模组R', '系统AA / 模组S', '系统AA / 模组T', '系统AA / 模组U', '系统BB / 模组M', '系统BB / 模组N',
-            '系统BB / 模组O', '系统BB / 模组P', '系统CC / 模组E', '系统CC / 模组F', '系统CC / 模组G', '系统CC / 模组H'
-        ];
-        var treeLength = systemTree.length;
-        var treeIndex = Math.floor(Math.random() * treeLength);
-        var moduleName = systemTree[treeIndex];
-        $('#module-name').text(moduleName);
-    });
-
-    // update cell-history-morris-chart upon the type selection changes
-    // morris chart
-    var initData = prepareDemoCellData();
-
-    var graph = new Morris.Line({
-        element: 'history-morris-chart',
-        data: initData,
-        xkey: 'year',
-        ykeys: ['value'],
-        labels: ['平均'],
-        ymin: 0,
-        ymax: 200,
-        lineColors: ['#7e6eb0']
-    });
-
-    function prepareDemoCellData() {
-        var data = [];
-        for (var startYear = 2007; startYear <= 2014; startYear++) {
-            var currentYear = startYear;
-
-            var max = 200;
-            var min = 1;
-
-            var value = Math.floor(Math.random() * max + min);
-            var dataPoint = {
-                year: currentYear.toString(),
-                value: value
-            };
-            data.push(dataPoint);
-        }
-        return data;
-    }
-
-    $("input[name=history-chart-type]:radio").change(function() {
-        var chartType = $("input[type='radio']:checked").val();
-        if (chartType) {
-            var cellData = prepareDemoCellData(chartType);
-            graph.setData(cellData);
+                else if(item.seriesIndex === 2) {
+                    $("#discharge-station-list").show();
+                    noDischargeStation.hide();
+                }
+                else if(item.seriesIndex === 3) {
+                    $("#supply-station-list").show();
+                    noSupplyStation.hide();
+                }
+            }
+            $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+        } 
+        else {
+            $tooltip.hide();
+            lastIndex = null;
         }
     });
+    
 
-    // update table content when discharge pagination button clicked
-    var hideDate = $(".more-discharge");
-    var showDate = $(".less-discharge");
-    $("#next-discharge, #pre-discharge").click(function() {
-        hideDate.toggle();
-        showDate.toggle();
+    // corresponding tables while hover on the station total infobox
+    $("#total-station").mouseover(function(){
+        $("#every-station-list").show();
+        noAllStation.hide();
+    });
+    $("#total-stable").mouseover(function(){
+        $("#stable-station-list").show();
+        noStableStation.hide();
+    });
+    $("#total-charge").mouseover(function(){
+        $("#charge-station-list").show();
+        noChargeStation.hide();
+    });
+    $("#total-discharge").mouseover(function(){
+        $("#discharge-station-list").show();
+        noDischargeStation.hide();
+    });
+    $("#total-supply").mouseover(function(){
+        $("#supply-station-list").show();
+        noSupplyStation.hide();
     });
 
-    // update table content when error pagination button clicked
-    var hideError = $(".more-alarm");
-    var showError = $(".less-alarm");
-    $("#next-alarm, #pre-alarm").click(function() {
-        hideError.toggle();
-        showError.toggle();
+    // five tables
+    $('#every-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table').dataTable({
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
+        length: true,
+        ordering: false,
+        paging: true,
+        info: true,
+        filter: true,
+        language: {
+            lengthMenu: "显示 _MENU_ 项结果",
+            zeroRecords: "没有匹配结果",
+            info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            infoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            infoFiltered: "(由 _MAX_ 项结果过滤)",
+            search: "搜索：",
+            paginate: {
+                previous: "上页",
+                next: "下页",
+                first: "首页",
+                last: "末页"
+            }
+        }
     });
 });
