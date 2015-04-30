@@ -235,9 +235,10 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 
 /*----- discharge.html begins here -----*/
-
 #start-discharge-btn {
   float: right;
+  margin-top: 4px;
+  margin-right: 6px;
 }
 /*----- discharge.html ends here -----*/
 
