@@ -405,7 +405,7 @@
                         <div class="col-sm-6">
                             <form>
                                 <div class="form-group">
-                                    <h4 class="col-sm-offset-4 col-sm-4 text-center bolder">
+                                    <h4 class="col-sm-offset-4 col-sm-4 text-center bolder" id="basic-filter">
                                         简易查询
                                     </h4>
                                     <div class="form-group col-sm-offset-2 col-sm-8">
@@ -432,28 +432,17 @@
                         <div class="col-sm-6">
                             <form>
                                 <div class="form-group">
-                                    <h4 class="col-sm-offset-4 col-sm-4 text-center bolder">
-                                        进阶查询
+                                    <h4 class="col-sm-offset-4 col-sm-4 text-center bolder" id="advanced-filter">
+                                        进阶查询&nbsp;&nbsp;
+                                        <button class="btn btn-xs btn-success btn-round" id="more-filter-btn" type="button">
+                                            <i class="ace-icon fa fa-plus tooltip-success" data-rel="tooltip" data-placement="top" title="新增筛选项目"></i>
+                                        </button>
+                                        <button class="btn btn-xs btn-danger btn-round" id="less-filter-btn" type="button">
+                                            <i class="ace-icon fa fa-minus tooltip-error" data-rel="tooltip" data-placement="top" title="减少筛选项目"></i>
+                                        </button>
                                     </h4>
-                                    <div class="form-group col-sm-offset-2 col-sm-8">
+                                    <div class="form-group col-sm-offset-2 col-sm-8" id="filter-div">
                                         <select name="filter1" class="form-control">
-                                            <option value="" disabled selected>筛选项目</option>
-                                            <option value="">浮充电通信站</option>
-                                            <option value="">均充电通信站</option>
-                                            <option value="">核对性放电通信站</option>
-                                            <option value="">供电通信站</option>
-                                            <option value="">需核对性放电通信站</option>
-                                            <option value="">通信故障通信站</option>
-                                            <option value="">报警通信站</option>
-                                            <option value="">报警处理中通信站</option>
-                                        </select>
-                                        <select name="boolean" class="form-control">
-                                            <option value="" disabled selected>关联</option>
-                                            <option value="">且</option>
-                                            <option value="">或</option>
-                                            <option value="">且不</option>
-                                        </select>
-                                        <select name="filter2" class="form-control">
                                             <option value="" disabled selected>筛选项目</option>
                                             <option value="">浮充电通信站</option>
                                             <option value="">均充电通信站</option>
@@ -472,6 +461,106 @@
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                    <div class="hr hr-12 hr-double"></div>
+                    <div class="space-6"></div>
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <div class="table-header bkgd-purple">
+                                搜寻结果
+                            </div>
+                            <table id="search-result-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>站名</th>
+                                        <th>电池组数</th>
+                                        <th>所在城市</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市 中山站 甲組</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06/03/2015 10:00</td>
+                                        <td>大连市 中山站 乙組</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06/18/2015 10:00</td>
+                                        <td>大连市 中山站 丙組</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/03/2015 10:00</td>
+                                        <td>大连市 中山站 丁組</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>大连市 甘井子站 甲組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>大连市 甘井子站 乙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>大连市 甘井子站 丙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>大连市 甘井子站 丁組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>大连市 沙河口站 甲組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>大连市 沙河口站 乙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>大连市 沙河口站 丙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>大连市 沙河口站 丁組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>大连市 西岗站 甲組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>大连市 西岗站 乙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>大连市 西岗站 丙組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>大连市 西岗站 丁組</td>
+                                        <td>50%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -496,6 +585,9 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
+    <!-- dataTables and tableTools-->
+    <script src="js/ace/dataTables/jquery.dataTables.js"></script>
+    <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
     <!-- ace scripts -->
     <script src="js/ace/ace/elements.scroller.js"></script>
     <script src="js/ace/ace/elements.colorpicker.js"></script>
@@ -520,6 +612,7 @@
     <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
     <!-- main script -->
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
 </body>
 
 </html>

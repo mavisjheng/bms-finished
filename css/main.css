@@ -166,6 +166,10 @@
   background: #8B4513;
 }
 
+.bkgd-purple {
+  background: #663399;
+}
+
 .edit-blue {
   color: #478FCA;
 }
@@ -389,3 +393,9 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 }
 /*----- user page ends here -----*/
 
+
+/*----- search page begins here -----*/
+#basic-filter, #advanced-filter {
+  margin-top: -8px;
+}
+/*----- search page ends here -----*/
