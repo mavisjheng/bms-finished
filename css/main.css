@@ -294,16 +294,15 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 
 /*----- log page begins here -----*/
-#alarm-log-table {
-  margin-bottom: 8px;
-} 
-
 .bkgd-table-blue {
   background-color: #EFF3F8;
 }
 
+#alarm-log-table {
+  margin-bottom: 8px;
+} 
+
 #alarm-log-table_wrapper {
-  margin-top: -5px;
   border: 1px solid #e0e0e0;
 }
 
@@ -315,19 +314,25 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 #alarm-log-table_info {
   padding-left: 10px;
-  margin-bottom: -15px;
+  margin-bottom: -25px;
 }
 
 #alarm-log-table_paginate {
   padding-bottom: 10px;
+  margin-right: 0px;
 }
 
-#alarm-log-table_filter label {
-  margin-right: 10px;
+#alarm-log-table_filter {
+  margin-top: 0px;
 }
 
 .DTTT_container {
   padding-right: 10px;
+}
+
+.comments {
+  width: 300px;
+  height: 50px;
 }
 /*----- log page ends here -----*/
 
