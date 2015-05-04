@@ -112,7 +112,6 @@
 ----------------------------------------- */
 
 /*----- common style items begin -----*/
-
 .edit-bar {
   display: none;
 }
@@ -199,7 +198,6 @@
 
 
 /*----- all table setting begins here -----*/
-
 table[id$="table"] > tbody > tr > td {
   text-align: center;
   font-size: 15px;
@@ -234,7 +232,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   margin-right: -10px;
   margin-top: 10px;
 }
-
 /*----- all table setting ends here -----*/
 
 
@@ -336,7 +333,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 
 /*----- index page begins -----*/
-
 .legendLabel {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -350,15 +346,7 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #stable-station-list, #charge-station-list, #discharge-station-list, #supply-station-list {
   display: none;
 }      /* hide these tables in the beginning*/
-
 /*----- index page ends -----*/
-
-
-/*----- alert page begins here -----*/
-#system-alarm-setting td {
-  text-align: center;
-}
-/*----- alert page ends here -----*/
 
 
 /*-----sidebar begins here -----*/
@@ -366,32 +354,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   height: 41px;
 }
 /*----- sidebar ends here -----*/
-
-
-/*----- sync-rate page begins here -----*/
-#sync-table > thead > tr > th:nth-child(2) {
-  border-right-color: #dddddd;
-}
-/*----- sync-rate page ends here -----*/
-
-
-/*----- network page begins here -----*/
-#lan thead > tr > th:nth-child(2),
-#wan thead > tr > th:nth-child(2) {
-  border-right-color: #dddddd;
-}
-/*----- network page ends here -----*/
-
-
-/*----- user page begins here -----*/
-#user-info-table thead > tr > th:nth-child(5) {
-  border-right-color: #dddddd;
-}
-
-#user-info-table {
-  font-size: 14px;
-}
-/*----- user page ends here -----*/
 
 
 /*----- search page begins here -----*/
