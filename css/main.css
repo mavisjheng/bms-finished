@@ -1,6 +1,5 @@
-
 /* -----------------------------------------
-   Start same value
+  Navbar/Breadcrumb Setting
 ----------------------------------------- */
 .ace-nav > li {
   height: 44px;
@@ -11,35 +10,6 @@
   font-weight: bold;
 }
 
-.navbar-brand {
-  font-weight: bold;
-}
- 
-.navbar-menu-text-size {
-  font-size: 18px;
-}
- 
-.widget-title {
-  line-height: 36px;
-  padding: 0;
-  margin: 0;
-  display: inline;
-  font-weight: bold;
-  
-}
-
-/* -----------------------------------------
-   Color
------------------------------------------ */
-.color-brown {
-  color: #997744;
-}
-
-.color-grey {
-  color: #9e9e9e;
-}
-
-/* Shung add 0309 */
 .navbar .navbar-brand {
   color: #ffffff;
   font-size: 24px;
@@ -47,33 +17,17 @@
   padding-top: 2px;
   padding-bottom: 2px;
   height: auto;
+  font-weight: bold;
+}
+ 
+.navbar-menu-text-size {
+  font-size: 18px;
 }
 
 @media only screen and (min-width: 992px) {
   .navbar-container {
    padding: 2px;  
   }
-}
-
-.ace-nav > li {
-  background-color: #2e6589;
-  line-height: 100%;
-  border-left: 1px solid #E1E1E1;
-  padding: 0;
-  position: relative;
-  float: left;
-}
-
-.ace-nav > li > a {  
-  color: #FFF;
-  display: block;
-  text-align: center;
-  height: 100%;
-  width: auto;
-  min-width: 50px;
-  padding: 0 8px;
-  position: relative;  
-  vertical-align: center; 
 }
 
 .breadcrumb {
@@ -86,35 +40,15 @@
   font-weight: bold;
   color: #333;
   border-radius: 0;
-}
+}  /* change font-size and font-weight */
 
-.widget-main {
-  padding: 12px;
-  text-align: center;
-}
-
-.widget-box.light-border[class*="widget-color-"]:not(.fullscreen) {
-  border-width: 2px;
-}
-
-.widget-box.right-border {
-  border-width: 0px 1px 0px 0px;
-}
-
-.percentage {
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: top;
-}
 
 /* -----------------------------------------
-   Mavis Code Begins Here
+   Common style items
 ----------------------------------------- */
-
-/*----- common style items begin -----*/
 svg{
   width: 100% !important
-}   /* for redraw chart */
+}   /* for redraw morris chart */
 
 .edit-bar {
   display: none;
@@ -181,6 +115,10 @@ svg{
   color: #FF2E41;
 }
 
+.color-brown {
+  color: #997744;
+}
+
 .widget-color-brown > .widget-header {
   border-color: #7E5C35;
   background: #7E5C35;
@@ -198,10 +136,11 @@ svg{
   padding-left: 12px;
   margin-bottom: 1px;
 }  /* change font-weight and font-size */
-/*----- common style items end -----*/
 
 
-/*----- all table setting begins here -----*/
+/* -----------------------------------------
+  All table setting
+----------------------------------------- */
 table[id$="table"] > tbody > tr > td {
   text-align: center;
   font-size: 15px;
@@ -236,19 +175,21 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   margin-right: -10px;
   margin-top: 10px;
 }
-/*----- all table setting ends here -----*/
 
 
-/*----- discharge.html begins here -----*/
+/* -----------------------------------------
+  Discharge page
+----------------------------------------- */
 #start-discharge-btn {
   float: right;
   margin-top: 4px;
   margin-right: 6px;
 }
-/*----- discharge.html ends here -----*/
 
 
-/*----- cell page begins -----*/
+/* -----------------------------------------
+  Cell page
+----------------------------------------- */
 #pie-info {
   font-size: 28px;
   font-weight: bold;
@@ -262,10 +203,11 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   color: #2d5a6b;
   font-family: sans-serif;
 }
-/*----- cell page ends -----*/
 
 
-/*----- log page begins here -----*/
+/* -----------------------------------------
+  Log page
+----------------------------------------- */
 .bkgd-table-blue {
   background-color: #EFF3F8;
 }
@@ -306,10 +248,11 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   width: 300px;
   height: 50px;
 }
-/*----- log page ends here -----*/
 
 
-/*----- index page begins -----*/
+/* -----------------------------------------
+  Index page
+----------------------------------------- */
 .legendLabel {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -323,18 +266,19 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #stable-station-list, #charge-station-list, #discharge-station-list, #supply-station-list {
   display: none;
 }      /* hide these tables in the beginning*/
-/*----- index page ends -----*/
 
 
-/*-----sidebar begins here -----*/
+/* -----------------------------------------
+  Sidebar
+----------------------------------------- */
 .sidebar > #nav-search {
   height: 41px;
 }
-/*----- sidebar ends here -----*/
 
 
-/*----- search page begins here -----*/
+/* -----------------------------------------
+  Search page
+----------------------------------------- */
 #basic-filter, #advanced-filter {
   margin-top: -8px;
 }
-/*----- search page ends here -----*/
