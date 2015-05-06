@@ -112,6 +112,10 @@
 ----------------------------------------- */
 
 /*----- common style items begin -----*/
+svg{
+  width: 100% !important
+}   /* for redraw chart */
+
 .edit-bar {
   display: none;
 }
@@ -259,38 +263,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   font-family: sans-serif;
 }
 /*----- cell page ends -----*/
-
-
-/*----- module page begins here -----*/
-#cell-alarm-setting, #module-alarm-setting {
-  margin-bottom: 10px;
-}
-
-.pie-num {
-  font-size: 24px;
-  font-weight: bold;
-  color: #606060;
-  font-family: sans-serif;
-}
-
-.pie-nums {
-  font-size: 18px;
-  font-weight: bold;
-  color: #606060;
-  font-family: sans-serif;
-}
-
-.page-content > .row .minus-mgbm-8 {
-  margin-bottom: -8px;
-}
-
-#cell-alarm-setting td,
-#module-alarm-setting td,
-#module-statistic td,
-#module-statistic th {
-  text-align: center;
-}
-/*----- module page ends here -----*/
 
 
 /*----- log page begins here -----*/
