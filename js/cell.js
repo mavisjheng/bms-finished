@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // date-range-picker
     $('input[name=date-range-picker]').daterangepicker({
-        dateLimit: { months: 1 },
         applyClass: 'btn-sm btn-success',
         cancelClass: 'btn-sm btn-default',
         locale: {
@@ -19,10 +18,10 @@ $(document).ready(function() {
     });
 
     // dataTable
-    $('#cell-history-table').dataTable({
+    $('#cell-alarm-table').dataTable({
         lengthMenu: [ [5, 10, 20, 30, 50, -1], [5, 10, 20, 30, 50, "所有"] ],
         length: false,
-        ordering: true,
+        ordering: false,
         paging: true,
         info: true,
         filter: true,
@@ -69,7 +68,6 @@ $(document).ready(function() {
     function updateStatus(percentage) {
         $('.easy-pie-chart.percentage span').text(percentage);
         $('.easy-pie-chart.percentage').data('easyPieChart').update(percentage);
-
     }
 
     setInterval(function() {
@@ -83,7 +81,6 @@ $(document).ready(function() {
     }, 5000);
 
     // update cell-history-morris-chart upon the type selection changes
-    // morris chart
     var initData = prepareDemoCellData();
 
     var graph = new Morris.Line({

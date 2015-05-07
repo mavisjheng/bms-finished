@@ -102,25 +102,25 @@
                                     <i class="ace-icon fa fa-random"></i> 重复性放电设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
                                     <i class="ace-icon fa fa-clock-o"></i> 电池采样时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="user.html">
                                     <i class="ace-icon fa fa-user"></i> 联系人与密码设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="alert.html">
                                     <i class="ace-icon fa fa-chain-broken"></i> 通信故障时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="network.html">
                                     <i class="ace-icon fa fa-laptop"></i> 网络设定
@@ -619,7 +619,7 @@
         <div class="main-content">
             <div class="main-content-inner">
                 <!-- breadcrumbs -->
-                <div id="breadcrumbs" class="breadcrumbs">
+                <div class="breadcrumbs">
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
                         </li>
@@ -629,211 +629,275 @@
                 <!-- breadcrumbs -->
                 <!-- page content -->
                 <div class="page-content">
+                    <div class="space-4"></div>
                     <div class="row">
-                        <div class="space-2"></div>
                         <!-- need to do discharge -->
                         <div class="col-sm-6">
-                            <div>
-                                <div class="table-header">
-                                    需核对性放电电池组
-                                </div>
-                                <div>
-                                    <a type="button" class="btn btn-sm btn-round btn-danger" id="start-discharge-btn" href="discharge-setting.html">
-                                        <i class="icon-only ace-icon fa fa-bolt">开始放电</i>
-                                    </a>
-                                </div>
-                                <table id="need-discharge-table" class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>时间</th>
-                                            <th>组别</th>
-                                            <th>放电深度</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>05/03/2015 10:00</td>
-                                            <td>大连市 中山站 甲組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>06/03/2015 10:00</td>
-                                            <td>大连市 中山站 乙組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>06/18/2015 10:00</td>
-                                            <td>大连市 中山站 丙組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/03/2015 10:00</td>
-                                            <td>大连市 中山站 丁組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 甘井子站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 甘井子站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 甘井子站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 甘井子站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 沙河口站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 沙河口站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 沙河口站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 沙河口站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 西岗站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 西岗站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 西岗站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 西岗站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="table-header">
+                                需核对性放电电池组
                             </div>
+                            <div>
+                                <a type="button" class="btn btn-round btn-danger" id="start-discharge-btn" href="discharge-setting.html">
+                                    <i class="icon-only ace-icon fa fa-bolt bigger-110"><span class="bolder"> 开始放电</span></i>
+                                </a>
+                            </div>
+                            <table id="need-discharge-table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>城市</th>
+                                        <th>通信站</th>
+                                        <th>蓄电池组</th>
+                                        <th>放电深度</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>中山站</td>
+                                        <td>电池组一</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>西岗站</td>
+                                        <td>电池组二</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06/18/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>沙河口站</td>
+                                        <td>电池组三</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>甘井子站</td>
+                                        <td>电池组四</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>和平站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>沈河站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>大东站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>皇姑站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>铁东站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>铁西站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>立山站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>千山站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07/18/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>新抚站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>东洲站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>08/18/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>望花站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>顺城站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.need to do discharge -->
                         <!-- discharge-ing -->
                         <div class="col-sm-6">
-                            <div>
-                                <div class="table-header">
-                                    正在核对性放电电池组
-                                </div>
-                                <table id="discharge-ing-table" class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>时间</th>
-                                            <th>组别</th>
-                                            <th>放电深度</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>05/03/2015 10:00</td>
-                                            <td>大连市 中山站 甲組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>06/03/2015 10:00</td>
-                                            <td>大连市 中山站 乙組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>06/18/2015 10:00</td>
-                                            <td>大连市 中山站 丙組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/03/2015 10:00</td>
-                                            <td>大连市 中山站 丁組</td>
-                                            <td>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 甘井子站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 甘井子站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 甘井子站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 甘井子站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 沙河口站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 沙河口站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 沙河口站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 沙河口站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>07/18/2015 10:00</td>
-                                            <td>大连市 西岗站 甲組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/03/2015 10:00</td>
-                                            <td>大连市 西岗站 乙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>08/18/2015 10:00</td>
-                                            <td>大连市 西岗站 丙組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09/03/2015 10:00</td>
-                                            <td>大连市 西岗站 丁組</td>
-                                            <td>50%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="table-header">
+                                正在核对性放电电池组
                             </div>
+                            <table id="discharge-ing-table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>城市</th>
+                                        <th>通信站</th>
+                                        <th>蓄电池组</th>
+                                        <th>放电深度</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>顺城站</td>
+                                        <td>电池组一</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>望花站</td>
+                                        <td>电池组二</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>东洲站</td>
+                                        <td>电池组三</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>抚顺市</td>
+                                        <td>新抚站</td>
+                                        <td>电池组四</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>千山站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>立山站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>铁西站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>鞍山市</td>
+                                        <td>铁东站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>皇姑站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>大东站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>沈河站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>沈阳市</td>
+                                        <td>和平站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>甘井子站</td>
+                                        <td>电池组一</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>沙河口站</td>
+                                        <td>电池组二</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>西岗站</td>
+                                        <td>电池组三</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/03/2015 10:00</td>
+                                        <td>大连市</td>
+                                        <td>中山站</td>
+                                        <td>电池组四</td>
+                                        <td>50%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /. discharge-ing -->
                     </div>
@@ -852,16 +916,16 @@
     </script>
     <!-- <![endif]-->
     <!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
     <script type="text/javascript">
     if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- dataTables and tableTools-->
+    <!-- dataTables -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
     <!-- ace scripts -->

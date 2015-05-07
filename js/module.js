@@ -20,8 +20,8 @@ $(document).ready(function() {
     // morris chart
     var initData = prepareDemoCellData();
     
-    var voltage = new Morris.Line({
-        element: 'voltage-chart',
+    var groupVoltage = new Morris.Line({
+        element: 'group-voltage-chart',
         data: initData,
         xkey: 'year',
         ykeys: ['value'],
@@ -31,8 +31,8 @@ $(document).ready(function() {
         lineColors: ['purple']
     });
 
-    var current = new Morris.Line({
-        element: 'current-chart',
+    var groupCurrent = new Morris.Line({
+        element: 'group-current-chart',
         data: initData,
         xkey: 'year',
         ykeys: ['value'],
@@ -83,8 +83,8 @@ $(document).ready(function() {
         lineColors: ['purple']
     });
 
-    var dischargeTotalVoltage = new Morris.Line({
-        element: 'discharge-total-voltage',
+    var dischargeGroupVoltage = new Morris.Line({
+        element: 'discharge-group-voltage',
         data: initData,
         xkey: 'year',
         ykeys: ['value'],
@@ -157,12 +157,12 @@ $(document).ready(function() {
         ],
         xkey: 'x',
         ykeys: ['y'],
-        labels: ['目前容量'],
+        labels: ['当前容量'],
         resize: true
     });
 
     var historyCapacity = new Morris.Bar({
-        element: 'module-history-capacity',
+        element: 'history-capacity-chart',
         data: [
             { x: '电池1', y: 75 },
             { x: '电池2', y: 75 },
@@ -213,8 +213,18 @@ $(document).ready(function() {
         return data;
     }
 
-    //dataTable
-    $('#module-cell-info-table, #module-alarm-log-table').dataTable({
+    // redraw the morris charts which are at hidden tabs
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        currentCapacity.redraw();
+        historyCapacity.redraw();
+        historyVoltage.redraw();
+        historyCurrent.redraw();
+        dischargeSingleVoltage.redraw();
+        dischargeGroupVoltage.redraw();
+    });
+
+    // dataTable initialization
+    $('#module-cell-info-table, #module-history-alarm-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
         length: false,
         ordering: false,
@@ -235,15 +245,5 @@ $(document).ready(function() {
                 last: "末页"
             }
         }
-    });
-
-    // redraw the morris charts which are at hidden tabs
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        currentCapacity.redraw();
-        historyCapacity.redraw();
-        historyVoltage.redraw();
-        historyCurrent.redraw();
-        dischargeSingleVoltage.redraw();
-        dischargeTotalVoltage.redraw();
     });
 });

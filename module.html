@@ -104,25 +104,25 @@
                                     <i class="ace-icon fa fa-random"></i> 重复性放电设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
                                     <i class="ace-icon fa fa-clock-o"></i> 电池采样时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="user.html">
                                     <i class="ace-icon fa fa-user"></i> 联系人与密码设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="alert.html">
                                     <i class="ace-icon fa fa-chain-broken"></i> 通信故障时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="network.html">
                                     <i class="ace-icon fa fa-laptop"></i> 网络设定
@@ -620,7 +620,7 @@
         <div class="main-content">
             <div class="main-content-inner">
                 <!-- breadcrumbs -->
-                <div id="breadcrumbs" class="breadcrumbs">
+                <div class="breadcrumbs">
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
                         </li>
@@ -629,13 +629,13 @@
                 </div>
                 <!-- /.breadcrumbs -->
                 <div class="page-content">
+                    <div class="space-2"></div>
                     <div class="row">
-                        <div class="space-4"></div>
                         <div class="col-sm-12">
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12 tab-color-blue background-blue">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#module-state">即时信息</a>
+                                        <a data-toggle="tab" href="#module-status">即时信息</a>
                                     </li>
                                     <li>
                                         <a data-toggle="tab" href="#module-capacity">容量</a>
@@ -644,52 +644,55 @@
                                         <a data-toggle="tab" href="#module-history">历史纪录</a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#module-cell-info">电池组信息</a>
+                                        <a data-toggle="tab" href="#module-info">电池组信息</a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#module-setting">电池组报警设定</a>
+                                        <a data-toggle="tab" href="#module-alert-setting">电池组报警设定</a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#module-cell-setting">单体电池报警设定</a>
+                                        <a data-toggle="tab" href="#module-cell-alert-setting">单体电池报警设定</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <!-- module-state -->
-                                    <div id="module-state" class="tab-pane active center">
+                                    <!-- module-status tab -->
+                                    <div id="module-status" class="tab-pane active">
+                                        <!-- 當前狀態 -->
                                         <div class="row">
                                             <div class="col-sm-6 center">
-                                                <!-- system state -->
-                                                <div class="alert alert-block alert-warning font-16 bolder">
+                                                <div class="alert alert-block alert-warning font-18 bolder">
                                                     <div>
                                                         当前状态：<strong class="green">供电</strong>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6 center">
-                                                <!-- system state -->
-                                                <div class="alert alert-block alert-warning font-16 bolder">
+                                                <div class="alert alert-block alert-warning font-18 bolder">
                                                     <div>
                                                         剩馀供电时间：<strong class="green">90分钟</strong>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="hr hr-10 hr-double"></div>
-                                        <div class="row">
+                                        <!-- /.當前狀態 -->
+                                        <div class="hr hr-12 hr-double"></div>
+                                        <!-- 即時電壓 chart -->
+                                        <div class="row center">
                                             <div id="current-voltage" style="height: 250px;"></div>
                                             <span class="bigger-180 bolder">即时电压</span>
                                         </div>
-                                        <div class="hr hr-16 hr-double"></div>
-                                        <div class="row">
+                                        <!-- /.即時電壓 chart -->
+                                        <div class="hr hr-20 hr-double"></div>
+                                        <!-- 直流母線絕緣電阻 -->
+                                        <div class="row center">
                                             <div class="col-sm-4">
                                                 <div class="widget-box widget-color-brown">
                                                     <div class="widget-header">
-                                                        <h4 class="widget-title">直流母线绝缘电阻</h4>
+                                                        <h4 class="widget-title bolder">直流母线绝缘电阻</h4>
                                                     </div>
                                                     <div class="widget-body">
-                                                        <div class="widget-main padding-6">
+                                                        <div class="widget-main padding-4">
                                                             <div class="widget-content">
-                                                                <span class="bigger-300 bolder color-brown">3</span>
+                                                                <span class="bigger-300 bolder color-brown">3 <span class="smaller-70 bolder color-brown">Ω</span></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -698,12 +701,12 @@
                                             <div class="col-sm-4">
                                                 <div class="widget-box widget-color-brown">
                                                     <div class="widget-header">
-                                                        <h4 class="widget-title">温度</h4>
+                                                        <h4 class="widget-title bolder">温度</h4>
                                                     </div>
                                                     <div class="widget-body">
-                                                        <div class="widget-main padding-6">
+                                                        <div class="widget-main padding-4">
                                                             <div class="widget-content">
-                                                                <span class="bigger-300 bolder color-brown">3</span>
+                                                                <span class="bigger-300 bolder color-brown">32 <span class="smaller-70 bolder color-brown">°C</span></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -712,64 +715,67 @@
                                             <div class="col-sm-4">
                                                 <div class="widget-box widget-color-brown">
                                                     <div class="widget-header">
-                                                        <h4 class="widget-title">电池组绝缘电阻</h4>
+                                                        <h4 class="widget-title bolder">电池组绝缘电阻</h4>
                                                     </div>
                                                     <div class="widget-body">
-                                                        <div class="widget-main padding-6">
+                                                        <div class="widget-main padding-4">
                                                             <div class="widget-content">
-                                                                <span class="bigger-300 bolder color-brown">3</span>
+                                                                <span class="bigger-300 bolder color-brown">3 <span class="smaller-70 bolder color-brown">Ω</span></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="hr hr-16 hr-double"></div>
-                                        <div class="row">
+                                        <!-- /.直流母線絕緣電阻 -->
+                                        <div class="hr hr-30 hr-double"></div>
+                                        <!-- 組端電壓 chart -->
+                                        <div class="row center">
                                             <div class="col-sm-6">
-                                                <div id="voltage-chart" style="height: 250px;"></div>
+                                                <div id="group-voltage-chart" style="height: 250px;"></div>
                                                 <span class="bigger-180 bolder">组端电压</span>
                                             </div>
                                             <div class="col-sm-6">
-                                                <div id="current-chart" style="height: 250px;"></div>
+                                                <div id="group-current-chart" style="height: 250px;"></div>
                                                 <span class="bigger-180 bolder">组端电流</span>
                                             </div>
                                         </div>
+                                        <!-- /.組端電壓 chart -->
                                     </div>
-                                    <!-- /.module-state -->
-                                    <!-- module-capacity -->
+                                    <!-- /.module-status tab -->
+                                    <!-- module-capacity tab -->
                                     <div id="module-capacity" class="tab-pane">
                                         <div id="current-capacity" style="height: 350px;"></div>
                                         <div class="center">
-                                            <span class="bigger-180 bolder">目前容量</span>
+                                            <span class="bigger-180 bolder">当前容量</span>
                                         </div>
                                     </div>
-                                    <!-- /.module-capacity -->
-                                    <!-- module-history -->
+                                    <!-- /.module-capacity tab -->
+                                    <!-- module-history tab -->
                                     <div id="module-history" class="tab-pane">
                                         <div class="tabbable tabs-left">
                                             <ul class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a data-toggle="tab" href="#capacity">容量</a>
+                                                    <a data-toggle="tab" href="#history-capacity">容量</a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#voltage">电压电流</a>
+                                                    <a data-toggle="tab" href="#history-voltage-current">电压电流</a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#discharge">核对性放电纪录</a>
+                                                    <a data-toggle="tab" href="#history-discharge">核对性放电纪录</a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#alarm">报警纪录</a>
+                                                    <a data-toggle="tab" href="#history-alarm">报警纪录</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
-                                                <!-- capacity -->
-                                                <div id="capacity" class="tab-pane fade in active">
+                                                <!-- history-capacity tab -->
+                                                <div id="history-capacity" class="tab-pane fade in active">
                                                     <form class="form-horizontal" role="form">
                                                         <label class="col-sm-3 control-label no-padding-right">请选取年份</label>
                                                         <div class="col-sm-6">
                                                             <select name="year" class="form-control">
-                                                                <option value="" disabled selected>- 年 -</option>
+                                                                <option value="" disabled selected>年份</option>
                                                                 <option value="">2014</option>
                                                                 <option value="">2013</option>
                                                                 <option value="">2012</option>
@@ -789,17 +795,18 @@
                                                             <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
                                                         </button>
                                                     </form>
-                                                    <div id="module-history-capacity" style="height: 350px;"></div>
+                                                    <div id="history-capacity-chart" style="height: 350px;"></div>
                                                     <div class="center">
                                                         <span class="bigger-180 bolder">历史容量</span>
                                                     </div>
                                                 </div>
-                                                <!-- voltage -->
-                                                <div id="voltage" class="tab-pane">
+                                                <!-- /.history-capacity tab -->
+                                                <!-- history-voltage-current tab -->
+                                                <div id="history-voltage-current" class="tab-pane">
                                                     <form class="form-horizontal center" role="form">
                                                         <label class="control-label no-padding-right">请选取年份月份&nbsp;</label>
                                                         <select>
-                                                            <option value="" disabled selected>- 年 -</option>
+                                                            <option value="" disabled selected>年份</option>
                                                             <option value="">2014</option>
                                                             <option value="">2013</option>
                                                             <option value="">2012</option>
@@ -815,7 +822,7 @@
                                                             <option value="">2002</option>
                                                         </select>
                                                         <select>
-                                                            <option>- 月 -</option>
+                                                            <option value="" disabled selected>月份</option>
                                                             <option value="1">一月</option>
                                                             <option value="2">二月</option>
                                                             <option value="3">三月</option>
@@ -845,13 +852,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- discharge -->
-                                                <div id="discharge" class="tab-pane">
+                                                <!-- /.history-voltage-current tab -->
+                                                <!-- history-discharge tab -->
+                                                <div id="history-discharge" class="tab-pane">
                                                     <div class="row">
+                                                        <!-- left part: search -->
                                                         <div class="col-sm-2">
                                                             <form>
                                                                 <div class="form-group">
-                                                                    <h5 class="text-center bolder">
+                                                                    <h5 class="center bolder">
                                                                         年份
                                                                     </h5>
                                                                     <div class="form-group">
@@ -872,26 +881,6 @@
                                                                             <option value="">2002</option>
                                                                         </select>
                                                                     </div>
-                                                                    <!--h5 class="text-center bolder">
-                                                                        显示最近年份数
-                                                                    </h5>
-                                                                    <div class="form-group">
-                                                                        <select name="years" class="form-control">
-                                                                            <option value="" disabled selected>年份数</option>
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                            <option value="3">3</option>
-                                                                            <option value="4">4</option>
-                                                                            <option value="5">5</option>
-                                                                            <option value="6">6</option>
-                                                                            <option value="7">7</option>
-                                                                            <option value="8">8</option>
-                                                                            <option value="9">9</option>
-                                                                            <option value="10">10</option>
-                                                                            <option value="11">11</option>
-                                                                            <option value="12">12</option>
-                                                                        </select>
-                                                                    </div-->
                                                                     <div class="center">
                                                                         <button type="submit" class="btn btn-success btn-round">
                                                                             <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
@@ -900,6 +889,8 @@
                                                                 </div>
                                                             </form>
                                                         </div>
+                                                        <!-- /.left part: search -->
+                                                        <!-- right part: chart -->
                                                         <div class="col-sm-10">
                                                             <div class="tabbable tabs-right">
                                                                 <ul class="nav nav-tabs">
@@ -910,7 +901,7 @@
                                                                         <a data-toggle="tab" href="#discharge-record2">组端电压</a>
                                                                     </li>
                                                                     <li>
-                                                                        <a data-toggle="tab" href="#discharge-record3">历史报表</a>
+                                                                        <a data-toggle="tab" href="#discharge-record3">放电报表</a>
                                                                     </li>
                                                                 </ul>
                                                                 <div class="tab-content">
@@ -918,10 +909,10 @@
                                                                         <div id="discharge-single-voltage" style="height: 330px;"></div>
                                                                     </div>
                                                                     <div id="discharge-record2" class="tab-pane">
-                                                                        <div id="discharge-total-voltage" style="height: 330px;"></div>
+                                                                        <div id="discharge-group-voltage" style="height: 330px;"></div>
                                                                     </div>
                                                                     <div id="discharge-record3" class="tab-pane">
-                                                                        <table class="table table-bordered text-center">
+                                                                        <table class="table table-bordered">
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <th colspan="4">站名：</th>
@@ -1265,13 +1256,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- /.right part: chart -->
                                                     </div>
+                                                    <!-- /.row -->
                                                 </div>
-                                                <!-- alarm -->
-                                                <div id="alarm" class="tab-pane">
+                                                <!-- /.history-discharge tab -->
+                                                <!-- history-alarm tab -->
+                                                <div id="history-alarm" class="tab-pane">
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
+                                                            <label class="col-sm-3 control-label no-padding-right">请选取时间范围</label>
                                                             <div class="col-sm-6">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">
@@ -1281,16 +1275,16 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-1">
-                                                                <input class="form-control btn btn-sm btn-success" type="submit" name="alarm-date-range-submit" value="提交" />
+                                                                <input class="form-control btn btn-sm btn-round btn-success" type="submit" value="提交" />
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <table class="table table-bordered table-hover" id="module-alarm-log-table">
+                                                    <table id="module-history-alarm-table" class="table table-bordered table-hover">
                                                         <thead>
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>组别</th>
-                                                                <th>讯息</th>
+                                                                <th>原因</th>
                                                                 <th>发生时间</th>
                                                                 <th>数值</th>
                                                                 <th>处理状态</th>
@@ -1301,8 +1295,8 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>1</td>
-                                                                <td>基站 C, 模组 AA, 电池 5</td>
-                                                                <td>电压错误</td>
+                                                                <td>电池 5</td>
+                                                                <td>电压过低</td>
                                                                 <td>08/10/2014 02:06</td>
                                                                 <td>7.84V</td>
                                                                 <td>
@@ -1323,8 +1317,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
-                                                                <td>基站 C, 模组 BB, 电池 1</td>
-                                                                <td>电阻过高</td>
+                                                                <td>电池 11</td>
+                                                                <td>电阻过低</td>
                                                                 <td>08/10/2014 11:06</td>
                                                                 <td>0</td>
                                                                 <td>
@@ -1345,7 +1339,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td>
-                                                                <td>基站 C, 模组 EE, 电池 3</td>
+                                                                <td>电池 23</td>
                                                                 <td>容量过低</td>
                                                                 <td>08/13/2014 20:06</td>
                                                                 <td>17%</td>
@@ -1367,10 +1361,10 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
-                                                                <td>基站 C, 模组 DD, 电池 4</td>
+                                                                <td>电池 4</td>
                                                                 <td>温度过高</td>
                                                                 <td>08/15/2014 21:36</td>
-                                                                <td>40</td>
+                                                                <td>40°C</td>
                                                                 <td>
                                                                     <select class="form-control">
                                                                         <option value="0" selected="selected">已处理</option>
@@ -1389,8 +1383,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td>
-                                                                <td>基站 C</td>
-                                                                <td>通讯故障</td>
+                                                                <td>电池组二</td>
+                                                                <td>通信故障</td>
                                                                 <td>08/31/2014 09:36</td>
                                                                 <td></td>
                                                                 <td>
@@ -1412,14 +1406,16 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
+                                                <!-- /.history-alarm tab -->
                                             </div>
+                                            <!-- /.tab-content -->
                                         </div>
-                                        <!-- tabbable -->
+                                        <!-- /.tabbable -->
                                     </div>
-                                    <!-- /.module-history -->
-                                    <!-- module-cell-info -->
-                                    <div id="module-cell-info" class="tab-pane">
-                                        <table id="module-cell-info-table" class="table table-striped table-bordered table-hover">
+                                    <!-- /.module-history tab -->
+                                    <!-- module-info tab -->
+                                    <div id="module-info" class="tab-pane">
+                                        <table id="module-cell-info-table" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>名称</th>
@@ -1502,7 +1498,7 @@
                                                     <td>ZWY78</td>
                                                     <td>300 AH</td>
                                                     <td>十年</td>
-                                                    <td></td>
+                                                    <td>单一更换</td>
                                                     <td>
                                                         <div class="hidden-sm hidden-xs btn-group">
                                                             <button class="btn btn-xs btn-info">
@@ -1534,17 +1530,397 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>电池 6</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 7</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 8</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 9</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td>单一更换</td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 10</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 11</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 12</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 13</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 14</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 15</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td>单一更换</td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 16</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 17</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 18</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 19</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 20</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td>单一更换</td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 21</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 22</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 23</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>电池 24</td>
+                                                    <td>09/17/2014</td>
+                                                    <td>12/25/2014</td>
+                                                    <td>康舒科技</td>
+                                                    <td>ZWY78</td>
+                                                    <td>300 AH</td>
+                                                    <td>十年</td>
+                                                    <td>单一更换</td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs btn-group">
+                                                            <button class="btn btn-xs btn-info">
+                                                                <i class="ace-icon fa fa-pencil bigger-120 tooltip-info" data-rel="tooltip" data-placement="top" title="编辑电池信息"></i>
+                                                            </button>
+                                                            <button class="btn btn-xs btn-danger">
+                                                                <i class="ace-icon fa fa-trash-o bigger-120 tooltip-error" data-rel="tooltip" data-placement="top" title="删除电池"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!-- /.module-cell-info -->
-                                    <!-- module-setting -->
-                                    <div id="module-setting" class="tab-pane">
+                                    <!-- /.module-info tab -->
+                                    <!-- module-alert-setting tab -->
+                                    <div id="module-alert-setting" class="tab-pane">
                                         <div class="row">
                                             <div class="col-sm-2"></div>
                                             <div class="col-sm-8">
                                                 <form>
-                                                    <table id="module-alarm-setting" class="table table-bordered text-center">
+                                                    <table class="table table-bordered table-hover center bolder font-14">
                                                         <tbody>
                                                             <tr>
                                                                 <td></td>
@@ -1555,25 +1931,25 @@
                                                             <tr>
                                                                 <td>超过</td>
                                                                 <td>
-                                                                    <input type="text" name="voltage-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="current-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="capa-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
                                                                 <td>
-                                                                    <input type="text" name="voltage-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="current-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="capa-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1585,22 +1961,22 @@
                                                             <tr>
                                                                 <td>超过</td>
                                                                 <td>
-                                                                    <input type="text" name="res1-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="res2-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td rowspan="2">
-                                                                    <input type="text" name="remain-time" placeholder="单位：分钟" style="height:115%;" />
+                                                                    <input type="text" placeholder="单位：分钟" style="height:115%;" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
                                                                 <td>
-                                                                    <input type="text" name="res1-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="res2-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -1608,21 +1984,21 @@
                                                     <div class="hr hr-12 hr-dotted"></div>
                                                     <div class="center">
                                                         <button type="submit" class="btn btn-info btn-lg btn-white btn-round">
-                                                            <i class="ace-icon fa fa-check-square-o "></i><span class="bolder">&nbsp;确认</span>
+                                                            <i class="ace-icon fa fa-check-square-o"></i><span class="bolder">&nbsp;确认</span>
                                                         </button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /.module-setting -->
-                                    <!-- module-cell-setting -->
-                                    <div id="module-cell-setting" class="tab-pane">
+                                    <!-- /.module-alert-setting tab -->
+                                    <!-- module-cell-alert-setting tab -->
+                                    <div id="module-cell-alert-setting" class="tab-pane">
                                         <div class="row">
                                             <div class="col-sm-2"></div>
                                             <div class="col-sm-8">
                                                 <form>
-                                                    <table id="cell-alarm-setting" class="table table-bordered text-center">
+                                                    <table class="table table-bordered table-hover center bolder font-14">
                                                         <tbody>
                                                             <tr>
                                                                 <td></td>
@@ -1632,19 +2008,19 @@
                                                             <tr>
                                                                 <td>超过</td>
                                                                 <td>
-                                                                    <input type="text" name="voltage-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="current-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
                                                                 <td>
-                                                                    <input type="text" name="voltage-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="current-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1655,19 +2031,19 @@
                                                             <tr>
                                                                 <td>超过</td>
                                                                 <td>
-                                                                    <input type="text" name="capa-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="temp-over" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
                                                                 <td>
-                                                                    <input type="text" name="capa-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="temp-low" />
+                                                                    <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -1675,20 +2051,18 @@
                                                     <div class="hr hr-12 hr-dotted"></div>
                                                     <div class="center">
                                                         <button type="submit" class="btn btn-info btn-lg btn-white btn-round">
-                                                            <i class="ace-icon fa fa-check-square-o "></i><span class="bolder">&nbsp;确认</span>
+                                                            <i class="ace-icon fa fa-check-square-o"></i><span class="bolder">&nbsp;确认</span>
                                                         </button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /.module-cell-setting -->
+                                    <!-- /.module-cell-alert-setting -->
                                 </div>
                             </div>
-                            <!-- /section:elements.tab.option -->
                         </div>
                     </div>
-                    <!-- /.bottom part: tab -->
                 </div>
                 <!-- /.page-content -->
             </div>
@@ -1707,7 +2081,7 @@
         <script type="text/javascript">
             window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
         </script>
-        <![endif]-->
+    <![endif]-->
     <script type="text/javascript">
     if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
@@ -1719,8 +2093,6 @@
     <!-- dataTables -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
-    <!-- easy pie chart -->
-    <script src="js/ace/jquery.easypiechart.js"></script>
     <!-- Morris charts -->
     <script src="js/morris/raphael-min.js"></script>
     <script src="js/morris/morris.min.js"></script>

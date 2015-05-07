@@ -71,6 +71,10 @@ svg{
   color: #FFF;
 }
 
+.font-18 {
+  font-size: 18px;
+}
+
 .font-16 {
   font-size: 16px;
 }
@@ -137,6 +141,11 @@ svg{
   margin-bottom: 1px;
 }  /* change font-weight and font-size */
 
+.btn-blue3, .btn-blue3:focus {
+  background-color: #6379aa !important;
+  border-color: #6379aa;
+}   /* repeat discharge btn */
+
 
 /* -----------------------------------------
   All table setting
@@ -172,8 +181,11 @@ table[id$="table"] > thead > tr > th:last-child {
 }
 
 div[id$="table_paginate"], div[id$="table_filter"] {
-  margin-right: -10px;
-  margin-top: 10px;
+  margin-right: -5px;
+}
+
+.dataTables_wrapper label {
+  font-size: 14px;
 }
 
 
@@ -184,6 +196,10 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   float: right;
   margin-top: 4px;
   margin-right: 6px;
+}
+
+#need-discharge-table_filter {
+  float: left;
 }
 
 
@@ -213,7 +229,7 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 }
 
 #alarm-log-table {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 } 
 
 #alarm-log-table_wrapper {
@@ -279,6 +295,22 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 /* -----------------------------------------
   Search page
 ----------------------------------------- */
-#basic-filter, #advanced-filter {
+.filter-label {
   margin-top: -8px;
+}
+
+
+/* -----------------------------------------
+  Discharge Setting form
+----------------------------------------- */
+.discharge-setting-form {
+  padding-top: 5px;
+}
+
+
+/* -----------------------------------------
+  Discharge Report page
+----------------------------------------- */
+#finish-discharge-table_info {
+  font-size: 13.5px;
 }

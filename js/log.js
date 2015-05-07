@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // date-range-picker for cell.html and log.html
+    // date-range-picker
     $('input[name=date-range-picker]').daterangepicker({
         'applyClass': 'btn-sm btn-success',
         'cancelClass': 'btn-sm btn-default',
@@ -18,13 +18,13 @@ $(document).ready(function() {
     });
 
     // dataTable
-    $('#alarm-log-table, #user-log-table').DataTable({
+    $('#alarm-log-table').DataTable({
         dom: 'lTftip', // length, tableTools, filter, table, information, pagination
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, "所有"]
         ],
-        ordering: true,
+        ordering: false,
         paging: true,
         info: true,
         filter: true,
@@ -74,7 +74,7 @@ $(document).ready(function() {
         }
     });
 
-    // solve the problem of hidden tab's tableTools
+    // solve the problem about hidden tab's tableTools
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
         var jqTable = $('table.table', $(e.target).attr("href"));
         if (jqTable.length > 0) {

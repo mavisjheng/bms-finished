@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //dataTable
+    // dataTable
     $('#search-result-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
         length: false,
@@ -23,12 +23,13 @@ $(document).ready(function() {
         }
     });
 
+    // advanced filter button event
     $("#more-filter-btn").click(function(){
         $("#filter-div").append('<select name="relation" class="form-control" id="relation">\
                                 <option value="" disabled selected>关联</option>\
                                 <option value="">且</option>\
                                 <option value="">或</option>\
-                                <option value="">且不</option>\
+                                <option value="">不包含</option>\
                                 </select>\
                                 <select name="filter2" class="form-control" id="filter2">\
                                 <option value="" disabled selected>筛选项目</option>\
@@ -41,7 +42,8 @@ $(document).ready(function() {
                                 <option value="">报警通信站</option>\
                                 <option value="">报警处理中通信站</option>\
                                 </select>');
-    });
+        });
+
     $("#less-filter-btn").click(function(){
         $("#relation").remove();
         $("#filter2").remove();

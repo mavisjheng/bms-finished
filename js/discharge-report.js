@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //dataTable
     $('#finish-discharge-table').dataTable({
-        lengthMenu: [ [5, 10, 20, 30, 50, -1], [5, 10, 20, 30, 50, "所有"] ],
+        lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
         length: false,
         ordering: false,
         paging: true,
@@ -23,9 +23,10 @@ $(document).ready(function() {
         }
     });
 
+    // morris chart
     var initData = prepareDemoCellData();
     var reportSingleVoltage = new Morris.Line({
-        element: 'report-single-voltage',
+        element: 'single-voltage-chart',
         data: [
             { y: '2006', a: 100, b: 90 },
             { y: '2007', a: 75,  b: 65 },
@@ -43,8 +44,8 @@ $(document).ready(function() {
         lineColors: ['purple']
     });
 
-    var reportTotalVoltage = new Morris.Line({
-        element: 'report-total-voltage',
+    var reportGroupVoltage = new Morris.Line({
+        element: 'group-voltage-chart',
         data: initData,
         xkey: 'year',
         ykeys: ['value'],
@@ -75,6 +76,6 @@ $(document).ready(function() {
     // redraw the morris charts which are at hidden tabs
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         reportSingleVoltage.redraw();
-        reportTotalVoltage.redraw();
+        reportGroupVoltage.redraw();
     });
 });

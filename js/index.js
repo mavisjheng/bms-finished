@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // pie chart
+    // pie chart initialization
     var placeholder = $('#station-piechart').css({'width':'100%' , 'height':'200px'});
     var data = [
         { label: "浮充电状态",  data: 65, color: "#6B8E23"},
@@ -19,14 +19,14 @@ $(document).ready(function() {
         }
     });
 
-    // pie chart tooltip and corresponding tables while hover on the chart
+    // pie chart tooltip and show corresponding tables while hover on the chart
     var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
 
     var noAllStation = $("#stable-station-list, #charge-station-list, #discharge-station-list, #supply-station-list");
-    var noStableStation = $("#every-station-list, #charge-station-list, #discharge-station-list, #supply-station-list");
-    var noChargeStation = $("#every-station-list, #stable-station-list, #discharge-station-list, #supply-station-list");
-    var noDischargeStation = $("#every-station-list, #stable-station-list, #charge-station-list, #supply-station-list");
-    var noSupplyStation = $("#every-station-list, #stable-station-list, #charge-station-list, #discharge-station-list");
+    var noStableStation = $("#total-station-list, #charge-station-list, #discharge-station-list, #supply-station-list");
+    var noChargeStation = $("#total-station-list, #stable-station-list, #discharge-station-list, #supply-station-list");
+    var noDischargeStation = $("#total-station-list, #stable-station-list, #charge-station-list, #supply-station-list");
+    var noSupplyStation = $("#total-station-list, #stable-station-list, #charge-station-list, #discharge-station-list");
 
     var lastIndex = null;
     $('#station-piechart').on('plothover', function (event, pos, item) {
@@ -35,6 +35,7 @@ $(document).ready(function() {
                 lastIndex = item.seriesIndex;
                 var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
                 $tooltip.show().children(0).text(tooltip_text);
+                // while hover to the pie area, show corresponding table and hide other else
                 if(item.seriesIndex === 0) {
                     $("#stable-station-list").show();
                     noStableStation.hide();
@@ -60,10 +61,9 @@ $(document).ready(function() {
         }
     });
     
-
-    // corresponding tables while hover on the station total infobox
+    // show corresponding tables while hover on the station total infobox
     $("#total-station").mouseover(function(){
-        $("#every-station-list").show();
+        $("#total-station-list").show();
         noAllStation.hide();
     });
     $("#total-stable").mouseover(function(){
@@ -83,8 +83,8 @@ $(document).ready(function() {
         noSupplyStation.hide();
     });
 
-    // five tables
-    $('#every-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table').dataTable({
+    // five tables initialization
+    $('#total-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table').dataTable({
         lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
         length: true,
         ordering: false,

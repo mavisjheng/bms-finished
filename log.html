@@ -104,25 +104,25 @@
                                     <i class="ace-icon fa fa-random"></i> 重复性放电设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
                                     <i class="ace-icon fa fa-clock-o"></i> 电池采样时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="user.html">
                                     <i class="ace-icon fa fa-user"></i> 联系人与密码设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="alert.html">
                                     <i class="ace-icon fa fa-chain-broken"></i> 通信故障时间设定
                                 </a>
                             </li>
-                            <div class="hr hr-8"></div>
+                            <li class="divider"></li>
                             <li>
                                 <a href="network.html">
                                     <i class="ace-icon fa fa-laptop"></i> 网络设定
@@ -629,537 +629,426 @@
                 </div>
                 <!-- /.breadcrumbs -->
                 <!-- page-content -->
-                <div class="space-4"></div>
                 <div class="page-content">
+                    <div class="space-4"></div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <!-- alarm log tab content -->
-                            <div>
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
-                                        <div class="col-sm-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-calendar bigger-110"></i>
-                                                </span>
-                                                <input class="form-control" type="text" name="date-range-picker" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <input class="form-control btn btn-sm btn-success" type="submit" name="alarm-date-range-submit" value="提交" />
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+                                            <input class="form-control" type="text" name="date-range-picker" required="required" />
                                         </div>
                                     </div>
-                                </form>
-                                <div class="space-4"></div>
-                                <div class="bkgd-table-blue">
-                                    <table id="alarm-log-table" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>组别</th>
-                                                <th>讯息</th>
-                                                <th>发生时间</th>
-                                                <th>数值</th>
-                                                <th>处理状态</th>
-                                                <th>备注信息</th>
-                                                <th>储存</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select>
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>系统 2, 模组 C, 电池 1</td>
-                                                <td>电阻过高</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>系统 4, 模组 C, 电池 3</td>
-                                                <td>容量过低</td>
-                                                <td>08/13/2014 20:06</td>
-                                                <td>17%</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>系统 4, 模组 D, 电池 4</td>
-                                                <td>温度过高</td>
-                                                <td>08/15/2014 21:36</td>
-                                                <td>40</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>基站 C</td>
-                                                <td>通讯故障</td>
-                                                <td>08/15/2014 21:36</td>
-                                                <td></td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电阻过高</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电阻过低</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>基站 C</td>
-                                                <td>通讯故障</td>
-                                                <td>08/15/2014 21:36</td>
-                                                <td></td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电流过低</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>13</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电流过高</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>14</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>15</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>16</td>
-                                                <td>系统 4, 模组 C, 电池 5</td>
-                                                <td>电流过低</td>
-                                                <td>08/17/2014 00:20</td>
-                                                <td>7.84A</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>17</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>18</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>19</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>20</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>21</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>22</td>
-                                                <td>系统 1, 模组 A, 电池 5</td>
-                                                <td>电压错误</td>
-                                                <td>08/10/2014 11:06</td>
-                                                <td>7.84V</td>
-                                                <td>
-                                                    <select class="form-control">
-                                                        <option value="0" selected="selected">已处理</option>
-                                                        <option value="1">未处理</option>
-                                                        <option value="2">待处理</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <textarea class="comments"></textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                        <i class="ace-icon fa fa-check red"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="col-sm-1">
+                                        <input class="form-control btn btn-sm btn-round btn-success" type="submit" value="提交" />
+                                    </div>
                                 </div>
+                            </form>
+                            <div class="space-4"></div>
+                            <div class="bkgd-table-blue">
+                                <table id="alarm-log-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>组别</th>
+                                            <th>原因</th>
+                                            <th>发生时间</th>
+                                            <th>数值</th>
+                                            <th>处理状态</th>
+                                            <th>备注信息</th>
+                                            <th>储存</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>沈阳市，和平站，电池组一，电池5</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select>
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>大连市，中山站，电池组一，电池17</td>
+                                            <td>电阻过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>0.9Ω</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>沈阳市，皇姑站，电池组四，电池9</td>
+                                            <td>容量过低</td>
+                                            <td>08/13/2014 20:06</td>
+                                            <td>17%</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>鞍山市，铁东站，电池组三，电池23</td>
+                                            <td>温度过高</td>
+                                            <td>08/15/2014 21:36</td>
+                                            <td>40°C</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>沈阳市，大东站，电池组一</td>
+                                            <td>通信故障</td>
+                                            <td>08/15/2014 21:36</td>
+                                            <td></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>抚顺市，新抚站，电池组一，电池5</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>抚顺市，新抚站，电池组一，电池5</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>鞍山市，立山站，电池组二，电池12</td>
+                                            <td>电阻过高</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84Ω</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>鞍山市，立山站，电池组二，电池19</td>
+                                            <td>电阻过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84Ω</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>抚顺市，东洲站，电池组三</td>
+                                            <td>通信故障</td>
+                                            <td>08/15/2014 21:36</td>
+                                            <td></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>大连市，甘井子站，电池组二，电池20</td>
+                                            <td>电流过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>0.84A</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>沈阳市，和平站，电池组三，电池16</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>大连市，西岗站，电池组四，电池24</td>
+                                            <td>电流过高</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>97.84A</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>沈阳市，沈河站，电池组一，电池1</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>鞍山市，铁西站，电池组三，电池21</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>抚顺市，东洲站，电池组二，电池11</td>
+                                            <td>电流过低</td>
+                                            <td>08/17/2014 00:20</td>
+                                            <td>7.84A</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>抚顺市，东洲站，电池组二，电池18</td>
+                                            <td>电压过低</td>
+                                            <td>08/10/2014 11:06</td>
+                                            <td>7.84V</td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option value="0" selected="selected">已处理</option>
+                                                    <option value="1">未处理</option>
+                                                    <option value="2">待处理</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <textarea class="comments"></textarea>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm btn-white btn-round">
+                                                    <i class="ace-icon fa fa-check red"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.alarm log tab content -->
-                            </div>
+                            <!-- /.alarm log table -->
                         </div>
+                        <!-- /.col -->
                     </div>
+                    <!-- /.row -->
                 </div>
+                <!-- /.page-content -->
             </div>
             <!-- /.main-content-inner -->
         </div>
