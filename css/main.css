@@ -307,6 +307,18 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   padding-top: 5px;
 }
 
+#discharge-pwd-window {
+    width: 200px;
+    height: 120px;
+    padding: 20px;
+    background-color: #F4360A;
+    position: absolute;
+    top: 200px;
+    left: 90px;
+    display: none;
+    font-size: 14px;
+}
+
 
 /* -----------------------------------------
   Discharge Report page
