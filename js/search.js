@@ -2,7 +2,6 @@ $(document).ready(function() {
     // dataTable
     $('#search-result-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
-        length: false,
         ordering: false,
         paging: true,
         info: true,
@@ -23,29 +22,70 @@ $(document).ready(function() {
         }
     });
 
-    // advanced filter button event
-    $("#more-filter-btn").click(function(){
-        $("#filter-div").append('<select name="relation" class="form-control" id="relation">\
-                                <option value="" disabled selected>关联</option>\
-                                <option value="">且</option>\
-                                <option value="">或</option>\
-                                <option value="">不包含</option>\
-                                </select>\
-                                <select name="filter2" class="form-control" id="filter2">\
-                                <option value="" disabled selected>筛选项目</option>\
-                                <option value="">浮充电通信站</option>\
-                                <option value="">均充电通信站</option>\
-                                <option value="">核对性放电通信站</option>\
-                                <option value="">供电通信站</option>\
-                                <option value="">需核对性放电通信站</option>\
-                                <option value="">通信故障通信站</option>\
-                                <option value="">报警通信站</option>\
-                                <option value="">报警处理中通信站</option>\
-                                </select>');
-        });
+    // write all staion here and once in order to reduce repetition of code
+    var stationArray = [{'value':'zhongshan','text':'中山站'},
+                        {'value':'xigang','text':'西岗站'},
+                        {'value':'shahekou','text':'沙河口站'},
+                        {'value':'ganjingzi','text':'甘井子站'},
+                        {'value':'heping','text':'和平站'},
+                        {'value':'shenhe','text':'沈河站'},
+                        {'value':'huanggu','text':'皇姑站'},
+                        {'value':'dadong','text':'大东站'},
+                        {'value':'tiedong','text':'铁东站'},
+                        {'value':'tiexi','text':'铁西站'},
+                        {'value':'lishan','text':'立山站'},
+                        {'value':'qianshan','text':'千山站'},
+                        {'value':'xinfu','text':'新抚站'},
+                        {'value':'dongzhou','text':'东洲站'},
+                        {'value':'wanghua','text':'望花站'},
+                        {'value':'shuncheng','text':'顺城站'}
+    ];
+    
+    // change corresponding station options upon city options changed
+    // write changeStationOption() in order to reduce repetition of code
+    // j <= i + 3: each city has four stations
+    function changeStationOption(i) {
+        for (var j = i; j <= i + 3; j++) {
+            $('#station').append($("<option></option>")
+            .attr("value",stationArray[j]['value'])
+            .text(stationArray[j]['text']));
+        };
+    }
 
-    $("#less-filter-btn").click(function(){
-        $("#relation").remove();
-        $("#filter2").remove();
+    $("#city").change(function(){               
+        // if city selection changes, get cityName and change to its corresponding stations
+        // need to remove all existing options before append corresponding stations
+        var cityName = $("#city").val();
+        switch (cityName) {
+            case "0":
+                $("#station option").remove();
+                $('#station').append('<option value="" disabled selected>通信站</option>');
+                break;
+            
+            // i is the first index of city's corresponding station at stationArray[]
+            case "dalian":
+                $("#station option").remove();
+                var i = 0;
+                changeStationOption(i);
+                break;
+
+            case "shenyang":
+                $("#station option").remove();
+                var i = 4;
+                changeStationOption(i);
+                break;
+
+            case "anshan":
+                $("#station option").remove();
+                var i = 8;
+                changeStationOption(i);
+                break;
+
+            case "fushun":
+                $("#station option").remove();
+                var i = 12;
+                changeStationOption(i);
+                break;
+        }
     });
 });

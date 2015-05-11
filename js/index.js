@@ -2,10 +2,10 @@ $(document).ready(function() {
     // pie chart initialization
     var placeholder = $('#station-piechart').css({'width':'100%' , 'height':'200px'});
     var data = [
-        { label: "浮充电状态",  data: 65, color: "#6B8E23"},
-        { label: "均充电状态",  data: 17, color: "#778899"},
-        { label: "核对性放电",  data: 10, color: "#DA5430"},
-        { label: "供电状态",  data: 8, color: "#8B4513"}
+        {label: "浮充电状态", data: 65, color: "#6B8E23"},
+        {label: "均充电状态", data: 17, color: "#778899"},
+        {label: "核对性放电", data: 10, color: "#DA5430"},
+        {label: "供电状态", data: 8, color: "#8B4513"}
     ]
 
     $.plot(placeholder, data, {
@@ -27,6 +27,7 @@ $(document).ready(function() {
     var noChargeStation = $("#total-station-list, #stable-station-list, #discharge-station-list, #supply-station-list");
     var noDischargeStation = $("#total-station-list, #stable-station-list, #charge-station-list, #supply-station-list");
     var noSupplyStation = $("#total-station-list, #stable-station-list, #charge-station-list, #discharge-station-list");
+    var allStationInfobox = $("#all-station-infobox, #stable-station-infobox, #charge-station-infobox, #discharge-station-infobox, #supply-station-infobox");
 
     var lastIndex = null;
     $('#station-piechart').on('plothover', function (event, pos, item) {
@@ -35,22 +36,26 @@ $(document).ready(function() {
                 lastIndex = item.seriesIndex;
                 var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
                 $tooltip.show().children(0).text(tooltip_text);
-                // while hover to the pie area, show corresponding table and hide other else
+                // while hover to the pie area, show corresponding table/infobox and hide other else
                 if(item.seriesIndex === 0) {
                     $("#stable-station-list").show();
                     noStableStation.hide();
+                    $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
                 }
                 else if(item.seriesIndex === 1) {
                     $("#charge-station-list").show();
                     noChargeStation.hide();
+                    $("#charge-station-infobox").css({'font-size':'16px','color':'#58728C'});
                 }
                 else if(item.seriesIndex === 2) {
                     $("#discharge-station-list").show();
                     noDischargeStation.hide();
+                    $("#discharge-station-infobox").css({'font-size':'16px','color':'#EF3F0F'});
                 }
                 else if(item.seriesIndex === 3) {
                     $("#supply-station-list").show();
                     noSupplyStation.hide();
+                    $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
                 }
             }
             $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
@@ -58,35 +63,20 @@ $(document).ready(function() {
         else {
             $tooltip.hide();
             lastIndex = null;
+            allStationInfobox.css({'font-size':'13px','color':'#393939'});
         }
     });
     
     // show corresponding tables while hover on the station total infobox
-    $("#total-station").mouseover(function(){
+    $("#all-station-infobox").mouseover(function(){
         $("#total-station-list").show();
         noAllStation.hide();
-    });
-    $("#total-stable").mouseover(function(){
-        $("#stable-station-list").show();
-        noStableStation.hide();
-    });
-    $("#total-charge").mouseover(function(){
-        $("#charge-station-list").show();
-        noChargeStation.hide();
-    });
-    $("#total-discharge").mouseover(function(){
-        $("#discharge-station-list").show();
-        noDischargeStation.hide();
-    });
-    $("#total-supply").mouseover(function(){
-        $("#supply-station-list").show();
-        noSupplyStation.hide();
+        $(this).css({'font-size':'16px','color':'blue'});
     });
 
     // five tables initialization
     $('#total-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table').dataTable({
         lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
-        length: true,
         ordering: false,
         paging: true,
         info: true,

@@ -634,31 +634,15 @@
                                         简易查询
                                     </h4>
                                     <div class="form-group col-sm-offset-2 col-sm-8">
-                                        <select name="city" class="form-control">
-                                            <option value="" disabled selected>城市</option>
+                                        <select id="city" name="city" class="form-control">
+                                            <option value="0">城市</option>
                                             <option value="dalian">大连市</option>
                                             <option value="shenyang">沈阳市</option>
                                             <option value="anshan">鞍山市</option>
                                             <option value="fushun">抚顺市</option>
                                         </select>
-                                        <select name="station" class="form-control">
+                                        <select id="station" name="station" class="form-control">
                                             <option value="" disabled selected>通信站</option>
-                                            <option value="">中山站</option>
-                                            <option value="">西岗站</option>
-                                            <option value="">沙河口站</option>
-                                            <option value="">甘井子站</option>
-                                            <option value="">和平站</option>
-                                            <option value="">沈河站</option>
-                                            <option value="">皇姑站</option>
-                                            <option value="">大东站</option>
-                                            <option value="">铁东站</option>
-                                            <option value="">铁西站</option>
-                                            <option value="">立山站</option>
-                                            <option value="">千山站</option>
-                                            <option value="">新抚站</option>
-                                            <option value="">东洲站</option>
-                                            <option value="">望花站</option>
-                                            <option value="">顺城站</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-offset-4 col-sm-4 center">
@@ -674,25 +658,58 @@
                                 <div class="form-group">
                                     <h4 class="col-sm-offset-4 col-sm-4 center bolder filter-label">
                                         进阶查询&nbsp;&nbsp;
-                                        <button class="btn btn-xs btn-success btn-round" id="more-filter-btn" type="button">
-                                            <i class="ace-icon fa fa-plus tooltip-success" data-rel="tooltip" data-placement="top" title="新增筛选项目"></i>
-                                        </button>
-                                        <button class="btn btn-xs btn-danger btn-round" id="less-filter-btn" type="button">
-                                            <i class="ace-icon fa fa-minus tooltip-error" data-rel="tooltip" data-placement="top" title="减少筛选项目"></i>
-                                        </button>
                                     </h4>
-                                    <div class="form-group col-sm-offset-2 col-sm-8" id="filter-div">
-                                        <select name="filter1" class="form-control">
-                                            <option value="" disabled selected>筛选项目</option>
-                                            <option value="">浮充电通信站</option>
-                                            <option value="">均充电通信站</option>
-                                            <option value="">核对性放电通信站</option>
-                                            <option value="">供电通信站</option>
-                                            <option value="">需核对性放电通信站</option>
-                                            <option value="">通信故障通信站</option>
-                                            <option value="">报警通信站</option>
-                                            <option value="">报警处理中通信站</option>
-                                        </select>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 浮充电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 均充电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 核对性放电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 供电通信站</span>
+                                          </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 需核对性放电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 通信故障通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 报警通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 报警处理中通信站</span>
+                                          </label>
+                                        </div>
                                     </div>
                                     <div class="col-sm-offset-4 col-sm-4 center">
                                         <button type="submit" class="btn btn-primary btn-round">
@@ -704,8 +721,7 @@
                         </div>
                     </div>
                     <!-- /.upper part -->
-                    <div class="hr hr-14 hr-double"></div>
-                    <div class="space-6"></div>
+                    <div class="hr hr-18 hr-double"></div>
                     <!-- bottom part -->
                     <div class="row">
                         <div class="col-sm-offset-1 col-sm-10">

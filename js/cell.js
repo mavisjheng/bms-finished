@@ -120,4 +120,6 @@ $(document).ready(function() {
             graph.setData(cellData);
         }
     });
+
+    $(".progress .progress-bar").progressbar();
 });

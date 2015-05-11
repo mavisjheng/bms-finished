@@ -206,7 +206,7 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 /* -----------------------------------------
   Cell page
 ----------------------------------------- */
-#pie-info {
+/*#pie-info {
   font-size: 28px;
   font-weight: bold;
   color: #2d5a6b;
@@ -218,7 +218,7 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   font-weight: bold;
   color: #2d5a6b;
   font-family: sans-serif;
-}
+}*/
 
 
 /* -----------------------------------------
