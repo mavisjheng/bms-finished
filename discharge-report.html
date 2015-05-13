@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="css/dataTables.tableTools.css" />
     <link rel="stylesheet" href="css/morris/morris.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
@@ -727,7 +728,7 @@
                                         <div id="group-voltage-chart" style="height: 330px;"></div>
                                     </div>
                                     <div id="discharge-report" class="tab-pane">
-                                        <table class="table table-bordered">
+                                        <table id="discharge-report-table" class="table table-bordered">
                                             <tbody>
                                                 <tr>
                                                     <th colspan="4">站名：</th>
@@ -1096,9 +1097,11 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- dataTables -->
+    <!-- dataTables and tableTools-->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
+    <script src="js/ace/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <script src="js/ace/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
     <!-- Morris charts -->
     <script src="js/morris/raphael-min.js"></script>
     <script src="js/morris/morris.min.js"></script>

@@ -2,7 +2,6 @@ $(document).ready(function() {
     //dataTable
     $('#need-discharge-table, #discharge-ing-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
-        length: false,
         ordering: false,
         paging: true,
         info: true,

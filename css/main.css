@@ -204,24 +204,6 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 
 /* -----------------------------------------
-  Cell page
------------------------------------------ */
-/*#pie-info {
-  font-size: 28px;
-  font-weight: bold;
-  color: #2d5a6b;
-  font-family: sans-serif;
-}
-
-#pie-infos {
-  font-size: 20px;
-  font-weight: bold;
-  color: #2d5a6b;
-  font-family: sans-serif;
-}*/
-
-
-/* -----------------------------------------
   Log page
 ----------------------------------------- */
 .bkgd-table-blue {
@@ -307,22 +289,18 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   padding-top: 5px;
 }
 
-#discharge-pwd-window {
-    width: 200px;
-    height: 120px;
-    padding: 20px;
-    background-color: #F4360A;
-    position: absolute;
-    top: 200px;
-    left: 90px;
-    display: none;
-    font-size: 14px;
-}
-
 
 /* -----------------------------------------
   Discharge Report page
 ----------------------------------------- */
 #finish-discharge-table_info {
   font-size: 13.5px;
+}
+
+
+/* -----------------------------------------
+  Module page
+----------------------------------------- */
+#switch-module-box {
+  margin-top: 3px;
 }

@@ -20,7 +20,6 @@ $(document).ready(function() {
     // dataTable
     $('#cell-alarm-table').dataTable({
         lengthMenu: [ [5, 10, 20, 30, 50, -1], [5, 10, 20, 30, 50, "所有"] ],
-        length: false,
         ordering: false,
         paging: true,
         info: true,
@@ -41,44 +40,15 @@ $(document).ready(function() {
         }
     });
 
-    // easy pie chart, 80% yellow, 50% red
-    $('.easy-pie-chart.percentage').each(function() {
-        var $box = $(this).closest('.infobox');
-        $(this).easyPieChart({
-            barColor: function colorChange(percentage) {
-                if (percentage < 50) {
-                    return '#d4301d';
-                } else if (percentage > 49 && percentage < 80){
-                    return '#f6a509';
-                } else {
-                    return '#87AA2A';
-                }
-            },
-            trackColor: '#E2E2E2',
-            lineWidth: 20,
-            scaleColor: false,
-            size: 160,
-        });
-    });
-
-    // update cell capacity percentage automatically
-    var percentStr = $('.easy-pie-chart.percentage span').text();
-    var percentage = parseInt(percentStr);
-
-    function updateStatus(percentage) {
-        $('.easy-pie-chart.percentage span').text(percentage);
-        $('.easy-pie-chart.percentage').data('easyPieChart').update(percentage);
-    }
-
-    setInterval(function() {
-        // percentage decreases 1 every 5 seconds until reach to 0%
-        percentage--;
-        if (percentage < 0) {
-            percentage = 100;
+    // update cell-history-morris-chart when click "submit" button
+    $("#cell-history-chart-form").submit(function(event) {
+        event.preventDefault();
+        var chartType = $("#cell-chart-type option:selected").val();
+        if (chartType) {
+            var cellData = prepareDemoCellData(chartType);
+            graph.setData(cellData);
         }
-        // update
-        updateStatus(percentage);
-    }, 5000);
+    });
 
     // update cell-history-morris-chart upon the type selection changes
     var initData = prepareDemoCellData();
@@ -112,14 +82,42 @@ $(document).ready(function() {
         return data;
     }
 
-    $("#cell-history-chart-form").submit(function(event) {
-        event.preventDefault();
-        var chartType = $("#cell-chart-type option:selected").val();
-        if (chartType) {
-            var cellData = prepareDemoCellData(chartType);
-            graph.setData(cellData);
+    // cell vertical progressbar
+    function colorOfBar(percentage) {
+        if (percentage <= 49) {
+            return '#d4301d';
+        } 
+        else if (percentage >= 50 && percentage <= 79){
+            return '#f6a509';
+        } 
+        else {
+            return '#87AA2A';
         }
-    });
+    }
 
-    $(".progress .progress-bar").progressbar();
+    var initialPercentage = 100;
+    var currentPercentage = initialPercentage;
+
+    function randomProgress(){
+        var percentage = String(currentPercentage);
+        var decreseAmount = 1;
+        $('#cell-progressbar').jQMeter({
+            goal: '100',
+            raised: percentage,
+            barColor: colorOfBar(percentage),
+            bgColor: '#E2E2E2',
+            orientation: 'vertical',
+            width: '100px',
+            height: '200px',
+            animationSpeed: 0,
+            counterSpeed: 800
+        });
+        // if currentPercentage-decreseAmount is less than 0, start over from initialPercentage
+        currentPercentage = ((percentage - decreseAmount) < 0) ? initialPercentage: percentage - decreseAmount;
+    }
+
+    // first run
+    randomProgress();
+    // decrese every 5 sec
+    setInterval(randomProgress, 5000);
 });

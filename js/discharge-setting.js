@@ -2,7 +2,6 @@ $(document).ready(function() {
     //dataTable
     $('#discharge-list-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
-        length: false,
         ordering: false,
         paging: true,
         info: true,
@@ -194,10 +193,5 @@ $(document).ready(function() {
     $("#reset-btn").click(function() {
         $("#station option").remove();
         $('#station').append('<option value="" disabled selected>通信站</option>');
-    });
-
-    // password window pop out when click discharge confirm btn 
-    $("#discharge-confirm-btn").click(function() {
-        $("#discharge-pwd-window").css('display','block');
     });
 });

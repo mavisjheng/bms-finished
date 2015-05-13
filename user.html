@@ -681,19 +681,19 @@
                                         <form>
                                             <div class="center">
                                                 <label>
-                                                    <input type="radio" class="ace" value="on" />
+                                                    <input type="radio" class="ace" name="confirmation" value="on" />
                                                     <span class="lbl">&nbsp;开启</span>
                                                 </label>
                                             </div>
                                             <div class="center">
                                                 <label>
-                                                    <input type="radio" class="ace" value="off" />
+                                                    <input type="radio" class="ace" name="confirmation" value="off" />
                                                     <span class="lbl">&nbsp;关闭</span>
                                                 </label>
                                             </div>
                                             <div class="hr hr-12 hr-dotted"></div>
                                             <div class="center">
-                                                <button type="submit" class="btn btn-success btn-lg btn-white btn-round">
+                                                <button type="button" class="btn btn-success btn-lg btn-white btn-round" data-toggle="modal" data-target="#pwd-confirmation">
                                                     <i class="ace-icon fa fa-check-circle"></i><span class="bolder">&nbsp;确认</span>
                                                 </button>
                                             </div>
@@ -715,7 +715,7 @@
                                         <th>电话</th>
                                         <th>编辑</th>
                                         <th>
-                                            <button>
+                                            <button type="button" id="add-user-btn" data-toggle="modal" data-target="#add-user">
                                                 <i class="ace-icon fa fa-plus bigger-120 tooltip-success" data-rel="tooltip" data-placement="top" title="新增联系人"></i>
                                             </button>
                                         </th>
@@ -846,6 +846,65 @@
                             </table>
                         </div>
                         <!-- /.user info table -->
+                        <!-- discharge-pwd cancel confirmation modal -->
+                        <div class="modal fade" id="pwd-confirmation">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</span></button>
+                                        <h4 class="modal-titl bolder">请输入核对性放电密码以确认变更</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <input type="password" class="form-control">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-default btn-round" data-dismiss="modal"><span class="bolder">取消</span></button>
+                                        <button type="button" class="btn btn-sm btn-primary btn-round"><span class="bolder">确认</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.discharge-pwd cancel confirmation modal -->
+                        <!-- new user info modal -->
+                        <div class="modal fade" id="add-user">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title bolder" id="exampleModalLabel">新增联系人</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label bolder">联系人：</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label bolder">邮箱：</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label bolder">电话：</label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-default btn-round" data-dismiss="modal"><span class="bolder">取消</span></button>
+                                        <button type="button" class="btn btn-sm btn-primary btn-round"><span class="bolder">新增</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.new user info modal -->
                     </div>
                     <!-- /.row -->
                 </div>

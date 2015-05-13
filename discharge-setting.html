@@ -670,18 +670,11 @@
                                                 <input id="dischargePercent" class="form-group col-sm-8" type="text" placeholder="%" />
                                             </div>
                                             <div class="center">
-                                                <button type="button" class="btn btn-danger btn-round" id="discharge-confirm-btn">
+                                                <button type="button" class="btn btn-danger btn-round" data-toggle="modal" data-target="#pwd-confirmation">
                                                     <i class="ace-icon fa fa-check-circle"></i><span class="bolder">&nbsp;确定放电</span>
                                                 </button>
                                                 <button type="reset" class="btn btn-round btn-inverse" id="reset-btn">
                                                     <i class="ace-icon fa fa-refresh"></i><span class="bolder">&nbsp;重新设定</span>
-                                                </button>
-                                            </div>
-                                            <div id="discharge-pwd-window">
-                                                <div>请输入核对性放电密码：</div>
-                                                <input type="password"/>
-                                                <button class="btn btn-round btn-primary">
-                                                    <i class="ace-icon fa fa-key"></i><span class="bolder">&nbsp;确认</span>
                                                 </button>
                                             </div>
                                         </form>
@@ -823,6 +816,27 @@
                             </table>
                         </div>
                         <!-- /.discharge list table -->
+                        <!-- discharge confirmation modal -->
+                        <div class="modal fade" id="pwd-confirmation">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-titl bolder">请输入核对性放电密码</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <input type="password" class="form-control">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-default btn-round" data-dismiss="modal"><span class="bolder">取消</span></button>
+                                        <button type="button" class="btn btn-sm btn-primary btn-round"><span class="bolder">确认</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.discharge confirmation modal -->
                     </div>
                     <!-- /.row -->
                 </div>

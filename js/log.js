@@ -20,10 +20,7 @@ $(document).ready(function() {
     // dataTable
     $('#alarm-log-table').DataTable({
         dom: 'lTftip', // length, tableTools, filter, table, information, pagination
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, "所有"]
-        ],
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
         ordering: false,
         paging: true,
         info: true,

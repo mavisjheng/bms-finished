@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="css/bootstrap-progressbar-3.3.1.css" />
     <link rel="stylesheet" href="css/ace/daterangepicker.css" />
     <link rel="stylesheet" href="css/morris/morris.css" />
     <!-- text fonts -->
@@ -634,9 +633,9 @@
                     <!-- upper part -->
                     <div class="row">
                         <!-- upper left part -->
-                        <div class="col-sm-5 center">
+                        <div class="col-sm-5">
                             <!-- system state -->
-                            <div class="alert alert-block alert-warning font-18 bolder">
+                            <div class="alert alert-block alert-warning font-18 bolder center">
                                 <div>
                                     状态：<strong class="green">浮充</strong>
                                 </div>
@@ -644,12 +643,8 @@
                                     开始时间：<strong class="green">2015/04/30 08:45:00</strong>
                                 </div>
                             </div>
-                            <!-- cell pie chart -->
-                            <!--div class="easy-pie-chart percentage" id="pie-info" data-percent="83"><span>83</span>%</div>
-                            <div class="space-4"></div>
-                            <div id="pie-infos">119.3(V) 13(A)</div-->
-                            <div class="progress right">
-                                <div class="progress-bar" data-transitiongoal="75"></div>
+                            <div class="col-sm-offset-5">
+                                <div id="cell-progressbar"></div>
                             </div>
                         </div>
                         <!-- /.upper left part -->
@@ -908,7 +903,6 @@
                         <!-- /.upper right part -->
                     </div>
                     <!-- /.upper part -->
-                    <div class="space-8"></div>
                     <!-- bottom part -->
                     <div class="row">
                         <div class="tabbable">
@@ -1153,16 +1147,15 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <script src="js/ace/bootstrap-progressbar.js"></script>
+    <!-- vertical progressbar -->
+    <script src="js/progressbar/jqmeter.min.js"></script>
     <!-- data ranger picker -->
     <script src="js/ace/date-time/moment.js"></script>
     <script src="js/ace/date-time/daterangepicker.js"></script>
     <!-- dataTables -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
-    <!-- easy-pie-chart -->
-    <script src="js/ace/jquery.easypiechart.js"></script>
-    <!-- Morris charts -->
+    <!-- Morris chart -->
     <script src="js/morris/raphael-min.js"></script>
     <script src="js/morris/morris.min.js"></script>
     <!-- ace scripts -->
