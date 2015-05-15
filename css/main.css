@@ -192,13 +192,15 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 /* -----------------------------------------
   Discharge page
 ----------------------------------------- */
-#start-discharge-btn {
+#start-discharge-btn,
+#stop-discharge-btn {
   float: right;
   margin-top: 4px;
   margin-right: 6px;
 }
 
-#need-discharge-table_filter {
+#need-discharge-table_filter,
+#discharge-ing-table_filter {
   float: left;
 }
 

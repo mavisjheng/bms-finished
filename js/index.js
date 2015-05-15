@@ -27,7 +27,6 @@ $(document).ready(function() {
     var noChargeStation = $("#total-station-list, #stable-station-list, #discharge-station-list, #supply-station-list");
     var noDischargeStation = $("#total-station-list, #stable-station-list, #charge-station-list, #supply-station-list");
     var noSupplyStation = $("#total-station-list, #stable-station-list, #charge-station-list, #discharge-station-list");
-    var allStationInfobox = $("#all-station-infobox, #stable-station-infobox, #charge-station-infobox, #discharge-station-infobox, #supply-station-infobox");
 
     var lastIndex = null;
     $('#station-piechart').on('plothover', function (event, pos, item) {
@@ -36,25 +35,29 @@ $(document).ready(function() {
                 lastIndex = item.seriesIndex;
                 var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
                 $tooltip.show().children(0).text(tooltip_text);
-                // while hover to the pie area, show corresponding table/infobox and hide other else
+                // while hover to the pie area, show corresponding table and hide other else
                 if(item.seriesIndex === 0) {
                     $("#stable-station-list").show();
                     noStableStation.hide();
+                    $(".info-box").css({'font-size':'13px','color':'#393939'});
                     $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
                 }
                 else if(item.seriesIndex === 1) {
                     $("#charge-station-list").show();
                     noChargeStation.hide();
+                    $(".info-box").css({'font-size':'13px','color':'#393939'});
                     $("#charge-station-infobox").css({'font-size':'16px','color':'#58728C'});
                 }
                 else if(item.seriesIndex === 2) {
                     $("#discharge-station-list").show();
                     noDischargeStation.hide();
+                    $(".info-box").css({'font-size':'13px','color':'#393939'});
                     $("#discharge-station-infobox").css({'font-size':'16px','color':'#EF3F0F'});
                 }
                 else if(item.seriesIndex === 3) {
                     $("#supply-station-list").show();
                     noSupplyStation.hide();
+                    $(".info-box").css({'font-size':'13px','color':'#393939'});
                     $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
                 }
             }
@@ -63,7 +66,7 @@ $(document).ready(function() {
         else {
             $tooltip.hide();
             lastIndex = null;
-            allStationInfobox.css({'font-size':'13px','color':'#393939'});
+            $(".info-box").css({'font-size':'13px','color':'#393939'});
         }
     });
     
@@ -71,8 +74,34 @@ $(document).ready(function() {
     $("#all-station-infobox").mouseover(function(){
         $("#total-station-list").show();
         noAllStation.hide();
-        $(this).css({'font-size':'16px','color':'blue'});
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#all-station-infobox").css({'font-size':'16px','color':'blue'});
     });
+    $("#stable-station-infobox").mouseover(function(){
+        $("#stable-station-list").show();
+        noStableStation.hide();
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
+    });
+    $("#charge-station-infobox").mouseover(function(){
+        $("#charge-station-list").show();
+        noChargeStation.hide();
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#charge-station-infobox").css({'font-size':'16px','color':'#58728C'});
+    });
+    $("#discharge-station-infobox").mouseover(function(){
+        $("#discharge-station-list").show();
+        noDischargeStation.hide();
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#discharge-station-infobox").css({'font-size':'16px','color':'#EF3F0F'});
+    });
+    $("#supply-station-infobox").mouseover(function(){
+        $("#supply-station-list").show();
+        noSupplyStation.hide();
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+    });
+
 
     // five tables initialization
     $('#total-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table').dataTable({

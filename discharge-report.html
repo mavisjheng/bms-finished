@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="css/dataTables.tableTools.css" />
+    <link rel="stylesheet" href="css/ace/daterangepicker.css" />
     <link rel="stylesheet" href="css/morris/morris.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
@@ -631,6 +631,22 @@
                     <div class="row">
                         <div class="space-4"></div>
                         <div class="col-sm-5">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+                                            <input class="form-control" type="text" name="date-range-picker" required="required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input class="form-control btn btn-sm btn-round btn-success" type="submit" value="提交" />
+                                    </div>
+                                </div>
+                            </form>
                             <div class="table-header">
                                 近期放电完成电池组
                             </div>
@@ -645,61 +661,61 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>05/03/2015 10:00</td>
+                                        <td>05/15/2015 19:00</td>
                                         <td>抚顺市</td>
                                         <td>新抚站</td>
                                         <td>电池组一</td>
                                     </tr>
                                     <tr>
-                                        <td>04/03/2015 10:00</td>
+                                        <td>05/13/2015 19:00</td>
                                         <td>鞍山市</td>
                                         <td>立山站</td>
                                         <td>电池组二</td>
                                     </tr>
                                     <tr>
-                                        <td>03/18/2015 10:00</td>
+                                        <td>05/08/2015 19:00</td>
                                         <td>抚顺市</td>
                                         <td>东洲站</td>
                                         <td>电池组三</td>
                                     </tr>
                                     <tr>
-                                        <td>03/13/2015 10:00</td>
+                                        <td>05/01/2015 19:00</td>
                                         <td>大连市</td>
                                         <td>甘井子站</td>
                                         <td>电池组二</td>
                                     </tr>
                                     <tr>
-                                        <td>02/10/2015 10:00</td>
+                                        <td>04/30/2015 19:00</td>
                                         <td>沈阳市</td>
                                         <td>和平站</td>
                                         <td>电池组三</td>
                                     </tr>
                                     <tr>
-                                        <td>02/05/2015 10:00</td>
+                                        <td>04/25/2015 19:00</td>
                                         <td>大连市</td>
                                         <td>西岗站</td>
                                         <td>电池组四</td>
                                     </tr>
                                     <tr>
-                                        <td>02/01/2015 10:00</td>
+                                        <td>04/21/2015 19:00</td>
                                         <td>沈阳市</td>
                                         <td>沈河站</td>
                                         <td>电池组一</td>
                                     </tr>
                                     <tr>
-                                        <td>01/20/2015 10:00</td>
+                                        <td>04/20/2015 19:00</td>
                                         <td>鞍山市</td>
                                         <td>铁西站</td>
                                         <td>电池组三</td>
                                     </tr>
                                     <tr>
-                                        <td>01/12/2015 10:00</td>
+                                        <td>04/17/2015 19:00</td>
                                         <td>抚顺市</td>
                                         <td>东洲站</td>
                                         <td>电池组二</td>
                                     </tr>
                                     <tr>
-                                        <td>01/03/2015 10:00</td>
+                                        <td>04/15/2015 19:00</td>
                                         <td>鞍山市</td>
                                         <td>铁东站</td>
                                         <td>电池组三</td>
@@ -1097,12 +1113,12 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- dataTables and tableTools-->
+    <!-- data ranger picker -->
+    <script src="js/ace/date-time/moment.js"></script>
+    <script src="js/ace/date-time/daterangepicker.js"></script>
+    <!-- dataTable -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
-    <script src="js/ace/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
-    <script src="js/ace/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
-    <!-- Morris charts -->
     <script src="js/morris/raphael-min.js"></script>
     <script src="js/morris/morris.min.js"></script>
     <!-- ace scripts -->
