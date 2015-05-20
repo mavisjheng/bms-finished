@@ -256,7 +256,9 @@ input[type=checkbox].ace.ace-switch ~ .lbl {
 .grid4 {
  width:23%;
 }
-
+.grid5 {
+  width:18%;
+}
 .itemdiv.dialogdiv > .body:before{
  display:none;
 }

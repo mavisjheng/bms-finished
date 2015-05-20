@@ -16,15 +16,14 @@
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
     <link rel="stylesheet" href="css/ace/ace.css" />
+    <!-- if lte IE 9 -->
+    <link rel="stylesheet" href="css/ace/ace-part2.css" class="ace-main-stylesheet" />
+    <!-- endif -->
+    <!-- if lte IE 9 -->
+    <link rel="stylesheet" href="css/ace/ace-ie.css" />
+    <!-- endif -->
     <!-- main styles -->
     <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="css/ace/ace-part2.css" class="ace-main-stylesheet" />
-    <![endif]-->
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="css/ace/ace-ie.css" />
-    <![endif]-->
-    <!-- inline styles related to this page -->
     <!-- ace settings handler -->
     <script src="js/ace/ace-extra.js"></script>
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
@@ -1965,7 +1964,7 @@
                                                                 <td></td>
                                                                 <td>电池组绝缘电阻</td>
                                                                 <td>直流母线绝缘电阻</td>
-                                                                <td>剩馀时间</td>
+                                                                <td>剩馀时间〈分钟〉</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>超过</td>
@@ -1976,7 +1975,7 @@
                                                                     <input type="text"/>
                                                                 </td>
                                                                 <td rowspan="2">
-                                                                    <input type="text" placeholder="单位：分钟" style="height:115%;" />
+                                                                    <input type="text" style="height:115%;" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -2083,14 +2082,14 @@
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script type="text/javascript">
-    window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
+        window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
     </script>
     <!-- <![endif]-->
-    <!--[if IE]>
-        <script type="text/javascript">
-            window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
-        </script>
-    <![endif]-->
+    <!-- if IE -->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
+    </script>
+    <!-- endif -->
     <script type="text/javascript">
     if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
@@ -2099,7 +2098,7 @@
     <!-- data ranger picker -->
     <script src="js/ace/date-time/moment.js"></script>
     <script src="js/ace/date-time/daterangepicker.js"></script>
-    <!-- dataTables -->
+    <!-- dataTable -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
     <!-- Morris charts -->

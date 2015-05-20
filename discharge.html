@@ -14,15 +14,14 @@
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
     <link rel="stylesheet" href="css/ace/ace.css" />
+    <!-- if lte IE 9 -->
+    <link rel="stylesheet" href="css/ace/ace-part2.css" class="ace-main-stylesheet" />
+    <!-- endif -->
+    <!-- if lte IE 9 -->
+    <link rel="stylesheet" href="css/ace/ace-ie.css" />
+    <!-- endif -->
     <!-- main styles -->
     <link rel="stylesheet" href="css/main.css" />
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="css/ace/ace-part2.css" class="ace-main-stylesheet" />
-    <![endif]-->
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="css/ace/ace-ie.css" />
-    <![endif]-->
-    <!-- inline styles related to this page -->
     <!-- ace settings handler -->
     <script src="js/ace/ace-extra.js"></script>
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
@@ -1004,20 +1003,20 @@
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script type="text/javascript">
-    window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
+        window.jQuery || document.write("<script src='js/ace/jquery.js'>" + "<" + "/script>");
     </script>
     <!-- <![endif]-->
-    <!--[if IE]>
+    <!-- if IE -->
     <script type="text/javascript">
         window.jQuery || document.write("<script src='js/ace/jquery1x.js'>"+"<"+"/script>");
     </script>
-    <![endif]-->
+    <!-- endif -->
     <script type="text/javascript">
     if ('ontouchstart' in document.documentElement) document.write("<script src='js/ace/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- dataTables -->
+    <!-- dataTable -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
     <!-- ace scripts -->
