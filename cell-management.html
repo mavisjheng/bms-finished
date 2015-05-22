@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>首页 - 蓄电池全过程管理系统</title>
+    <title>电池管理 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
@@ -638,499 +638,212 @@
         <!-- /.sidebar -->
         <div class="main-content">
             <div class="main-content-inner">
-                <!-- breadcrumbs -->
                 <div class="breadcrumbs">
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a></li>
-                        <li class="active">首页</li>
+                        <li class="active">电池管理</li>
                     </ul>
                 </div>
-                <!-- /.breadcrumbs -->
+                <!-- /.breadcrumb -->
                 <div class="page-content">
+                    <!-- upper part -->
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="widget-box widget-color-purple">
-                                <div class="widget-header">
-                                    <h4 class="widget-title bolder">
-                                        <i class="ace-icon fa fa-pie-chart"></i>
-                                        通信站状态分布
+                            <form>
+                                <div class="form-group">
+                                    <h4 class="col-sm-offset-4 col-sm-4 center bolder filter-label">
+                                        简易查询
                                     </h4>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="widget-main center bolder" >
-                                        <div id="station-piechart"></div>
-                                        <div class="hr hr-12 hr-double"></div>
-                                        <div class="clearfix">
-                                            <div class="grid3 info-box" id="all-station-infobox">
-                                                <span>
-                                                    通信站总数
-                                                </span>
-                                                <h3>100</h3>
-                                            </div>
-                                            <div class="grid3 info-box" id="stable-station-infobox">
-                                                <span>
-                                                    浮充电状态
-                                                </span>
-                                                <h3>48</h3>
-                                            </div>
-                                            <div class="grid3 info-box" id="charge-station-infobox">
-                                                <span>
-                                                    均充电状态
-                                                </span>
-                                                <h3>17</h3>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="hr hr-12 hr-double"></div>
-                                        <div class="clearfix">
-                                            <div class="grid3 info-box" id="discharge-station-infobox">
-                                                <span>
-                                                    核对性放电状态
-                                                </span>
-                                                <h3>8</h3>
-                                            </div>
-                                            <div class="grid3 info-box" id="supply-station-infobox">
-                                                <span>
-                                                    供电状态
-                                                </span>
-                                                <h3>12</h3>
-                                            </div>
-                                            <div class="grid3 info-box" id="alarm-station-infobox">
-                                                <span>
-                                                    报警状态
-                                                </span>
-                                                <h3>15</h3>
-                                            </div>
-                                        </div>
+                                    <div class="form-group col-sm-offset-2 col-sm-8">
+                                        <select id="city" name="city" class="form-control">
+                                            <option value="0">城市</option>
+                                            <option value="dalian">大连市</option>
+                                            <option value="shenyang">沈阳市</option>
+                                            <option value="anshan">鞍山市</option>
+                                            <option value="fushun">抚顺市</option>
+                                        </select>
+                                        <select id="station" name="station" class="form-control">
+                                            <option value="" disabled selected>通信站</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-offset-4 col-sm-4 center">
+                                        <button type="submit" class="btn btn-primary btn-round">
+                                            <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <!-- /.widget-body -->
-                            </div>
-                            <!-- /.widget-box -->
+                            </form>
                         </div>
-                        <!-- /.col -->
-                        <div class="space-2"></div>
                         <div class="col-sm-6">
-                            <div id="total-station-list">
-                                <div class="table-header">
-                                    通信站总数实时检测
+                            <form>
+                                <div class="form-group">
+                                    <h4 class="col-sm-offset-4 col-sm-4 center bolder filter-label">
+                                        分类查询
+                                    </h4>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 浮充电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 均充电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 核对性放电通信站</span>
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"> 供电通信站</span>
+                                          </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="control-label bolder blue">Checkbox</label>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl"> 需核对性放电通信站</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl"> 通信故障通信站</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl"> 报警通信站</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl"> 报警处理中通信站</span>
+                                            </label>
+                                        </div>
+                                    </div>  
+                                    <div class="col-sm-offset-4 col-sm-4 center">
+                                        <button type="submit" class="btn btn-primary btn-round">
+                                            <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <table id="total-station-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>站名</th>
-                                            <th>所在城市</th>
-                                            <th>电池组数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>中山站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>西岗站</td>
-                                            <td>大连市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沙河口站</td>
-                                            <td>大连市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>甘井子站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>大东站</td>
-                                            <td>沈阳市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>皇姑站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁东站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁西站</td>
-                                            <td>鞍山市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>新抚站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>东洲站</td>
-                                            <td>抚顺市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>顺城站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="stable-station-list">
-                                <div class="table-header bkgd-green">
-                                    浮充电状态实时检测
-                                </div>
-                                <table id="stable-station-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>站名</th>
-                                            <th>所在城市</th>
-                                            <th>电池组数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>铁东站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁西站</td>
-                                            <td>鞍山市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>中山站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>西岗站</td>
-                                            <td>大连市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沙河口站</td>
-                                            <td>大连市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>甘井子站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>新抚站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>东洲站</td>
-                                            <td>抚顺市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>顺城站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>大东站</td>
-                                            <td>沈阳市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>皇姑站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="charge-station-list">
-                                <div class="table-header bkgd-lightgray">
-                                    均充电状态实时检测
-                                </div>
-                                <table id="chagre-station-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>站名</th>
-                                            <th>所在城市</th>
-                                            <th>电池组数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>大东站</td>
-                                            <td>沈阳市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>皇姑站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁东站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁西站</td>
-                                            <td>鞍山市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>中山站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>西岗站</td>
-                                            <td>大连市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沙河口站</td>
-                                            <td>大连市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>甘井子站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>新抚站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>东洲站</td>
-                                            <td>抚顺市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>顺城站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>抚顺县站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="discharge-station-list">
-                                <div class="table-header bkgd-darkorange">
-                                    核对性放电状态实时检测
-                                </div>
-                                <table id="discharge-station-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>站名</th>
-                                            <th>所在城市</th>
-                                            <th>电池组数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>新抚站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>东洲站</td>
-                                            <td>抚顺市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>顺城站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁东站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>铁西站</td>
-                                            <td>鞍山市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="supply-station-list">
-                                <div class="table-header bkgd-brown">
-                                    供电状态实时检测
-                                </div>
-                                <table id="supply-station-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>站名</th>
-                                            <th>所在城市</th>
-                                            <th>电池组数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>中山站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>西岗站</td>
-                                            <td>大连市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>顺城站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.供電狀態通信站信息 -->
+                            </form>
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.upper part -->
+                    <div class="hr hr-18 hr-double"></div>
+                    <!-- bottom part -->
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <div class="table-header bkgd-purple">
+                                查询结果
+                            </div>
+                            <table id="search-result-table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>站名</th>
+                                        <th>所在城市</th>
+                                        <th>电池组数</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>中山站</td>
+                                        <td>大连市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>西岗站</td>
+                                        <td>大连市</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>沙河口站</td>
+                                        <td>大连市</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>甘井子站</td>
+                                        <td>大连市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>和平站</td>
+                                        <td>沈阳市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>沈河站</td>
+                                        <td>沈阳市</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>大东站</td>
+                                        <td>沈阳市</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>皇姑站</td>
+                                        <td>沈阳市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>铁东站</td>
+                                        <td>鞍山市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>铁西站</td>
+                                        <td>鞍山市</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>立山站</td>
+                                        <td>鞍山市</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>千山站</td>
+                                        <td>鞍山市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>新抚站</td>
+                                        <td>抚顺市</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>东洲站</td>
+                                        <td>抚顺市</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>望花站</td>
+                                        <td>抚顺市</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>顺城站</td>
+                                        <td>抚顺市</td>
+                                        <td>4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.bottom part -->
                 </div>
                 <!-- /.page-content -->
             </div>
@@ -1154,10 +867,6 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- Flot with pie plugin -->
-    <script src="js/ace/flot/jquery.flot.js"></script>
-    <script src="js/ace/flot/jquery.flot.pie.js"></script>
-    <script src="js/ace/flot/jquery.flot.resize.js"></script>
     <!-- dataTable -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
@@ -1185,7 +894,7 @@
     <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
     <!-- main script -->
     <script src="js/main.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/cell-management.js"></script>
 </body>
 
 </html>

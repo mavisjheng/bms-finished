@@ -2,10 +2,11 @@ $(document).ready(function() {
     // pie chart initialization
     var placeholder = $('#station-piechart').css({'width':'100%' , 'height':'200px'});
     var data = [
-        {label: "浮充电状态", data: 65, color: "#6B8E23"},
+        {label: "浮充电状态", data: 48, color: "#6B8E23"},
         {label: "均充电状态", data: 17, color: "#778899"},
-        {label: "核对性放电", data: 10, color: "#DA5430"},
-        {label: "供电状态", data: 8, color: "#8B4513"}
+        {label: "核对性放电状态", data: 8, color: "#CC9933"},
+        {label: "供电状态", data: 12, color: "#8B4513"},
+        {label: "报警状态", data: 15, color: "#DA5430"}
     ]
 
     $.plot(placeholder, data, {
@@ -46,19 +47,24 @@ $(document).ready(function() {
                     $("#charge-station-list").show();
                     noChargeStation.hide();
                     $(".info-box").css({'font-size':'13px','color':'#393939'});
-                    $("#charge-station-infobox").css({'font-size':'16px','color':'#58728C'});
+                    $("#charge-station-infobox").css({'font-size':'16px','color':'#688097'});
                 }
                 else if(item.seriesIndex === 2) {
                     $("#discharge-station-list").show();
                     noDischargeStation.hide();
                     $(".info-box").css({'font-size':'13px','color':'#393939'});
-                    $("#discharge-station-infobox").css({'font-size':'16px','color':'#EF3F0F'});
+                    $("#discharge-station-infobox").css({'font-size':'16px','color':'#b38600'});
                 }
                 else if(item.seriesIndex === 3) {
                     $("#supply-station-list").show();
                     noSupplyStation.hide();
                     $(".info-box").css({'font-size':'13px','color':'#393939'});
                     $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+                }
+                else if(item.seriesIndex === 4) {
+                    
+                    $(".info-box").css({'font-size':'13px','color':'#393939'});
+                    $("#alarm-station-infobox").css({'font-size':'16px','color':'red'});
                 }
             }
             $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
@@ -87,19 +93,23 @@ $(document).ready(function() {
         $("#charge-station-list").show();
         noChargeStation.hide();
         $(".info-box").css({'font-size':'13px','color':'#393939'});
-        $("#charge-station-infobox").css({'font-size':'16px','color':'#58728C'});
+        $("#charge-station-infobox").css({'font-size':'16px','color':'#688097'});
     });
     $("#discharge-station-infobox").mouseover(function(){
         $("#discharge-station-list").show();
         noDischargeStation.hide();
         $(".info-box").css({'font-size':'13px','color':'#393939'});
-        $("#discharge-station-infobox").css({'font-size':'16px','color':'#EF3F0F'});
+        $("#discharge-station-infobox").css({'font-size':'16px','color':'#b38600'});
     });
     $("#supply-station-infobox").mouseover(function(){
         $("#supply-station-list").show();
         noSupplyStation.hide();
         $(".info-box").css({'font-size':'13px','color':'#393939'});
         $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+    });
+    $("#alarm-station-infobox").mouseover(function(){
+        $(".info-box").css({'font-size':'13px','color':'#393939'});
+        $("#alarm-station-infobox").css({'font-size':'16px','color':'red'});
     });
 
 

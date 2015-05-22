@@ -107,6 +107,10 @@ svg{
   background: #8B4513;
 }
 
+.bkgd-darkorange {
+  background-color: #b38600;
+}
+
 .bkgd-purple {
   background: #663399;
 }
@@ -212,41 +216,42 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   background-color: #EFF3F8;
 }
 
-#alarm-log-table {
+#alarm-log-table,
+#system-log-table {
   margin-bottom: 15px;
 } 
 
-#alarm-log-table_wrapper {
+#alarm-log-table_wrapper,
+#system-log-table_wrapper {
   border: 1px solid #e0e0e0;
 }
 
-#alarm-log-table_length {
+#alarm-log-table_length,
+#system-log-table_length {
   padding-top: 10px;
   padding-left: 10px;
   margin-bottom: -30px;
 }
 
-#alarm-log-table_info {
+#alarm-log-table_info,
+#system-log-table_info {
   padding-left: 10px;
   margin-bottom: -25px;
 }
 
-#alarm-log-table_paginate {
+#alarm-log-table_paginate,
+#system-log-table_paginate {
   padding-bottom: 10px;
   margin-right: 0px;
 }
 
-#alarm-log-table_filter {
+#alarm-log-table_filter,
+#system-log-table_filter {
   margin-top: 0px;
 }
 
 .DTTT_container {
   padding-right: 10px;
-}
-
-.comments {
-  width: 300px;
-  height: 50px;
 }
 
 
@@ -258,8 +263,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 22px;
-  padding-left: 2px;
-  font-size: 18px;
+  padding-left: 5px;
+  font-size: 16px;
   font-weight: bolder;
 }      /* change the pie chart label size */
 
@@ -277,7 +282,7 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 
 
 /* -----------------------------------------
-  Search page
+  Cell Management page
 ----------------------------------------- */
 .filter-label {
   margin-top: -8px;
