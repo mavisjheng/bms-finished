@@ -34,23 +34,26 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['v'],
         labels: ['组端电压'],
+        postUnits: 'V',
         lineColors: ['purple']
     });
 
     var groupCurrent = new Morris.Line({
         element: 'group-current-chart',
         data: [
-            { x: '2015-05-15 15:00', a: 0.08 },
-            { x: '2015-05-15 16:00', a: 0.08 },
-            { x: '2015-05-15 17:00', a: 0.08 },
-            { x: '2015-05-15 18:00', a: 0.08 },
-            { x: '2015-05-15 19:00', a: 0.08 },
-            { x: '2015-05-15 20:00', a: 0.08 },
-            { x: '2015-05-15 21:00', a: 0.08 }
+            { x: '2015-05-15 15:00', a: 28 },
+            { x: '2015-05-15 16:00', a: 29 },
+            { x: '2015-05-15 17:00', a: 27 },
+            { x: '2015-05-15 18:00', a: 30 },
+            { x: '2015-05-15 19:00', a: 32 },
+            { x: '2015-05-15 20:00', a: 30 },
+            { x: '2015-05-15 21:00', a: 29 }
         ],
         xkey: 'x',
         ykeys: ['a'],
+        ymax: 36,
         labels: ['组端电流'],
+        postUnits: 'A',
         lineColors: ['purple']
     });
 
@@ -68,8 +71,8 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['v'],
         labels: ['历史电压'],
-        lineColors: ['purple'],
-        xLabels: 'day'
+        postUnits: 'V',
+        lineColors: ['purple']
     });
 
     var historyCurrent = new Morris.Line({
@@ -86,7 +89,7 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['a'],
         labels: ['历史电流'],
-        xLabels: 'day',
+        postUnits: 'A',
         lineColors: ['purple']
     });
 
@@ -106,6 +109,7 @@ $(document).ready(function() {
         ],
         xkey: 'x',
         ykeys: ['v'],
+        postUnits: 'V',
         labels: ['单体电压'],
         lineColors: ['purple']
     });
@@ -126,6 +130,7 @@ $(document).ready(function() {
         ],
         xkey: 'x',
         ykeys: ['v'],
+        postUnits: 'V',
         labels: ['组端电压'],
         lineColors: ['purple']
     });
@@ -161,6 +166,7 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['y'],
         ymax: 2.28,
+        postUnits: 'V',
         labels: ['即时电压'],
         barColors: ['#1c77bd']
     });
@@ -196,6 +202,7 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['c'],
         ymax: 140,
+        postUnits: '%',
         labels: ['当前容量'],
         barColors: ['#1c77bd']
     });
@@ -231,6 +238,7 @@ $(document).ready(function() {
         xkey: 'x',
         ykeys: ['c'],
         labels: ['历史容量'],
+        postUnits: '%',
         ymax: 140,
         barColors: ['#1c77bd']
     });

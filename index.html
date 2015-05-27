@@ -84,7 +84,37 @@
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
                                 <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-excel-o"></i> 核对性放电报表
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="system-report.html">
+                                    <i class="ace-icon fa fa-table"></i> 总体情况报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="normal-report.html">
+                                    <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="solved-report.html">
+                                    <i class="ace-icon fa fa-check-circle-o"></i> 报警已处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="alarm-report.html">
+                                    <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="replacement-report.html">
+                                    <i class="ace-icon fa fa-wrench"></i> 电池组更换报表
                                 </a>
                             </li>
                         </ul>
@@ -657,7 +687,7 @@
                                     </h4>
                                 </div>
                                 <div class="widget-body">
-                                    <div class="widget-main center bolder" >
+                                    <div class="widget-main center bolder">
                                         <div id="station-piechart"></div>
                                         <div class="hr hr-12 hr-double"></div>
                                         <div class="clearfix">
@@ -671,13 +701,13 @@
                                                 <span>
                                                     浮充电状态
                                                 </span>
-                                                <h3>48</h3>
+                                                <h3>47</h3>
                                             </div>
                                             <div class="grid3 info-box" id="charge-station-infobox">
                                                 <span>
                                                     均充电状态
                                                 </span>
-                                                <h3>17</h3>
+                                                <h3>16</h3>
                                             </div>
                                             
                                         </div>
@@ -693,13 +723,13 @@
                                                 <span>
                                                     供电状态
                                                 </span>
-                                                <h3>12</h3>
+                                                <h3>11</h3>
                                             </div>
                                             <div class="grid3 info-box" id="alarm-station-infobox">
                                                 <span>
                                                     报警状态
                                                 </span>
-                                                <h3>15</h3>
+                                                <h3>18</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1127,6 +1157,227 @@
                                 </table>
                             </div>
                             <!-- /.供電狀態通信站信息 -->
+                            <!-- 報警狀態分佈 -->
+                            <div class="widget-box widget-color-red2" id="alarm-distribution-list">
+                                <div class="widget-header">
+                                    <h4 class="widget-title bolder">
+                                        <i class="ace-icon fa fa-exclamation-triangle"></i>
+                                        报警状态分布
+                                    </h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main center bolder">
+                                        <div class="clearfix">
+                                            <div class="grid4 info-box" id="todo-discharge-infobox">
+                                                <span>
+                                                    需核对性放电
+                                                </span>
+                                                <h3 class="customized-h3">5</h3>
+                                            </div>
+                                            <div class="grid4 info-box" id="connection-error-infobox">
+                                                <span>
+                                                    通信故障
+                                                </span>
+                                                <h3 class="customized-h3">2</h3>
+                                            </div>
+                                            <div class="grid4 info-box" id="alarm-ing-infobox">
+                                                <span>
+                                                    正在报警
+                                                </span>
+                                                <h3 class="customized-h3">7</h3>
+                                            </div>
+                                            <div class="grid4 info-box" id="alarm-solved-infobox">
+                                                <span>
+                                                    报警处理中
+                                                </span>
+                                                <h3 class="customized-h3">4</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.報警狀態分佈 -->
+                            <div class="space-6"></div>
+                            <div id="todo-discharge-list">
+                                <div class="table-header bkgd-grey">
+                                    需核对性放电实时检测
+                                </div>
+                                <table id="todo-discharge-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>时间</th>
+                                            <th>城市</th>
+                                            <th>通信站</th>
+                                            <th>蓄电池组</th>
+                                            <th>放电深度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>05/03/2015 10:00</td>
+                                            <td>大连市</td>
+                                            <td>中山站</td>
+                                            <td>电池组一</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/03/2015 10:00</td>
+                                            <td>大连市</td>
+                                            <td>西岗站</td>
+                                            <td>电池组二</td>
+                                            <td>35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>06/18/2015 10:00</td>
+                                            <td>大连市</td>
+                                            <td>沙河口站</td>
+                                            <td>电池组三</td>
+                                            <td>40%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/03/2015 10:00</td>
+                                            <td>大连市</td>
+                                            <td>甘井子站</td>
+                                            <td>电池组四</td>
+                                            <td>45%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07/18/2015 10:00</td>
+                                            <td>沈阳市</td>
+                                            <td>和平站</td>
+                                            <td>电池组一</td>
+                                            <td>50%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="connection-error-list">
+                                <div class="table-header bkgd-grey">
+                                    通信故障实时检测
+                                </div>
+                                <table id="connection-error-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>站名</th>
+                                            <th>所在城市</th>
+                                            <th>电池组数</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>望花站</td>
+                                            <td>抚顺市</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>立山站</td>
+                                            <td>鞍山市</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="alarm-ing-list">
+                                <div class="table-header bkgd-grey">
+                                    正在报警实时检测
+                                </div>
+                                <table id="alarm-ing-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>站名</th>
+                                            <th>所在城市</th>
+                                            <th>电池组数</th>
+                                            <th>报警原因</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>新抚站</td>
+                                            <td>抚顺市</td>
+                                            <td>4</td>
+                                            <td>内阻过低</td>
+                                        </tr>
+                                        <tr>
+                                            <td>东洲站</td>
+                                            <td>抚顺市</td>
+                                            <td>3</td>
+                                            <td>电流过高</td>
+                                        </tr>
+                                        <tr>
+                                            <td>望花站</td>
+                                            <td>抚顺市</td>
+                                            <td>2</td>
+                                            <td>容量过低</td>
+                                        </tr>
+                                        <tr>
+                                            <td>顺城站</td>
+                                            <td>抚顺市</td>
+                                            <td>4</td>
+                                            <td>电压过高</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁东站</td>
+                                            <td>鞍山市</td>
+                                            <td>4</td>
+                                            <td>温度过高</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁西站</td>
+                                            <td>鞍山市</td>
+                                            <td>3</td>
+                                            <td>电压过低</td>
+                                        </tr>
+                                        <tr>
+                                            <td>甘井子站</td>
+                                            <td>大连市</td>
+                                            <td>4</td>
+                                            <td>电流过高</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="alarm-solved-list">
+                                <div class="table-header bkgd-grey">
+                                    报警处理中实时检测
+                                </div>
+                                <table id="alarm-solved-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>站名</th>
+                                            <th>所在城市</th>
+                                            <th>电池组数</th>
+                                            <th>报警原因</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>甘井子站</td>
+                                            <td>大连市</td>
+                                            <td>4</td>
+                                            <td>电流过高</td>
+                                        </tr>
+                                        <tr>
+                                            <td>东洲站</td>
+                                            <td>抚顺市</td>
+                                            <td>3</td>
+                                            <td>电压过高</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁东站</td>
+                                            <td>鞍山市</td>
+                                            <td>4</td>
+                                            <td>内阻过低</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁西站</td>
+                                            <td>鞍山市</td>
+                                            <td>3</td>
+                                            <td>容量过低</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                         <!-- /.col -->
                     </div>

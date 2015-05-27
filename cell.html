@@ -86,7 +86,37 @@
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
                                 <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-excel-o"></i> 核对性放电报表
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="system-report.html">
+                                    <i class="ace-icon fa fa-table"></i> 总体情况报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="normal-report.html">
+                                    <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="solved-report.html">
+                                    <i class="ace-icon fa fa-check-circle-o"></i> 报警已处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="alarm-report.html">
+                                    <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="replacement-report.html">
+                                    <i class="ace-icon fa fa-wrench"></i> 电池组更换报表
                                 </a>
                             </li>
                         </ul>
@@ -901,7 +931,7 @@
                                             <div class="col-sm-6">
                                                 <div class="widget-box transparent">
                                                     <div class="widget-header">
-                                                        <h4 class="widget-title bolder">建议处理方法</h4>
+                                                        <h4 class="widget-title bolder">处理建议</h4>
                                                     </div>
                                                     <div class="widget-body">
                                                         <div class="widget-main padding-4">
@@ -1022,8 +1052,6 @@
                                                         <th>发生时间</th>
                                                         <th>数值</th>
                                                         <th>处理状态</th>
-                                                        <th>备注信息</th>
-                                                        <th>储存</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1032,105 +1060,35 @@
                                                         <td>电压过低</td>
                                                         <td>08/10/2014 02:06</td>
                                                         <td>2.1 V</td>
-                                                        <td>
-                                                            <select class="form-control">
-                                                                <option value="0" selected="selected">已处理</option>
-                                                                <option value="1">未处理</option>
-                                                                <option value="2">待处理</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <textarea class="comments"></textarea>
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                                <i class="ace-icon fa fa-check red"></i>
-                                                            </button>
-                                                        </td>
+                                                        <td>已处理</td>
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
                                                         <td>电流过高</td>
                                                         <td>08/10/2014 11:06</td>
                                                         <td>0.2 I</td>
-                                                        <td>
-                                                            <select class="form-control">
-                                                                <option value="0" selected="selected">已处理</option>
-                                                                <option value="1">未处理</option>
-                                                                <option value="2">待处理</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <textarea class="comments"></textarea>
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                                <i class="ace-icon fa fa-check red"></i>
-                                                            </button>
-                                                        </td>
+                                                        <td>未处理</td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
                                                         <td>容量过低</td>
                                                         <td>08/13/2014 20:06</td>
                                                         <td>37 %</td>
-                                                        <td>
-                                                            <select class="form-control">
-                                                                <option value="0" selected="selected">已处理</option>
-                                                                <option value="1">未处理</option>
-                                                                <option value="2">待处理</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <textarea class="comments"></textarea>
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                                <i class="ace-icon fa fa-check red"></i>
-                                                            </button>
-                                                        </td>
+                                                        <td>待处理</td>
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
                                                         <td>温度过高</td>
                                                         <td>08/15/2014 21:36</td>
                                                         <td>48 °C</td>
-                                                        <td>
-                                                            <select class="form-control">
-                                                                <option value="0" selected="selected">已处理</option>
-                                                                <option value="1">未处理</option>
-                                                                <option value="2">待处理</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <textarea class="comments"></textarea>
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                                <i class="ace-icon fa fa-check red"></i>
-                                                            </button>
-                                                        </td>
+                                                        <td>已处理</td>
                                                     </tr>
                                                     <tr>
                                                         <td>5</td>
                                                         <td>通信故障</td>
                                                         <td>08/31/2014 09:36</td>
                                                         <td></td>
-                                                        <td>
-                                                            <select class="form-control">
-                                                                <option value="0" selected="selected">已处理</option>
-                                                                <option value="1">未处理</option>
-                                                                <option value="2">待处理</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <textarea class="comments"></textarea>
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger btn-sm btn-white btn-round">
-                                                                <i class="ace-icon fa fa-check red"></i>
-                                                            </button>
-                                                        </td>
+                                                        <td>未处理</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

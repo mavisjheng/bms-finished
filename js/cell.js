@@ -62,6 +62,7 @@ $(document).ready(function() {
                 break;
             case "5":
                 graph.setData(tempData);
+                graph.
                 break;
         }
     });

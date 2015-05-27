@@ -4,12 +4,14 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>电池管理 - 蓄电池全过程管理系统</title>
+    <title>正常状态报表 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="css/ace/daterangepicker.css" />
+    <link rel="stylesheet" href="css/dataTables.tableTools.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
@@ -670,307 +672,129 @@
             <div class="main-content-inner">
                 <div class="breadcrumbs">
                     <ul class="breadcrumb">
-                        <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a></li>
-                        <li class="active">电池管理</li>
+                        <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
+                        </li>
+                        <li class="active">正常状态报表</li>
                     </ul>
                 </div>
-                <!-- /.breadcrumb -->
+                <!-- /.breadcrumbs -->
                 <div class="page-content">
-                    <!-- upper part -->
+                    <div class="space-2"></div>
                     <div class="row">
-                        <div class="col-sm-5">
-                            <form>
+                        <div class="col-sm-12">
+                            <form class="form-horizontal" role="form">
                                 <div class="form-group">
-                                    <h4 class="col-sm-offset-4 col-sm-4 center bolder" id="filter-label">简易查询</h4>
-                                    <div class="form-group col-sm-offset-2 col-sm-8">
-                                        <select id="city" name="city" class="form-control">
-                                            <option value="0">城市</option>
-                                            <option value="dalian">大连市</option>
-                                            <option value="shenyang">沈阳市</option>
-                                            <option value="anshan">鞍山市</option>
-                                            <option value="fushun">抚顺市</option>
-                                        </select>
-                                        <select id="station" name="station" class="form-control">
-                                            <option value="" disabled selected>通信站</option>
-                                        </select>
+                                    <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+                                            <input class="form-control" type="text" name="date-range-picker" required="required" />
+                                        </div>
                                     </div>
-                                    <div class="col-sm-offset-4 col-sm-4 center">
-                                        <button type="submit" class="btn btn-primary btn-round">
-                                            <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
-                                        </button>
+                                    <div class="col-sm-1">
+                                        <input class="form-control btn btn-sm btn-round btn-success" type="submit" value="提交" />
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="col-sm-7">
-                            <form>
-                                <div class="form-group">
-                                    <h4 class="col-sm-offset-4 col-sm-4 center bolder">分类查询</h4>
-                                    <table id="filter-table" class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" disabled />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </th>
-                                                <th>正常状态</th>
-                                                <th>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" disabled />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </th>
-                                                <th>报警状态</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>浮充电通信站</td>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>需核对性放电通信站</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>均充电通信站</td>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>通信故障通信站</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>核对性放电通信站</td>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>报警通信站</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>供电通信站</td>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox" class="ace" />
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-                                                <td>报警处理中通信站</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="col-sm-offset-4 col-sm-4 center">
-                                        <button type="submit" class="btn btn-primary btn-round">
-                                            <i class="ace-icon fa fa-search"></i><span class="bolder">查询</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- /.upper part -->
-                    <div class="hr hr-18 hr-double"></div>
-                    <!-- bottom part -->
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-sm-10">
-                            <div class="table-header bkgd-purple">
-                                查询结果
+                            <div class="space-4"></div>
+                            <div class="bkgd-table-blue">
+                                <table id="normal-report-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>站名</th>
+                                            <th>所在城市</th>
+                                            <th>电池组数</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>中山站</td>
+                                            <td>大连市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>西岗站</td>
+                                            <td>大连市</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>沙河口站</td>
+                                            <td>大连市</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>甘井子站</td>
+                                            <td>大连市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>和平站</td>
+                                            <td>沈阳市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>沈河站</td>
+                                            <td>沈阳市</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>大东站</td>
+                                            <td>沈阳市</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>皇姑站</td>
+                                            <td>沈阳市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁东站</td>
+                                            <td>鞍山市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>铁西站</td>
+                                            <td>鞍山市</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>立山站</td>
+                                            <td>鞍山市</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>千山站</td>
+                                            <td>鞍山市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>新抚站</td>
+                                            <td>抚顺市</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>东洲站</td>
+                                            <td>抚顺市</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>望花站</td>
+                                            <td>抚顺市</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>顺城站</td>
+                                            <td>抚顺市</td>
+                                            <td>4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <table id="search-result-table" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>站名</th>
-                                        <th>所在城市</th>
-                                        <th>电池组数</th>
-                                        <th>状态</th>
-                                        <th>报警原因</th>
-                                        <th>报警时间</th>
-                                        <th>处理状态</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>中山站</td>
-                                        <td>大连市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>西岗站</td>
-                                        <td>大连市</td>
-                                        <td>2</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>沙河口站</td>
-                                        <td>大连市</td>
-                                        <td>3</td>
-                                        <td></td>
-                                        <td>通信故障</td>
-                                        <td>05/12/2015 05:59</td>
-                                        <td>已处理</td>
-                                    </tr>
-                                    <tr>
-                                        <td>甘井子站</td>
-                                        <td>大连市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>和平站</td>
-                                        <td>沈阳市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>沈河站</td>
-                                        <td>沈阳市</td>
-                                        <td>3</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>大东站</td>
-                                        <td>沈阳市</td>
-                                        <td>2</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>皇姑站</td>
-                                        <td>沈阳市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td>电压过低</td>
-                                        <td>05/10/2015 11:06</td>
-                                        <td>待处理</td>
-                                    </tr>
-                                    <tr>
-                                        <td>铁东站</td>
-                                        <td>鞍山市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>铁西站</td>
-                                        <td>鞍山市</td>
-                                        <td>3</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>立山站</td>
-                                        <td>鞍山市</td>
-                                        <td>2</td>
-                                        <td></td>
-                                        <td>容量过低</td>
-                                        <td>05/18/2015 00:34</td>
-                                        <td>待处理</td>
-                                    </tr>
-                                    <tr>
-                                        <td>千山站</td>
-                                        <td>鞍山市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>新抚站</td>
-                                        <td>抚顺市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>东洲站</td>
-                                        <td>抚顺市</td>
-                                        <td>3</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>望花站</td>
-                                        <td>抚顺市</td>
-                                        <td>2</td>
-                                        <td>无</td>
-                                        <td>无</td>
-                                        <td>无</td>
-                                        <td>无</td>
-                                    </tr>
-                                    <tr>
-                                        <td>顺城站</td>
-                                        <td>抚顺市</td>
-                                        <td>4</td>
-                                        <td></td>
-                                        <td>电压过低</td>
-                                        <td>05/22/2015 16:57</td>
-                                        <td>已处理</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <!-- /.system report table -->
                         </div>
                     </div>
-                    <!-- /.bottom part -->
                 </div>
                 <!-- /.page-content -->
             </div>
@@ -994,9 +818,14 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
-    <!-- dataTable -->
+    <!-- data ranger picker -->
+    <script src="js/ace/date-time/moment.js"></script>
+    <script src="js/ace/date-time/daterangepicker.js"></script>
+    <!-- dataTable and tableTools -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
+    <script src="js/ace/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <script src="js/ace/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
     <!-- ace scripts -->
     <script src="js/ace/ace/elements.scroller.js"></script>
     <script src="js/ace/ace/elements.colorpicker.js"></script>
@@ -1021,7 +850,7 @@
     <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
     <!-- main script -->
     <script src="js/main.js"></script>
-    <script src="js/cell-management.js"></script>
+    <script src="js/normal-report.js"></script>
 </body>
 
 </html>

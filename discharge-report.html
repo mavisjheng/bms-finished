@@ -86,7 +86,37 @@
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
                                 <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-excel-o"></i> 核对性放电报表
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="system-report.html">
+                                    <i class="ace-icon fa fa-table"></i> 总体情况报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="normal-report.html">
+                                    <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="solved-report.html">
+                                    <i class="ace-icon fa fa-check-circle-o"></i> 报警已处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="alarm-report.html">
+                                    <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="replacement-report.html">
+                                    <i class="ace-icon fa fa-wrench"></i> 电池组更换报表
                                 </a>
                             </li>
                         </ul>
@@ -760,6 +790,7 @@
                                 <div class="tab-content">
                                     <div id="discharge-single-voltage" class="tab-pane fade in active">
                                         <div id="single-voltage-chart" style="height: 330px;"></div>
+                                        <div id="row-content"></div>
                                     </div>
                                     <div id="discharge-group-voltage" class="tab-pane">
                                         <div id="group-voltage-chart" style="height: 330px;"></div>
