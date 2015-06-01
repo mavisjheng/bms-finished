@@ -92,7 +92,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="system-report.html">
-                                    <i class="ace-icon fa fa-table"></i> 总体情况报表
+                                    <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -117,6 +117,12 @@
                             <li>
                                 <a href="replacement-report.html">
                                     <i class="ace-icon fa fa-wrench"></i> 电池组更换报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
                                 </a>
                             </li>
                         </ul>
@@ -967,6 +973,12 @@
                                                                 <div class="tab-content">
                                                                     <div id="discharge-record1" class="tab-pane fade in active">
                                                                         <div id="discharge-single-voltage" style="height: 330px;"></div>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12" id="row-time"></div>
+                                                                            <div class="col-sm-4" id="row1-voltage"></div>
+                                                                            <div class="col-sm-4" id="row2-voltage"></div>
+                                                                            <div class="col-sm-4" id="row3-voltage"></div>
+                                                                        </div>
                                                                     </div>
                                                                     <div id="discharge-record2" class="tab-pane">
                                                                         <div id="discharge-group-voltage" style="height: 330px;"></div>
@@ -1325,7 +1337,7 @@
                                                 <div id="history-alarm" class="tab-pane">
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label class="col-sm-3 control-label no-padding-right">请选取时间范围</label>
+                                                            <label class="col-sm-4 control-label no-padding-right">请选取发生时间范围</label>
                                                             <div class="col-sm-6">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">
@@ -1348,6 +1360,7 @@
                                                                 <th>发生时间</th>
                                                                 <th>数值</th>
                                                                 <th>处理状态</th>
+                                                                <th>更新处理时间</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -1358,6 +1371,7 @@
                                                                 <td>08/10/2014 02:06</td>
                                                                 <td>2.1 V</td>
                                                                 <td>已处理</td>
+                                                                <td>08/10/2014 10:33</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
@@ -1366,6 +1380,7 @@
                                                                 <td>08/10/2014 11:06</td>
                                                                 <td>0.2 I</td>
                                                                 <td>未处理</td>
+                                                                <td>08/10/2014 11:06</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td>
@@ -1374,6 +1389,7 @@
                                                                 <td>08/13/2014 20:06</td>
                                                                 <td>37 %</td>
                                                                 <td>待处理</td>
+                                                                <td>08/15/2014 08:03</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
@@ -1382,6 +1398,7 @@
                                                                 <td>08/15/2014 21:36</td>
                                                                 <td>50 °C</td>
                                                                 <td>已处理</td>
+                                                                <td>08/16/2014 12:09</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td>
@@ -1390,6 +1407,7 @@
                                                                 <td>08/31/2014 09:36</td>
                                                                 <td></td>
                                                                 <td>未处理</td>
+                                                                <td>08/31/2014 09:36</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -1413,7 +1431,7 @@
                                                     <th>规格</th>
                                                     <th>安培小时</th>
                                                     <th>剩馀使用寿命</th>
-                                                    <th>建议处理方法</th>
+                                                    <th>处理建议</th>
                                                     <th>编辑</th>
                                                 </tr>
                                             </thead>

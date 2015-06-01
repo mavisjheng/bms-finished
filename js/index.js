@@ -28,6 +28,31 @@ $(document).ready(function() {
         $(".info-box").css({'font-size':'13px','color':'#393939'});
     }
 
+    function showStable() {
+        $("#stable-station-list").show();
+        $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
+    }
+
+    function showCharge() {
+        $("#charge-station-list").show();
+        $("#charge-station-infobox").css({'font-size':'16px','color':'#688097'});
+    }
+
+    function showDischarge() {
+        $("#discharge-station-list").show();
+        $("#discharge-station-infobox").css({'font-size':'16px','color':'#b38600'});
+    }
+
+    function showSupply() {
+        $("#supply-station-list").show();
+        $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+    }
+
+    function showAlarm() {
+        $("#alarm-distribution-list, #todo-discharge-list").show();
+        $("#alarm-station-infobox").css({'font-size':'16px','color':'red'});
+    }
+
     var lastIndex = null;
     $('#station-piechart').on('plotclick', function (event, pos, item) {
         if(item) {
@@ -38,28 +63,23 @@ $(document).ready(function() {
                 // while hover to the pie area, show corresponding table and hide other else
                 if(item.seriesIndex === 0) {
                     hideTable();
-                    $("#stable-station-list").show();
-                    $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
+                    showStable();
                 }
                 else if(item.seriesIndex === 1) {
                     hideTable();
-                    $("#charge-station-list").show();
-                    $("#charge-station-infobox").css({'font-size':'16px','color':'#688097'});
+                    showCharge();
                 }
                 else if(item.seriesIndex === 2) {
                     hideTable();
-                    $("#discharge-station-list").show();
-                    $("#discharge-station-infobox").css({'font-size':'16px','color':'#b38600'});
+                    showDischarge();
                 }
                 else if(item.seriesIndex === 3) {
                     hideTable();
-                    $("#supply-station-list").show();
-                    $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+                    showSupply();
                 }
                 else if(item.seriesIndex === 4) {
                     hideTable();
-                    $("#alarm-distribution-list, #todo-discharge-list").show();
-                    $("#alarm-station-infobox").css({'font-size':'16px','color':'red'});
+                    showAlarm();
                 }
             }
             $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
@@ -79,28 +99,23 @@ $(document).ready(function() {
     });
     $("#stable-station-infobox").click(function(){
         hideTable();
-        $("#stable-station-list").show();
-        $("#stable-station-infobox").css({'font-size':'16px','color':'green'});
+        showStable();
     });
     $("#charge-station-infobox").click(function(){
         hideTable();
-        $("#charge-station-list").show();
-        $("#charge-station-infobox").css({'font-size':'16px','color':'#688097'});
+        showCharge();
     });
     $("#discharge-station-infobox").click(function(){
         hideTable();
-        $("#discharge-station-list").show();
-        $("#discharge-station-infobox").css({'font-size':'16px','color':'#b38600'});
+        showDischarge();
     });
     $("#supply-station-infobox").click(function(){
         hideTable();
-        $("#supply-station-list").show();
-        $("#supply-station-infobox").css({'font-size':'16px','color':'brown'});
+        showSupply();
     });
     $("#alarm-station-infobox").click(function(){
         hideTable();
-        $("#alarm-distribution-list, #todo-discharge-list").show();
-        $("#alarm-station-infobox").css({'font-size':'16px','color':'red'});
+        showAlarm();
     });
     $("#todo-discharge-infobox").click(function(){
         hideTable();
