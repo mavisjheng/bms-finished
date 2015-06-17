@@ -58,6 +58,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -85,20 +91,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -109,8 +115,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -121,8 +133,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -142,7 +154,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -159,8 +171,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -710,14 +722,15 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>城市</th>
-                                            <th>通信站</th>
+                                            <th>所在城市</th>
+                                            <th>站名</th>
                                             <th>组别</th>
                                             <th>编号</th>
+                                            <th>报警时间</th>
                                             <th>原因</th>
-                                            <th>发生时间</th>
                                             <th>数值</th>
-                                            <th>更新处理时间</th>
+                                            <th>处理建议</th>
+                                            <th>处理时间</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -727,9 +740,10 @@
                                             <td>和平站</td>
                                             <td>电池组一</td>
                                             <td>电池5</td>
-                                            <td>电压过低</td>
                                             <td>05/22/2015 16:57</td>
+                                            <td>电压过低</td>
                                             <td>2 V</td>
+                                            <td>单体更换05号电池</td>
                                             <td>05/22/2015 18:03</td>
                                         </tr>
                                         <tr>
@@ -738,9 +752,10 @@
                                             <td>中山站</td>
                                             <td>电池组一</td>
                                             <td>电池17</td>
-                                            <td>电流过高</td>
                                             <td>05/21/2015 13:10</td>
+                                            <td>电流过高</td>
                                             <td>0.16 I</td>
+                                            <td>联系相关人员到现场排查开关电源故障</td>
                                             <td>05/21/2015 13:10</td>
                                         </tr>
                                         <tr>
@@ -749,9 +764,10 @@
                                             <td>皇姑站</td>
                                             <td>电池组四</td>
                                             <td>电池9</td>
-                                            <td>容量过低</td>
                                             <td>05/18/2015 00:34</td>
+                                            <td>容量过低</td>
                                             <td>67 %</td>
+                                            <td>单体更换9号电池</td>
                                             <td>05/18/2015 12:20</td>
                                         </tr>
                                         <tr>
@@ -760,9 +776,10 @@
                                             <td>铁东站</td>
                                             <td>电池组三</td>
                                             <td>电池23</td>
-                                            <td>温度过高</td>
                                             <td>05/15/2015 21:36</td>
+                                            <td>温度过高</td>
                                             <td>47 °C</td>
+                                            <td>联系相关人员到现场进行通风等降温处理</td>
                                             <td>05/16/2015 08:45</td>
                                         </tr>
                                         <tr>
@@ -770,10 +787,11 @@
                                             <td>沈阳市</td>
                                             <td>大东站</td>
                                             <td>电池组一</td>
-                                            <td></td>
-                                            <td>通信故障</td>
+                                            <td>整组</td>
                                             <td>05/12/2015 05:59</td>
+                                            <td>通信故障</td>
                                             <td></td>
+                                            <td>联系相关工作人员进行现场排查</td>
                                             <td>05/12/2015 10:26</td>
                                         </tr>
                                         <tr>
@@ -782,136 +800,142 @@
                                             <td>新抚站</td>
                                             <td>电池组一</td>
                                             <td>电池5</td>
-                                            <td>电压过高</td>
-                                            <td>05/12/2015 03:41</td>
-                                            <td>2.9 V</td>
-                                            <td>05/12/2015 03:41</td>
+                                            <td>05/10/2015 11:06</td>
+                                            <td>电压过低</td>
+                                            <td>2.1 V</td>
+                                            <td>单体更换05号电池</td>
+                                            <td>05/10/2015 14:57</td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>抚顺市</td>
-                                            <td>新抚站</td>
-                                            <td>电池组一</td>
-                                            <td>电池5</td>
-                                            <td>电压过低</td>
-                                            <td>05/10/2015 11:06</td>
-                                            <td>2.1 V</td>
-                                            <td>05/10/2015 14:57</td>
+                                            <td>鞍山市</td>
+                                            <td>立山站</td>
+                                            <td>电池组二</td>
+                                            <td>电池12</td>
+                                            <td>05/03/2015 18:39</td>
+                                            <td>内阻过高</td>
+                                            <td>0.8 mΩ</td>
+                                            <td>联系相关人员到现场排查线路故障</td>
+                                            <td>05/05/2015 11:23</td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
                                             <td>鞍山市</td>
                                             <td>立山站</td>
                                             <td>电池组二</td>
-                                            <td>电池12</td>
-                                            <td>内阻过高</td>
-                                            <td>05/03/2015 18:39</td>
-                                            <td>0.8 mΩ</td>
-                                            <td>05/05/2015 11:23</td>
+                                            <td>电池19</td>
+                                            <td>05/01/2015 10:27</td>
+                                            <td>内阻过低</td>
+                                            <td>0.12 mΩ</td>
+                                            <td>联系相关人员到现场排查线路故障</td>
+                                            <td>05/01/2015 10:27</td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td>鞍山市</td>
-                                            <td>立山站</td>
-                                            <td>电池组二</td>
-                                            <td>电池19</td>
-                                            <td>内阻过低</td>
-                                            <td>05/01/2015 10:27</td>
-                                            <td>0.12 mΩ</td>
-                                            <td>05/01/2015 10:27</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
                                             <td>抚顺市</td>
                                             <td>东洲站</td>
                                             <td>电池组三</td>
-                                            <td></td>
-                                            <td>通信故障</td>
+                                            <td>整组</td>
                                             <td>04/29/2015 14:53</td>
+                                            <td>通信故障</td>
                                             <td></td>
+                                            <td>联系相关工作人员进行现场排查</td>
                                             <td>04/29/2015 15:37</td>
                                         </tr>
                                         <tr>
-                                            <td>11</td>
+                                            <td>10</td>
                                             <td>大连市</td>
                                             <td>甘井子站</td>
                                             <td>电池组二</td>
                                             <td>电池20</td>
-                                            <td>电流过高</td>
                                             <td>04/25/2015 22:15</td>
+                                            <td>电流过高</td>
                                             <td>0.15 I</td>
+                                            <td>更新报警设置</td>
                                             <td>04/26/2015 13:41</td>
                                         </tr>
                                         <tr>
-                                            <td>12</td>
+                                            <td>11</td>
                                             <td>沈阳市</td>
                                             <td>和平站</td>
                                             <td>电池组三</td>
                                             <td>电池16</td>
-                                            <td>容量过低</td>
                                             <td>04/21/2015 19:30</td>
+                                            <td>容量过低</td>
                                             <td>34 %</td>
+                                            <td>单体更换16号电池</td>
                                             <td>04/21/2015 19:30</td>
                                         </tr>
                                         <tr>
-                                            <td>13</td>
+                                            <td>12</td>
                                             <td>大连市</td>
                                             <td>西岗站</td>
                                             <td>电池组四</td>
                                             <td>电池24</td>
-                                            <td>容量过低</td>
                                             <td>04/17/2015 06:48</td>
+                                            <td>容量过低</td>
                                             <td>20 %</td>
+                                            <td>单体更换24号电池</td>
                                             <td>04/17/2015 09:25</td>
                                         </tr>
                                         <tr>
-                                            <td>14</td>
+                                            <td>13</td>
                                             <td>沈阳市</td>
                                             <td>沈河站</td>
                                             <td>电池组一</td>
                                             <td>电池1</td>
-                                            <td>电压过高</td>
                                             <td>04/16/2015 23:03</td>
+                                            <td>电压过高</td>
                                             <td>2.95 V</td>
+                                            <td>单体更换01号电池</td>
                                             <td>04/17/2015 17:21</td>
                                         </tr>
                                         <tr>
-                                            <td>15</td>
+                                            <td>14</td>
                                             <td>鞍山市</td>
                                             <td>铁西站</td>
                                             <td>电池组三</td>
                                             <td>电池21</td>
+                                            <td>04/10/2015 15:24</td>
                                             <td>温度过高</td>
-                                            <td>04/10/2015 15:24</td>
                                             <td>49 °C</td>
+                                            <td>联系相关人员到现场进行通风等降温处理</td>
                                             <td>04/10/2015 15:24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>抚顺市</td>
+                                            <td>东洲站</td>
+                                            <td>电池组二</td>
+                                            <td>电池11</td>
+                                            <td>04/07/2015 00:20</td>
+                                            <td>电流过高</td>
+                                            <td>0.2 I</td>
+                                            <td>联系相关人员到现场排查开关电源故障</td>
+                                            <td>04/07/2015 15:59</td>
                                         </tr>
                                         <tr>
                                             <td>16</td>
                                             <td>抚顺市</td>
                                             <td>东洲站</td>
                                             <td>电池组二</td>
-                                            <td>电池11</td>
-                                            <td>电流过高</td>
-                                            <td>04/07/2015 00:20</td>
-                                            <td>0.2 I</td>
-                                            <td>04/07/2015 15:59</td>
-                                        </tr>
-                                        <tr>
-                                            <td>17</td>
-                                            <td>抚顺市</td>
-                                            <td>东洲站</td>
-                                            <td>电池组二，</td>
                                             <td>电池18</td>
-                                            <td>电压过低</td>
                                             <td>04/03/2015 04:58</td>
+                                            <td>电压过低</td>
                                             <td>2.1 V</td>
+                                            <td>单体更换18号电池</td>
                                             <td>04/03/2015 11:00</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.system report table -->
+                            <div class="space-4"></div>
+                            <div class="col-sm-12">
+                                <div class="alert alert-block alert-warning bolder font-16">
+                                    合计：<strong class="green">故障单体：57 块，故障电池组：19 组，合计：114 块</strong>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

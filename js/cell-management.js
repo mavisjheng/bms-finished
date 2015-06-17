@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // dataTable
-    $('#search-result-table').dataTable({
+    $('#basic-filter-table, #stable-status-table, #charge-status-table, #discharge-status-table, #supply-status-table, #error-status-table, #stable-error-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
-        ordering: false,
+        ordering: true,
         paging: true,
         info: true,
         filter: true,
@@ -86,6 +86,36 @@ $(document).ready(function() {
                 var i = 12;
                 changeStationOption(i);
                 break;
+        }
+    });
+    
+    $("#cell-search-form").submit(function(event) {
+        event.preventDefault();
+        var chooseState = $('input[name="state"]:checked').val();
+        var isError = $('.warning-state').is(':checked');
+        if(chooseState == "stable") {
+            $("div[id$='list']").hide();
+            $("#stable-status-list").show();
+        }
+        if(chooseState == "charge") {
+            $("div[id$='list']").hide();
+            $("#charge-status-list").show();
+        }
+        if(chooseState == "discharge") {
+            $("div[id$='list']").hide();
+            $("#discharge-status-list").show();
+        }
+        if(chooseState == "supply") {
+            $("div[id$='list']").hide();
+            $("#supply-status-list").show();
+        }
+        if(isError) {
+            $("div[id$='list']").hide();
+            $("#error-status-list").show();
+        }
+        if(chooseState == "stable" && isError) {
+            $("div[id$='list']").hide();
+            $("#stable-error-list").show();
         }
     });
 });

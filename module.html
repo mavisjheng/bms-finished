@@ -58,6 +58,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -85,20 +91,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -109,8 +115,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -121,8 +133,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -142,7 +154,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -159,8 +171,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -685,7 +697,6 @@
                     </ul>
                     <div class="pull-right" id="switch-module-box">
                         <select id="module" name="module" class="form-control">
-                            <option value="" disabled selected>切换蓄电池组</option>
                             <option value="module1">电池组一</option>
                             <option value="module2">电池组二</option>
                             <option value="module3">电池组三</option>
@@ -961,17 +972,26 @@
                                                             <div class="tabbable tabs-right">
                                                                 <ul class="nav nav-tabs">
                                                                     <li class="active">
+                                                                        <a data-toggle="tab" href="#discharge-record2">组端电压</a>
+                                                                    </li>
+                                                                    <li>
                                                                         <a data-toggle="tab" href="#discharge-record1">单体电压</a>
                                                                     </li>
                                                                     <li>
-                                                                        <a data-toggle="tab" href="#discharge-record2">组端电压</a>
+                                                                        <a data-toggle="tab" href="#discharge-current">电流</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a data-toggle="tab" href="#discharge-temp">温度</a>
                                                                     </li>
                                                                     <li>
                                                                         <a data-toggle="tab" href="#discharge-record3">放电报表</a>
                                                                     </li>
                                                                 </ul>
                                                                 <div class="tab-content">
-                                                                    <div id="discharge-record1" class="tab-pane fade in active">
+                                                                    <div id="discharge-record2" class="tab-pane fade in active">
+                                                                        <div id="discharge-group-voltage" style="height: 330px;"></div>
+                                                                    </div>
+                                                                    <div id="discharge-record1" class="tab-pane">
                                                                         <div id="discharge-single-voltage" style="height: 330px;"></div>
                                                                         <div class="row">
                                                                             <div class="col-sm-12" id="row-time"></div>
@@ -980,347 +1000,248 @@
                                                                             <div class="col-sm-4" id="row3-voltage"></div>
                                                                         </div>
                                                                     </div>
-                                                                    <div id="discharge-record2" class="tab-pane">
-                                                                        <div id="discharge-group-voltage" style="height: 330px;"></div>
+                                                                    <div id="discharge-current" class="tab-pane">
+                                                                        <div id="discharge-current-chart" style="height: 330px;"></div>
+                                                                    </div>
+                                                                    <div id="discharge-temp" class="tab-pane">
+                                                                        <div id="discharge-temp-chart" style="height: 330px;"></div>
                                                                     </div>
                                                                     <div id="discharge-record3" class="tab-pane">
                                                                         <table class="table table-bordered">
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <th colspan="4">站名：</th>
-                                                                                    <th colspan="4">测试单位：</th>
-                                                                                    <th colspan="4">测试人：</th>
+                                                                                    <th colspan="2">变电站名称：110kV 泰东变电所</th>
+                                                                                    <th colspan="2">蓄电池规格：S12V370</th>
+                                                                                    <th colspan="2">蓄电池品牌：GNB</th>
+                                                                                    <th colspan="2">放电日期：2013.6.9</th>
+                                                                                    <th colspan="2">放电电流：10A</th>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="6">电池型号：</th>
-                                                                                    <th colspan="6">生产厂家：</th>
+                                                                                    <th>放电时间</th>
+                                                                                    <th>蓄电池组电压</th>
+                                                                                    <th>1#电池电压</th>
+                                                                                    <th>2#电池电压</th>
+                                                                                    <th>3#电池电压</th>
+                                                                                    <th>4#电池电压</th>
+                                                                                    <th>5#电池电压</th>
+                                                                                    <th>6#电池电压</th>
+                                                                                    <th>7#电池电压</th>
+                                                                                    <th>8#电池电压</th>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="6">环境温度（°C）：</th>
-                                                                                    <th colspan="6">出厂日期：</th>
+                                                                                    <td rowspan="5">10:00</td>
+                                                                                    <td rowspan="5">227.00</td>
+                                                                                    <td>12.98</td>
+                                                                                    <td>12.99</td>
+                                                                                    <td>13.00</td>
+                                                                                    <td>12.96</td>
+                                                                                    <td>12.93</td>
+                                                                                    <td>12.93</td>
+                                                                                    <td>12.87</td>
+                                                                                    <td>12.81</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="6">电池电压标准（V）：</th>
-                                                                                    <th colspan="6"></th>
+                                                                                    <th>9#电池电压</th>
+                                                                                    <th>10#电池电压</th>
+                                                                                    <th>11#电池电压</th>
+                                                                                    <th>12#电池电压</th>
+                                                                                    <th>13#电池电压</th>
+                                                                                    <th>14#电池电压</th>
+                                                                                    <th>15#电池电压</th>
+                                                                                    <th>16#电池电压</th>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="4">测试项目</th>
-                                                                                    <th>标准</th>
-                                                                                    <th>盘表</th>
-                                                                                    <th>实测</th>
-                                                                                    <th colspan="3">测试项目</th>
-                                                                                    <th colspan="2">实测值</th>
+                                                                                    <td>12.77</td>
+                                                                                    <td>12.74</td>
+                                                                                    <td>12.76</td>
+                                                                                    <td>12.76</td>
+                                                                                    <td>12.71</td>
+                                                                                    <td>12.68</td>
+                                                                                    <td>12.67</td>
+                                                                                    <td>12.68</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="4">全电池浮充电压（V）</th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th colspan="3">浮充电流（A）</th>
-                                                                                    <th colspan="2"></th>
+                                                                                    <th>17#电池电压</th>
+                                                                                    <th>18#电池电压</th>
+                                                                                    <th>19#电池电压</th>
+                                                                                    <th>20#电池电压</th>
+                                                                                    <th>21#电池电压</th>
+                                                                                    <th>22#电池电压</th>
+                                                                                    <th>23#电池电压</th>
+                                                                                    <th>24#电池电压</th>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="4">合闸母线电压（V）</th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th colspan="3">负荷电流（A）</th>
-                                                                                    <th colspan="2"></th>
+                                                                                    <td>12.71</td>
+                                                                                    <td>12.68</td>
+                                                                                    <td>12.67</td>
+                                                                                    <td>12.68</td>
+                                                                                    <td>12.71</td>
+                                                                                    <td>12.67</td>
+                                                                                    <td>12.68</td>
+                                                                                    <td>12.71</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th colspan="4">控制母线电压（V）</th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th></th>
-                                                                                    <th colspan="3">全电池个数</th>
-                                                                                    <th colspan="2"></th>
+                                                                                    <td rowspan="3">11:00</td>
+                                                                                    <td rowspan="3">224.00</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.38</td>
+                                                                                    <td>12.35</td>
+                                                                                    <td>12.42</td>
+                                                                                    <td>12.41</td>
+                                                                                    <td>12.36</td>
+                                                                                    <td>12.52</td>
+                                                                                    <td>12.57</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
-                                                                                    <th>序号</th>
-                                                                                    <th>电压</th>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.52</td>
+                                                                                    <td>12.57</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.38</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.41</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>01</td>
-                                                                                    <td></td>
-                                                                                    <td>19</td>
-                                                                                    <td></td>
-                                                                                    <td>37</td>
-                                                                                    <td></td>
-                                                                                    <td>55</td>
-                                                                                    <td></td>
-                                                                                    <td>73</td>
-                                                                                    <td></td>
-                                                                                    <td>91</td>
-                                                                                    <td></td>
+                                                                                    <td>12.36</td>
+                                                                                    <td>12.49</td>
+                                                                                    <td>12.48</td>
+                                                                                    <td>12.41</td>
+                                                                                    <td>12.57</td>
+                                                                                    <td>12.48</td>
+                                                                                    <td>12.41</td>
+                                                                                    <td>12.57</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>02</td>
-                                                                                    <td></td>
-                                                                                    <td>20</td>
-                                                                                    <td></td>
-                                                                                    <td>38</td>
-                                                                                    <td></td>
-                                                                                    <td>56</td>
-                                                                                    <td></td>
-                                                                                    <td>74</td>
-                                                                                    <td></td>
-                                                                                    <td>92</td>
-                                                                                    <td></td>
+                                                                                    <td rowspan="3">12:00</td>
+                                                                                    <td rowspan="3">221.00</td>
+                                                                                    <td>12.26</td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.22</td>
+                                                                                    <td>12.30</td>
+                                                                                    <td>12.26</td>
+                                                                                    <td>12.27</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.45</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>03</td>
-                                                                                    <td></td>
-                                                                                    <td>21</td>
-                                                                                    <td></td>
-                                                                                    <td>39</td>
-                                                                                    <td></td>
-                                                                                    <td>57</td>
-                                                                                    <td></td>
-                                                                                    <td>75</td>
-                                                                                    <td></td>
-                                                                                    <td>93</td>
-                                                                                    <td></td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.39</td>
+                                                                                    <td>12.45</td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.30</td>
+                                                                                    <td>12.22</td>
+                                                                                    <td>12.29</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>04</td>
-                                                                                    <td></td>
-                                                                                    <td>22</td>
-                                                                                    <td></td>
-                                                                                    <td>40</td>
-                                                                                    <td></td>
-                                                                                    <td>58</td>
-                                                                                    <td></td>
-                                                                                    <td>76</td>
-                                                                                    <td></td>
-                                                                                    <td>94</td>
-                                                                                    <td></td>
+                                                                                    <td>12.23</td>
+                                                                                    <td>12.21</td>
+                                                                                    <td>12.33</td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.35</td>
+                                                                                    <td>12.33</td>
+                                                                                    <td>12.29</td>
+                                                                                    <td>12.35</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>05</td>
-                                                                                    <td></td>
-                                                                                    <td>23</td>
-                                                                                    <td></td>
-                                                                                    <td>41</td>
-                                                                                    <td></td>
-                                                                                    <td>59</td>
-                                                                                    <td></td>
-                                                                                    <td>77</td>
-                                                                                    <td></td>
-                                                                                    <td>95</td>
-                                                                                    <td></td>
+                                                                                    <td rowspan="3">13:00</td>
+                                                                                    <td rowspan="3">219.00</td>
+                                                                                    <td>12.14</td>
+                                                                                    <td>12.13</td>
+                                                                                    <td>12.10</td>
+                                                                                    <td>12.13</td>
+                                                                                    <td>12.16</td>
+                                                                                    <td>12.16</td>
+                                                                                    <td>12.27</td>
+                                                                                    <td>12.30</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>06</td>
-                                                                                    <td></td>
-                                                                                    <td>24</td>
-                                                                                    <td></td>
-                                                                                    <td>42</td>
-                                                                                    <td></td>
-                                                                                    <td>60</td>
-                                                                                    <td></td>
-                                                                                    <td>78</td>
-                                                                                    <td></td>
-                                                                                    <td>96</td>
-                                                                                    <td></td>
+                                                                                    <td>12.25</td>
+                                                                                    <td>12.27</td>
+                                                                                    <td>12.30</td>
+                                                                                    <td>12.25</td>
+                                                                                    <td>12.20</td>
+                                                                                    <td>12.16</td>
+                                                                                    <td>12.13</td>
+                                                                                    <td>12.14</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>07</td>
-                                                                                    <td></td>
-                                                                                    <td>25</td>
-                                                                                    <td></td>
-                                                                                    <td>43</td>
-                                                                                    <td></td>
-                                                                                    <td>61</td>
-                                                                                    <td></td>
-                                                                                    <td>79</td>
-                                                                                    <td></td>
-                                                                                    <td>97</td>
-                                                                                    <td></td>
+                                                                                    <td>12.10</td>
+                                                                                    <td>12.26</td>
+                                                                                    <td>12.22</td>
+                                                                                    <td>12.16</td>
+                                                                                    <td>12.32</td>
+                                                                                    <td>12.22</td>
+                                                                                    <td>12.16</td>
+                                                                                    <td>12.32</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>08</td>
-                                                                                    <td></td>
-                                                                                    <td>26</td>
-                                                                                    <td></td>
-                                                                                    <td>44</td>
-                                                                                    <td></td>
-                                                                                    <td>62</td>
-                                                                                    <td></td>
-                                                                                    <td>80</td>
-                                                                                    <td></td>
-                                                                                    <td>98</td>
-                                                                                    <td></td>
+                                                                                    <td rowspan="3">14:00</td>
+                                                                                    <td rowspan="3">217.00</td>
+                                                                                    <td>12.04</td>
+                                                                                    <td>12.01</td>
+                                                                                    <td>11.98</td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.07</td>
+                                                                                    <td>11.97</td>
+                                                                                    <td>12.19</td>
+                                                                                    <td>12.22</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>09</td>
-                                                                                    <td></td>
-                                                                                    <td>27</td>
-                                                                                    <td></td>
-                                                                                    <td>45</td>
-                                                                                    <td></td>
-                                                                                    <td>63</td>
-                                                                                    <td></td>
-                                                                                    <td>81</td>
-                                                                                    <td></td>
-                                                                                    <td>99</td>
-                                                                                    <td></td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.19</td>
+                                                                                    <td>12.22</td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.01</td>
+                                                                                    <td>12.04</td>
+                                                                                    <td>12.06</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>10</td>
-                                                                                    <td></td>
-                                                                                    <td>28</td>
-                                                                                    <td></td>
-                                                                                    <td>46</td>
-                                                                                    <td></td>
-                                                                                    <td>64</td>
-                                                                                    <td></td>
-                                                                                    <td>82</td>
-                                                                                    <td></td>
-                                                                                    <td>100</td>
-                                                                                    <td></td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>12.17</td>
+                                                                                    <td>12.04</td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.02</td>
+                                                                                    <td>12.04</td>
+                                                                                    <td>12.03</td>
+                                                                                    <td>12.02</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>11</td>
-                                                                                    <td></td>
-                                                                                    <td>29</td>
-                                                                                    <td></td>
-                                                                                    <td>47</td>
-                                                                                    <td></td>
-                                                                                    <td>65</td>
-                                                                                    <td></td>
-                                                                                    <td>83</td>
-                                                                                    <td></td>
-                                                                                    <td>101</td>
-                                                                                    <td></td>
+                                                                                    <td rowspan="3">15:00</td>
+                                                                                    <td rowspan="3">214.00</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.88</td>
+                                                                                    <td>11.75</td>
+                                                                                    <td>11.84</td>
+                                                                                    <td>11.92</td>
+                                                                                    <td>11.89</td>
+                                                                                    <td>12.02</td>
+                                                                                    <td>12.00</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>12</td>
-                                                                                    <td></td>
-                                                                                    <td>30</td>
-                                                                                    <td></td>
-                                                                                    <td>48</td>
-                                                                                    <td></td>
-                                                                                    <td>66</td>
-                                                                                    <td></td>
-                                                                                    <td>84</td>
-                                                                                    <td></td>
-                                                                                    <td>102</td>
-                                                                                    <td></td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>12.02</td>
+                                                                                    <td>12.00</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.92</td>
+                                                                                    <td>11.82</td>
+                                                                                    <td>11.88</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>13</td>
-                                                                                    <td></td>
-                                                                                    <td>31</td>
-                                                                                    <td></td>
-                                                                                    <td>49</td>
-                                                                                    <td></td>
-                                                                                    <td>67</td>
-                                                                                    <td></td>
-                                                                                    <td>85</td>
-                                                                                    <td></td>
-                                                                                    <td>103</td>
-                                                                                    <td></td>
+                                                                                    <td>11.76</td>
+                                                                                    <td>12.01</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.88</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.91</td>
+                                                                                    <td>11.88</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>14</td>
-                                                                                    <td></td>
-                                                                                    <td>32</td>
-                                                                                    <td></td>
-                                                                                    <td>50</td>
-                                                                                    <td></td>
-                                                                                    <td>68</td>
-                                                                                    <td></td>
-                                                                                    <td>86</td>
-                                                                                    <td></td>
-                                                                                    <td>104</td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>15</td>
-                                                                                    <td></td>
-                                                                                    <td>33</td>
-                                                                                    <td></td>
-                                                                                    <td>51</td>
-                                                                                    <td></td>
-                                                                                    <td>69</td>
-                                                                                    <td></td>
-                                                                                    <td>87</td>
-                                                                                    <td></td>
-                                                                                    <td>105</td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>16</td>
-                                                                                    <td></td>
-                                                                                    <td>34</td>
-                                                                                    <td></td>
-                                                                                    <td>52</td>
-                                                                                    <td></td>
-                                                                                    <td>70</td>
-                                                                                    <td></td>
-                                                                                    <td>88</td>
-                                                                                    <td></td>
-                                                                                    <td>106</td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>17</td>
-                                                                                    <td></td>
-                                                                                    <td>35</td>
-                                                                                    <td></td>
-                                                                                    <td>53</td>
-                                                                                    <td></td>
-                                                                                    <td>71</td>
-                                                                                    <td></td>
-                                                                                    <td>89</td>
-                                                                                    <td></td>
-                                                                                    <td>107</td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>18</td>
-                                                                                    <td></td>
-                                                                                    <td>36</td>
-                                                                                    <td></td>
-                                                                                    <td>54</td>
-                                                                                    <td></td>
-                                                                                    <td>72</td>
-                                                                                    <td></td>
-                                                                                    <td>90</td>
-                                                                                    <td></td>
-                                                                                    <td>108</td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th colspan="12">测试结果及发现问题：</th>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th colspan="6">测试日期： 年 月 日</th>
-                                                                                    <th colspan="6">审核人：</th>
+                                                                                    <td colspan="10">放电结论：放电5小时停止放电过程，蓄电池单体电压高於10.80V，蓄电池正常</td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -1337,8 +1258,8 @@
                                                 <div id="history-alarm" class="tab-pane">
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right">请选取发生时间范围</label>
-                                                            <div class="col-sm-6">
+                                                            <label class="col-sm-3 control-label no-padding-right">请选取发生时间范围</label>
+                                                            <div class="col-sm-7">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">
                                                                         <i class="fa fa-calendar bigger-110"></i>
@@ -1356,57 +1277,63 @@
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>组别</th>
+                                                                <th>报警时间</th>
                                                                 <th>原因</th>
-                                                                <th>发生时间</th>
                                                                 <th>数值</th>
                                                                 <th>处理状态</th>
-                                                                <th>更新处理时间</th>
+                                                                <th>处理建议</th>
+                                                                <th>处理时间</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td>电池 5</td>
-                                                                <td>电压过低</td>
                                                                 <td>08/10/2014 02:06</td>
+                                                                <td>电压过低</td>
                                                                 <td>2.1 V</td>
                                                                 <td>已处理</td>
+                                                                <td>单体更换05号电池</td>
                                                                 <td>08/10/2014 10:33</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>电池 11</td>
-                                                                <td>电流过高</td>
                                                                 <td>08/10/2014 11:06</td>
+                                                                <td>电流过高</td>
                                                                 <td>0.2 I</td>
                                                                 <td>未处理</td>
+                                                                <td>联系相关人员到现场排查开关电源故障</td>
                                                                 <td>08/10/2014 11:06</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td>
                                                                 <td>电池 23</td>
-                                                                <td>容量过低</td>
                                                                 <td>08/13/2014 20:06</td>
+                                                                <td>容量过低</td>
                                                                 <td>37 %</td>
                                                                 <td>待处理</td>
+                                                                <td>单体更换23号电池</td>
                                                                 <td>08/15/2014 08:03</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
                                                                 <td>电池 4</td>
-                                                                <td>温度过高</td>
                                                                 <td>08/15/2014 21:36</td>
+                                                                <td>温度过高</td>
                                                                 <td>50 °C</td>
                                                                 <td>已处理</td>
+                                                                <td>联系相关人员到现场进行通风等降温处理</td>
                                                                 <td>08/16/2014 12:09</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td>
                                                                 <td>电池组二</td>
-                                                                <td>通信故障</td>
                                                                 <td>08/31/2014 09:36</td>
+                                                                <td>通信故障</td>
                                                                 <td></td>
                                                                 <td>未处理</td>
+                                                                <td>联系相关工作人员进行现场排查</td>
                                                                 <td>08/31/2014 09:36</td>
                                                             </tr>
                                                         </tbody>
@@ -1424,6 +1351,7 @@
                                         <table id="module-cell-info-table" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
                                                     <th>名称</th>
                                                     <th>生产日期</th>
                                                     <th>注册日期</th>
@@ -1437,6 +1365,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td>1</td>
                                                     <td>电池 1</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1457,6 +1386,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>2</td>
                                                     <td>电池 2</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1477,6 +1407,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>3</td>
                                                     <td>电池 3</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1497,6 +1428,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>4</td>
                                                     <td>电池 4</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1517,6 +1449,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>5</td>
                                                     <td>电池 5</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1537,6 +1470,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>6</td>
                                                     <td>电池 6</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1557,6 +1491,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>7</td>
                                                     <td>电池 7</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1577,6 +1512,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>8</td>
                                                     <td>电池 8</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1597,6 +1533,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>9</td>
                                                     <td>电池 9</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1617,6 +1554,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>10</td>
                                                     <td>电池 10</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1637,6 +1575,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>11</td>
                                                     <td>电池 11</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1657,6 +1596,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>12</td>
                                                     <td>电池 12</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1677,6 +1617,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>13</td>
                                                     <td>电池 13</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1697,6 +1638,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>14</td>
                                                     <td>电池 14</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1717,6 +1659,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>15</td>
                                                     <td>电池 15</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1737,6 +1680,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>16</td>
                                                     <td>电池 16</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1757,6 +1701,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>17</td>
                                                     <td>电池 17</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1777,6 +1722,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>18</td>
                                                     <td>电池 18</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1797,6 +1743,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>19</td>
                                                     <td>电池 19</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1817,6 +1764,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>20</td>
                                                     <td>电池 20</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1837,6 +1785,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>21</td>
                                                     <td>电池 21</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1857,6 +1806,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>22</td>
                                                     <td>电池 22</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1877,6 +1827,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>23</td>
                                                     <td>电池 23</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1897,6 +1848,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>24</td>
                                                     <td>电池 24</td>
                                                     <td>09/17/2014</td>
                                                     <td>12/25/2014</td>
@@ -1923,16 +1875,23 @@
                                     <!-- module-alert-setting tab -->
                                     <div id="module-alert-setting" class="tab-pane">
                                         <div class="row">
-                                            <div class="col-sm-2"></div>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-12">
                                                 <form>
                                                     <table class="table table-bordered table-hover center bolder font-14">
                                                         <tbody>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>电池组端电压</td>
-                                                                <td>浮充电流</td>
-                                                                <td>容量</td>
+                                                                <td colspan="6">浮充电状态
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>电压</td>
+                                                                <td>电流</td>
+                                                                <td>电池组绝缘电阻</td>
+                                                                <td>直流母线绝缘电阻</td>
+                                                                <td>额定容量</td>
+                                                                <td>温度</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>超过</td>
@@ -1942,12 +1901,22 @@
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
+                                                                <td>
+                                                                    <input type="text"/>
+                                                                </td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <input type="text"/>
+                                                                </td>
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>
@@ -1960,28 +1929,34 @@
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>电池组绝缘电阻</td>
-                                                                <td>直流母线绝缘电阻</td>
-                                                                <td>剩馀时间〈分钟〉</td>
+                                                                <td colspan="2">供电状态</td>
+                                                                <td colspan="2">均充电状态</td>
+                                                                <td rowspan="2" colspan="2">剩余供电时间〈分钟〉</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2">剩余容量</td>
+                                                                <td colspan="2">电压</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>超过</td>
-                                                                <td>
+                                                                <td colspan="2">
+                                                                </td>
+                                                                <td colspan="2">
                                                                     <input type="text"/>
                                                                 </td>
-                                                                <td>
-                                                                    <input type="text"/>
-                                                                </td>
-                                                                <td rowspan="2">
-                                                                    <input type="text" style="height:115%;" />
+                                                                <td colspan="2">
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>低於</td>
-                                                                <td>
+                                                                <td colspan="2">
                                                                     <input type="text"/>
                                                                 </td>
-                                                                <td>
+                                                                <td colspan="2">
+                                                                    <input type="text"/>
+                                                                </td>
+                                                                <td colspan="2">
                                                                     <input type="text"/>
                                                                 </td>
                                                             </tr>
@@ -2008,34 +1983,20 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>单体电压</td>
-                                                                <td>浮充电流</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>超过</td>
-                                                                <td>
-                                                                    <input type="text"/>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text"/>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>低於</td>
-                                                                <td>
-                                                                    <input type="text"/>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text"/>
-                                                                </td>
+                                                                <td colspan="2">浮充电状态</td>
+                                                                <td>均充电状态</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>容量</td>
-                                                                <td>温度</td>
+                                                                <td>电压</td>
+                                                                <td>电流</td>
+                                                                <td>电压</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>超过</td>
+                                                                <td>
+                                                                    <input type="text"/>
+                                                                </td>
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>
@@ -2048,6 +2009,7 @@
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>
+                                                                <td></td>
                                                                 <td>
                                                                     <input type="text"/>
                                                                 </td>

@@ -16,6 +16,7 @@ $(document).ready(function() {
             }
         },
         grid: {
+            hoverable: true,
             clickable: true
         }
     });
@@ -54,13 +55,9 @@ $(document).ready(function() {
     }
 
     var lastIndex = null;
-    $('#station-piechart').on('plotclick', function (event, pos, item) {
-        if(item) {
-            if (lastIndex != item.seriesIndex) {
-                lastIndex = item.seriesIndex;
-                var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
-                $tooltip.show().children(0).text(tooltip_text);
-                // while hover to the pie area, show corresponding table and hide other else
+    $('#station-piechart')
+        .on('plotclick', function (event, pos, item) {
+            if(item) {
                 if(item.seriesIndex === 0) {
                     hideTable();
                     showStable();
@@ -82,14 +79,44 @@ $(document).ready(function() {
                     showAlarm();
                 }
             }
-            $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
-        } 
-        else {
-            $tooltip.hide();
-            lastIndex = null;
-            $(".info-box").css({'font-size':'13px','color':'#393939'});
-        }
-    });
+            else {
+                $(".info-box").css({'font-size':'13px','color':'#393939'});
+            }
+        })
+        .on('plothover', function (event, pos, item) {
+            if(item) {
+                if (lastIndex != item.seriesIndex) {
+                    lastIndex = item.seriesIndex;
+                    var tooltip_text = item.series['label'] + " : " + item.series['percent']+'%';
+                    $tooltip.show().children(0).text(tooltip_text);
+                    if(item.seriesIndex === 0) {
+                        hideTable();
+                        showStable();
+                    }
+                    else if(item.seriesIndex === 1) {
+                        hideTable();
+                        showCharge();
+                    }
+                    else if(item.seriesIndex === 2) {
+                        hideTable();
+                        showDischarge();
+                    }
+                    else if(item.seriesIndex === 3) {
+                        hideTable();
+                        showSupply();
+                    }
+                    else if(item.seriesIndex === 4) {
+                        hideTable();
+                        showAlarm();
+                    }
+                }
+                $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+            } 
+            else {
+                $tooltip.hide();
+                lastIndex = null;
+            }
+        });
     
     // show corresponding tables while hover on the station total infobox
     $("#all-station-infobox").click(function(){
@@ -141,7 +168,7 @@ $(document).ready(function() {
     // five tables initialization
     $('#total-station-table, #stable-station-table, #chagre-station-table, #discharge-station-table, #supply-station-table, #todo-discharge-table, #connection-error-table, #alarm-ing-table, #alarm-solved-table').dataTable({
         lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
-        ordering: false,
+        ordering: true,
         paging: true,
         info: true,
         filter: true,

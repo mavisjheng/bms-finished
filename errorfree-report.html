@@ -4,12 +4,14 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>网络设定 - 蓄电池全过程管理系统</title>
+    <title>正常状态报表 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="css/ace/daterangepicker.css" />
+    <link rel="stylesheet" href="css/dataTables.tableTools.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
@@ -56,6 +58,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -83,20 +91,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -107,8 +115,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -119,8 +133,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -140,7 +154,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -157,8 +171,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -674,162 +688,577 @@
         <!-- /.sidebar -->
         <div class="main-content">
             <div class="main-content-inner">
-                <!-- breadcrumbs -->
                 <div class="breadcrumbs">
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
                         </li>
-                        <li class="active">网络设定</li>
+                        <li class="active">正常状态报表</li>
                     </ul>
                 </div>
                 <!-- /.breadcrumbs -->
                 <div class="page-content">
-                    <div class="space-4"></div>
+                    <div class="space-2"></div>
                     <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-10">
-                            <div class="tabbable tabs-left">
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a data-toggle="tab" href="#lan"><i class="purple ace-icon fa fa-th-large bigger-110"></i>&nbsp;LAN&nbsp;网络设定列表</a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#wan"><i class="blue ace-icon fa fa-globe bigger-110"></i>&nbsp;WAN&nbsp;网络设定列表</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <!-- LAN -->
-                                    <div id="lan" class="tab-pane fade in active">
-                                        <form>
-                                            <table id="lan-table" class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>名称</th>
-                                                        <th>数值</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>网络连接型态</td>
-                                                        <td>
-                                                            <select name="lan-connection-type" class="form-control">
-                                                                <option value="static">固定IP</option>
-                                                                <option value="dynamic">动态IP</option>
-                                                                <option value="disable">停用</option>
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络卡号码</td>
-                                                        <td>
-                                                            <input type="text" name="lan-mac-address" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络IP位址</td>
-                                                        <td>
-                                                            <input type="text" name="lan-ip-address" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络遮罩</td>
-                                                        <td>
-                                                            <input type="text" name="lan-network-mask" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>预设闸道</td>
-                                                        <td>
-                                                            <input type="text" name="lan-gateway" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DNS 设定</td>
-                                                        <td>
-                                                            <input type="text" name="lan-dns" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="hr hr-12 hr-dotted"></div>
-                                            <div class="center">
-                                                <button type="submit" class="btn btn-info btn-lg btn-white btn-round">
-                                                    <i class="ace-icon fa fa-plus"></i><span class="bolder">&nbsp;新增</span>
-                                                </button>
-                                            </div>
-                                        </form>
+                        <div class="col-sm-12">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="date-range-picker">请选取时间范围</label>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+                                            <input class="form-control" type="text" name="date-range-picker" required="required" />
+                                        </div>
                                     </div>
-                                    <!-- /.LAN -->
-                                    <!-- WAN -->
-                                    <div id="wan" class="tab-pane">
-                                        <form>
-                                            <table id="wan-table" class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>名称</th>
-                                                        <th>数值</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>网络连接型态</td>
-                                                        <td>
-                                                            <select name="wan-connection-type" class="form-control">
-                                                                <option value="static">固定IP</option>
-                                                                <option value="dynamic">动态IP</option>
-                                                                <option value="disable">停用</option>
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络卡号码</td>
-                                                        <td>
-                                                            <input type="text" name="wan-mac-address" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络IP位址</td>
-                                                        <td>
-                                                            <input type="text" name="wan-ip-address" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>网络遮罩</td>
-                                                        <td>
-                                                            <input type="text" name="wan-network-mask" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>预设闸道</td>
-                                                        <td>
-                                                            <input type="text" name="wan-default-gateway" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DNS 设定</td>
-                                                        <td>
-                                                            <input type="text" name="wan-dns" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="hr hr-12 hr-dotted"></div>
-                                            <div class="center">
-                                                <button type="submit" class="btn btn-info btn-lg btn-white btn-round">
-                                                    <i class="ace-icon fa fa-plus"></i><span class="bolder">&nbsp;新增</span>
-                                                </button>
-                                            </div>
-                                        </form>
+                                    <div class="col-sm-1">
+                                        <input class="form-control btn btn-sm btn-round btn-success" type="submit" value="提交" />
                                     </div>
-                                    <!-- /.WAN -->
                                 </div>
-                                <!-- /. tab-content -->
+                            </form>
+                            <div class="space-4"></div>
+                            <div class="bkgd-table-blue">
+                                <table id="normal-report-table" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>所在城市</th>
+                                            <th>站名</th>
+                                            <th>电池组数</th>
+                                            <th>时间</th>
+                                            <th>状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>大连市</td>
+                                            <td>中山站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 00:15</td>
+                                            <td>均充电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>大连市</td>
+                                            <td>西岗站</td>
+                                            <td>2</td>
+                                            <td>05/22/2015 00:30</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>大连市</td>
+                                            <td>沙河口站</td>
+                                            <td>3</td>
+                                            <td>05/22/2015 00:45</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>大连市</td>
+                                            <td>甘井子站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 01:00</td>
+                                            <td>均充电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>沈阳市</td>
+                                            <td>和平站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 01:15</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>沈阳市</td>
+                                            <td>沈河站</td>
+                                            <td>3</td>
+                                            <td>05/22/2015 01:30</td>
+                                            <td>均充电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>沈阳市</td>
+                                            <td>大东站</td>
+                                            <td>2</td>
+                                            <td>05/22/2015 01:45</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>沈阳市</td>
+                                            <td>皇姑站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 02:00</td>
+                                            <td>均充电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>鞍山市</td>
+                                            <td>铁东站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 02:15</td>
+                                            <td>供电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>鞍山市</td>
+                                            <td>铁西站</td>
+                                            <td>3</td>
+                                            <td>05/22/2015 02:30</td>
+                                            <td>核对性放电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>鞍山市</td>
+                                            <td>立山站</td>
+                                            <td>2</td>
+                                            <td>05/22/2015 02:45</td>
+                                            <td>供电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>鞍山市</td>
+                                            <td>千山站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 03:00</td>
+                                            <td>核对性放电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>抚顺市</td>
+                                            <td>新抚站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 03:15</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>抚顺市</td>
+                                            <td>东洲站</td>
+                                            <td>3</td>
+                                            <td>05/22/2015 03:30</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>抚顺市</td>
+                                            <td>望花站</td>
+                                            <td>2</td>
+                                            <td>05/22/2015 03:45</td>
+                                            <td>均充电状态</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>抚顺市</td>
+                                            <td>顺城站</td>
+                                            <td>4</td>
+                                            <td>05/22/2015 04:00</td>
+                                            <td>
+                                                浮充电状态&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-sm btn-danger btn-round btn-white" data-toggle="modal" data-target="#report">
+                                                    <span class="bolder">巡检</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- tabbable -->
+                            <!-- /.system report table -->
+                            <div class="space-4"></div>
+                            <div class="col-sm-12">
+                                <div class="alert alert-block alert-warning bolder font-16">
+                                    合计：<strong class="green">浮充电状态：57，均充电状态：19，供电状态：10，核对性放电状态：14</strong>
+                                </div>
+                            </div>
+                            <!-- report modal -->
+                            <div class="modal fade" id="report">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title bolder">巡检报表</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table id="report-table" class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <th colspan="4">站名：</th>
+                                                        <th colspan="4">测试单位：</th>
+                                                        <th colspan="4">测试人：</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="6">电池型号：</th>
+                                                        <th colspan="6">生产厂家：</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="6">环境温度（°C）：</th>
+                                                        <th colspan="6">出厂日期：</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="6">电池电压标准（V）：</th>
+                                                        <th colspan="6"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="4">测试项目</th>
+                                                        <th>标准</th>
+                                                        <th>盘表</th>
+                                                        <th>实测</th>
+                                                        <th colspan="3">测试项目</th>
+                                                        <th colspan="2">实测值</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="4">全电池浮充电压（V）</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th colspan="3">浮充电流（A）</th>
+                                                        <th colspan="2"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="4">合闸母线电压（V）</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th colspan="3">负荷电流（A）</th>
+                                                        <th colspan="2"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="4">控制母线电压（V）</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th colspan="3">全电池个数</th>
+                                                        <th colspan="2"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                        <th>序号</th>
+                                                        <th>电压</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>01</td>
+                                                        <td></td>
+                                                        <td>19</td>
+                                                        <td></td>
+                                                        <td>37</td>
+                                                        <td></td>
+                                                        <td>55</td>
+                                                        <td></td>
+                                                        <td>73</td>
+                                                        <td></td>
+                                                        <td>91</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>02</td>
+                                                        <td></td>
+                                                        <td>20</td>
+                                                        <td></td>
+                                                        <td>38</td>
+                                                        <td></td>
+                                                        <td>56</td>
+                                                        <td></td>
+                                                        <td>74</td>
+                                                        <td></td>
+                                                        <td>92</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>03</td>
+                                                        <td></td>
+                                                        <td>21</td>
+                                                        <td></td>
+                                                        <td>39</td>
+                                                        <td></td>
+                                                        <td>57</td>
+                                                        <td></td>
+                                                        <td>75</td>
+                                                        <td></td>
+                                                        <td>93</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>04</td>
+                                                        <td></td>
+                                                        <td>22</td>
+                                                        <td></td>
+                                                        <td>40</td>
+                                                        <td></td>
+                                                        <td>58</td>
+                                                        <td></td>
+                                                        <td>76</td>
+                                                        <td></td>
+                                                        <td>94</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>05</td>
+                                                        <td></td>
+                                                        <td>23</td>
+                                                        <td></td>
+                                                        <td>41</td>
+                                                        <td></td>
+                                                        <td>59</td>
+                                                        <td></td>
+                                                        <td>77</td>
+                                                        <td></td>
+                                                        <td>95</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>06</td>
+                                                        <td></td>
+                                                        <td>24</td>
+                                                        <td></td>
+                                                        <td>42</td>
+                                                        <td></td>
+                                                        <td>60</td>
+                                                        <td></td>
+                                                        <td>78</td>
+                                                        <td></td>
+                                                        <td>96</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>07</td>
+                                                        <td></td>
+                                                        <td>25</td>
+                                                        <td></td>
+                                                        <td>43</td>
+                                                        <td></td>
+                                                        <td>61</td>
+                                                        <td></td>
+                                                        <td>79</td>
+                                                        <td></td>
+                                                        <td>97</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>08</td>
+                                                        <td></td>
+                                                        <td>26</td>
+                                                        <td></td>
+                                                        <td>44</td>
+                                                        <td></td>
+                                                        <td>62</td>
+                                                        <td></td>
+                                                        <td>80</td>
+                                                        <td></td>
+                                                        <td>98</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>09</td>
+                                                        <td></td>
+                                                        <td>27</td>
+                                                        <td></td>
+                                                        <td>45</td>
+                                                        <td></td>
+                                                        <td>63</td>
+                                                        <td></td>
+                                                        <td>81</td>
+                                                        <td></td>
+                                                        <td>99</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td></td>
+                                                        <td>28</td>
+                                                        <td></td>
+                                                        <td>46</td>
+                                                        <td></td>
+                                                        <td>64</td>
+                                                        <td></td>
+                                                        <td>82</td>
+                                                        <td></td>
+                                                        <td>100</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td></td>
+                                                        <td>29</td>
+                                                        <td></td>
+                                                        <td>47</td>
+                                                        <td></td>
+                                                        <td>65</td>
+                                                        <td></td>
+                                                        <td>83</td>
+                                                        <td></td>
+                                                        <td>101</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td></td>
+                                                        <td>30</td>
+                                                        <td></td>
+                                                        <td>48</td>
+                                                        <td></td>
+                                                        <td>66</td>
+                                                        <td></td>
+                                                        <td>84</td>
+                                                        <td></td>
+                                                        <td>102</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td></td>
+                                                        <td>31</td>
+                                                        <td></td>
+                                                        <td>49</td>
+                                                        <td></td>
+                                                        <td>67</td>
+                                                        <td></td>
+                                                        <td>85</td>
+                                                        <td></td>
+                                                        <td>103</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td></td>
+                                                        <td>32</td>
+                                                        <td></td>
+                                                        <td>50</td>
+                                                        <td></td>
+                                                        <td>68</td>
+                                                        <td></td>
+                                                        <td>86</td>
+                                                        <td></td>
+                                                        <td>104</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td></td>
+                                                        <td>33</td>
+                                                        <td></td>
+                                                        <td>51</td>
+                                                        <td></td>
+                                                        <td>69</td>
+                                                        <td></td>
+                                                        <td>87</td>
+                                                        <td></td>
+                                                        <td>105</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td></td>
+                                                        <td>34</td>
+                                                        <td></td>
+                                                        <td>52</td>
+                                                        <td></td>
+                                                        <td>70</td>
+                                                        <td></td>
+                                                        <td>88</td>
+                                                        <td></td>
+                                                        <td>106</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td></td>
+                                                        <td>35</td>
+                                                        <td></td>
+                                                        <td>53</td>
+                                                        <td></td>
+                                                        <td>71</td>
+                                                        <td></td>
+                                                        <td>89</td>
+                                                        <td></td>
+                                                        <td>107</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td></td>
+                                                        <td>36</td>
+                                                        <td></td>
+                                                        <td>54</td>
+                                                        <td></td>
+                                                        <td>72</td>
+                                                        <td></td>
+                                                        <td>90</td>
+                                                        <td></td>
+                                                        <td>108</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="12">测试结果及发现问题：</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="6">测试日期： 年 月 日</th>
+                                                        <th colspan="6">审核人：</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.report modal -->
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
                 </div>
                 <!-- /.page-content -->
             </div>
@@ -837,7 +1266,6 @@
         </div>
         <!-- /.main-content -->
     </div>
-    <!-- /.main-container -->
     <!-- basic scripts -->
     <!--[if !IE]> -->
     <script type="text/javascript">
@@ -854,6 +1282,14 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
+    <!-- data ranger picker -->
+    <script src="js/ace/date-time/moment.js"></script>
+    <script src="js/ace/date-time/daterangepicker.js"></script>
+    <!-- dataTable and tableTools -->
+    <script src="js/ace/dataTables/jquery.dataTables.js"></script>
+    <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>
+    <script src="js/ace/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <script src="js/ace/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
     <!-- ace scripts -->
     <script src="js/ace/ace/elements.scroller.js"></script>
     <script src="js/ace/ace/elements.colorpicker.js"></script>
@@ -878,6 +1314,7 @@
     <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
     <!-- main script -->
     <script src="js/main.js"></script>
+    <script src="js/errorfree-report.js"></script>
 </body>
 
 </html>

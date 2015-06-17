@@ -58,6 +58,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -85,20 +91,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -109,8 +115,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -121,8 +133,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -142,7 +154,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -159,8 +171,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -734,7 +746,7 @@
                                                     <div class="widget-body">
                                                         <div class="widget-main padding-4">
                                                             <ul>
-                                                                <li>单体电压：2.26 V</li>
+                                                                <li>2.26 V</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -746,7 +758,7 @@
                                                     <div class="widget-body">
                                                         <div class="widget-main padding-4">
                                                             <ul>
-                                                                <li>浮充电流：0.09 I</li>
+                                                                <li>0.09 I</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -774,7 +786,7 @@
                                                     <div class="widget-body">
                                                         <div class="widget-main padding-4">
                                                             <ul>
-                                                                <li>单体电池內阻：0.62 mΩ</li>
+                                                                <li>0.62 mΩ</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -787,18 +799,6 @@
                                                         <div class="widget-main padding-4">
                                                             <ul>
                                                                 <li>29 %</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="widget-box transparent">
-                                                    <div class="widget-header">
-                                                        <h4 class="widget-title bolder">其他</h4>
-                                                    </div>
-                                                    <div class="widget-body">
-                                                        <div class="widget-main padding-4">
-                                                            <ul>
-                                                                <li>通信线路故障：无</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -1014,9 +1014,9 @@
                                             <label class="col-sm-3 control-label">图表选择</label>
                                             <div class="col-sm-6">
                                                 <select id="cell-chart-type" name="cell-chart-type" class="form-control">
-                                                    <option value="0" selected="selected">单体电压</option>
-                                                    <option value="1">浮充电流</option>
-                                                    <option value="2">单体电池內阻</option>
+                                                    <option value="0" selected="selected">电压</option>
+                                                    <option value="1">电流</option>
+                                                    <option value="2">內阻</option>
                                                     <option value="3">容量</option>
                                                     <option value="4">核对性放电电压</option>
                                                     <option value="5">温度</option>
@@ -1054,52 +1054,58 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
+                                                        <th>报警时间</th>
                                                         <th>原因</th>
-                                                        <th>发生时间</th>
                                                         <th>数值</th>
                                                         <th>处理状态</th>
-                                                        <th>更新处理时间</th>
+                                                        <th>处理建议</th>
+                                                        <th>处理时间</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>电压过低</td>
                                                         <td>08/10/2014 02:06</td>
+                                                        <td>电压过低</td>
                                                         <td>2.1 V</td>
                                                         <td>已处理</td>
+                                                        <td>单体更换</td>
                                                         <td>08/10/2014 16:51</td>
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
-                                                        <td>电流过高</td>
                                                         <td>08/10/2014 11:06</td>
+                                                        <td>电流过高</td>
                                                         <td>0.2 I</td>
                                                         <td>未处理</td>
+                                                        <td>联系相关人员到现场排查开关电源故障</td>
                                                         <td>08/10/2014 11:06</td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
-                                                        <td>容量过低</td>
                                                         <td>08/13/2014 20:06</td>
+                                                        <td>容量过低</td>
                                                         <td>37 %</td>
                                                         <td>待处理</td>
+                                                        <td>单体更换</td>
                                                         <td>08/14/2014 09:28</td>
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
-                                                        <td>温度过高</td>
                                                         <td>08/15/2014 21:36</td>
+                                                        <td>温度过高</td>
                                                         <td>48 °C</td>
                                                         <td>已处理</td>
+                                                        <td>联系相关人员到现场进行通风等降温处理</td>
                                                         <td>08/16/2014 14:00</td>
                                                     </tr>
                                                     <tr>
                                                         <td>5</td>
-                                                        <td>通信故障</td>
                                                         <td>08/31/2014 09:36</td>
+                                                        <td>通信故障</td>
                                                         <td></td>
                                                         <td>未处理</td>
+                                                        <td>联系相关工作人员进行现场排查</td>
                                                         <td>08/31/2014 09:36</td>
                                                     </tr>
                                                 </tbody>

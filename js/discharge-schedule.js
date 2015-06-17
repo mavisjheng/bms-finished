@@ -1,8 +1,29 @@
 $(document).ready(function() {
+    // date-range-picker
+    $('input[name=date-range-picker]').daterangepicker({
+        timePicker: true,
+        singleDatePicker: true,
+        format: 'MM/DD/YYYY h:mm A',
+        'applyClass': 'btn-sm btn-success',
+        'cancelClass': 'btn-sm btn-default',
+        locale: {
+            applyLabel: '确认',
+            cancelLabel: '取消',
+            fromLabel: '起始',
+            toLabel: '结束',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            firstDay: 1
+        }
+    }).prev().on(ace.click_event, function() {
+        $(this).next().focus();
+    });
+
     //dataTable
     $('#scheduled-discharge-list-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
-        ordering: false,
+        ordering: true,
         paging: true,
         info: true,
         filter: true,

@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('#normal-report-table').DataTable({
         dom: 'lTftip', // length, tableTools, filter, table, information, pagination
         lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
-        ordering: false,
+        ordering: true,
         paging: true,
         info: true,
         filter: true,

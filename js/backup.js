@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //dataTable
-    $('#need-discharge-table, #discharge-ing-table').dataTable({
+    $('#backup-list-table').dataTable({
         lengthMenu: [ [10, 20, 30, 50, -1], [10, 20, 30, 50, "所有"] ],
         ordering: true,
         paging: true,

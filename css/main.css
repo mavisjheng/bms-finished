@@ -21,7 +21,7 @@
 }
  
 .navbar-menu-text-size {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media only screen and (min-width: 992px) {
@@ -223,7 +223,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table,
 #alarm-report-table,
 #replacement-report-table,
-#capacity-report-table {
+#capacity-report-table,
+#repaired-report-table {
   margin-bottom: 15px;
 } 
 
@@ -234,7 +235,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table_wrapper,
 #alarm-report-table_wrapper,
 #replacement-report-table_wrapper,
-#capacity-report-table_wrapper {
+#capacity-report-table_wrapper,
+#repaired-report-table_wrapper {
   border: 1px solid #e0e0e0;
 }
 
@@ -245,7 +247,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table_length,
 #alarm-report-table_length,
 #replacement-report-table_length,
-#capacity-report-table_length {
+#capacity-report-table_length,
+#repaired-report-table_length {
   padding-top: 10px;
   padding-left: 10px;
   margin-bottom: -30px;
@@ -258,7 +261,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table_info,
 #alarm-report-table_info,
 #replacement-report-table_info,
-#capacity-report-table_info {
+#capacity-report-table_info,
+#repaired-report-table_info {
   padding-left: 10px;
   margin-bottom: -25px;
 }
@@ -270,7 +274,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table_paginate,
 #alarm-report-table_paginate,
 #replacement-report-table_paginate,
-#capacity-report-table_paginate {
+#capacity-report-table_paginate,
+#repaired-report-table_paginate {
   padding-bottom: 10px;
   margin-right: 0px;
 }
@@ -282,7 +287,8 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #solved-report-table_filter,
 #alarm-report-table_filter,
 #replacement-report-table_filter,
-#capacity-report-table_filter {
+#capacity-report-table_filter,
+#repaired-report-table_filter {
   margin-top: 0px;
 }
 
@@ -330,7 +336,9 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   margin-top: -5px;
 }
 
-
+#stable-status-list, #charge-status-list, #discharge-status-list, #supply-status-list, #error-status-list, #stable-error-list {
+  display: none;
+}
 /* -----------------------------------------
   Discharge Setting form
 ----------------------------------------- */

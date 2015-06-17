@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>正常状态报表 - 蓄电池全过程管理系统</title>
+    <title>可再生修复蓄电池报表 - 蓄电池全过程管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
@@ -58,6 +58,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -85,20 +91,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -109,8 +115,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -121,8 +133,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -142,7 +154,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -159,8 +171,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -680,7 +692,7 @@
                     <ul class="breadcrumb">
                         <li><i class="fa fa-home home-icon"></i> <a href="index.html">蓄电池全过程管理系统</a>
                         </li>
-                        <li class="active">正常状态报表</li>
+                        <li class="active">可再生修复蓄电池报表</li>
                     </ul>
                 </div>
                 <!-- /.breadcrumbs -->
@@ -706,133 +718,207 @@
                             </form>
                             <div class="space-4"></div>
                             <div class="bkgd-table-blue">
-                                <table id="normal-report-table" class="table table-bordered table-hover">
+                                <table id="repaired-report-table" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>站名</th>
+                                            <th>ID</th>
                                             <th>所在城市</th>
-                                            <th>电池组数</th>
-                                            <th>时间</th>
-                                            <th>状态</th>
+                                            <th>站名</th>
+                                            <th>组别</th>
+                                            <th>编号</th>
+                                            <th>品牌型号</th>
+                                            <th>年限</th>
+                                            <th>再生</th>
+                                            <th>报废</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>中山站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 00:15</td>
-                                            <td>均充电状态</td>
-                                        </tr>
-                                        <tr>
-                                            <td>西岗站</td>
-                                            <td>大连市</td>
-                                            <td>2</td>
-                                            <td>05/22/2015 00:30</td>
-                                            <td>浮充电状态</td>
-                                        </tr>
-                                        <tr>
-                                            <td>沙河口站</td>
-                                            <td>大连市</td>
-                                            <td>3</td>
-                                            <td>05/22/2015 00:45</td>
-                                            <td>浮充电状态</td>
-                                        </tr>
-                                        <tr>
-                                            <td>甘井子站</td>
-                                            <td>大连市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 01:00</td>
-                                            <td>均充电状态</td>
-                                        </tr>
-                                        <tr>
+                                            <td>1</td>
+                                            <td>沈阳市</td>
                                             <td>和平站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 01:15</td>
-                                            <td>浮充电状态</td>
+                                            <td>电池组一</td>
+                                            <td>电池5</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
-                                            <td>沈河站</td>
-                                            <td>沈阳市</td>
-                                            <td>3</td>
-                                            <td>05/22/2015 01:30</td>
-                                            <td>均充电状态</td>
-                                        </tr>
-                                        <tr>
-                                            <td>大东站</td>
-                                            <td>沈阳市</td>
                                             <td>2</td>
-                                            <td>05/22/2015 01:45</td>
-                                            <td>浮充电状态</td>
+                                            <td>大连市</td>
+                                            <td>中山站</td>
+                                            <td>电池组一</td>
+                                            <td>电池17</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
+                                            <td>3</td>
+                                            <td>沈阳市</td>
                                             <td>皇姑站</td>
-                                            <td>沈阳市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 02:00</td>
-                                            <td>均充电状态</td>
+                                            <td>电池组四</td>
+                                            <td>电池9</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>0</td>
+                                            <td>1</td>
                                         </tr>
                                         <tr>
+                                            <td>4</td>
+                                            <td>鞍山市</td>
                                             <td>铁东站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 02:15</td>
-                                            <td>供电状态</td>
+                                            <td>电池组三</td>
+                                            <td>电池23</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>0</td>
+                                            <td>1</td>
                                         </tr>
                                         <tr>
-                                            <td>铁西站</td>
-                                            <td>鞍山市</td>
-                                            <td>3</td>
-                                            <td>05/22/2015 02:30</td>
-                                            <td>核对性放电状态</td>
+                                            <td>5</td>
+                                            <td>沈阳市</td>
+                                            <td>大东站</td>
+                                            <td>电池组一</td>
+                                            <td>整组</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>14</td>
+                                            <td>10</td>
                                         </tr>
                                         <tr>
-                                            <td>立山站</td>
-                                            <td>鞍山市</td>
-                                            <td>2</td>
-                                            <td>05/22/2015 02:45</td>
-                                            <td>供电状态</td>
-                                        </tr>
-                                        <tr>
-                                            <td>千山站</td>
-                                            <td>鞍山市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 03:00</td>
-                                            <td>核对性放电状态</td>
-                                        </tr>
-                                        <tr>
+                                            <td>6</td>
+                                            <td>抚顺市</td>
                                             <td>新抚站</td>
-                                            <td>抚顺市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 03:15</td>
-                                            <td>浮充电状态</td>
+                                            <td>电池组一</td>
+                                            <td>电池5</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
+                                            <td>7</td>
+                                            <td>鞍山市</td>
+                                            <td>立山站</td>
+                                            <td>电池组二</td>
+                                            <td>电池12</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>鞍山市</td>
+                                            <td>立山站</td>
+                                            <td>电池组二</td>
+                                            <td>电池19</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>抚顺市</td>
                                             <td>东洲站</td>
-                                            <td>抚顺市</td>
-                                            <td>3</td>
-                                            <td>05/22/2015 03:30</td>
-                                            <td>浮充电状态</td>
+                                            <td>电池组三</td>
+                                            <td>整组</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>15</td>
+                                            <td>9</td>
                                         </tr>
                                         <tr>
-                                            <td>望花站</td>
-                                            <td>抚顺市</td>
-                                            <td>2</td>
-                                            <td>05/22/2015 03:45</td>
-                                            <td>均充电状态</td>
+                                            <td>10</td>
+                                            <td>大连市</td>
+                                            <td>甘井子站</td>
+                                            <td>电池组二</td>
+                                            <td>电池20</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
-                                            <td>顺城站</td>
+                                            <td>11</td>
+                                            <td>沈阳市</td>
+                                            <td>和平站</td>
+                                            <td>电池组三</td>
+                                            <td>电池16</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>大连市</td>
+                                            <td>西岗站</td>
+                                            <td>电池组四</td>
+                                            <td>电池24</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>沈阳市</td>
+                                            <td>沈河站</td>
+                                            <td>电池组一</td>
+                                            <td>电池1</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>鞍山市</td>
+                                            <td>铁西站</td>
+                                            <td>电池组三</td>
+                                            <td>整组</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>17</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
                                             <td>抚顺市</td>
-                                            <td>4</td>
-                                            <td>05/22/2015 04:00</td>
-                                            <td>浮充电状态</td>
+                                            <td>东洲站</td>
+                                            <td>电池组二</td>
+                                            <td>整组</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>18</td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>抚顺市</td>
+                                            <td>东洲站</td>
+                                            <td>电池组四</td>
+                                            <td>电池18</td>
+                                            <td>康舒科技 ZWY78</td>
+                                            <td>十年</td>
+                                            <td>1</td>
+                                            <td>0</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.system report table -->
+                            <div class="space-4"></div>
+                            <div class="col-sm-12">
+                                <div class="alert alert-block alert-warning bolder font-16">
+                                    合计：<strong class="green">可再生单体：71 块，需報廢单体：37 块，合计：108 块</strong>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -890,7 +976,7 @@
     <script src="js/ace/ace/ace.searchbox-autocomplete.js"></script>
     <!-- main script -->
     <script src="js/main.js"></script>
-    <script src="js/normal-report.js"></script>
+    <script src="js/repaired-report.js"></script>
 </body>
 
 </html>

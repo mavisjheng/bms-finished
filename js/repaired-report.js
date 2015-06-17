@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 
     // dataTable
-    $('#alarm-log-table, #system-log-table').DataTable({
+    $('#repaired-report-table').DataTable({
         dom: 'lTftip', // length, tableTools, filter, table, information, pagination
         lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
         ordering: true,
@@ -67,21 +67,6 @@ $(document).ready(function() {
                 next: "下页",
                 first: "首页",
                 last: "末页"
-            }
-        }
-    });
-
-    // solve the problem about hidden tab's tableTools
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-        var jqTable = $('table.table', $(e.target).attr("href"));
-        if (jqTable.length > 0) {
-            var oTableTools = TableTools.fnGetInstance(jqTable[0]);
-            if (oTableTools != null && oTableTools.fnResizeRequired()) {
-                /* A resize of TableTools' buttons and DataTables' columns is only required on the
-                 * first visible draw of the table
-                 */
-                jqTable.dataTable().fnAdjustColumnSizing();
-                oTableTools.fnResizeButtons();
             }
         }
     });

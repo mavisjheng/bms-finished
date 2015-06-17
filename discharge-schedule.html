@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/ace/bootstrap.css" />
     <link rel="stylesheet" href="css/ace/font-awesome.css" />
     <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="css/ace/daterangepicker.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="css/ace/ace-fonts.css" />
     <!-- ace styles -->
@@ -56,6 +57,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -83,20 +90,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -107,8 +114,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -119,8 +132,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -140,7 +153,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -157,8 +170,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -727,45 +740,26 @@
                                                 <input id="dischargePercent" class="form-group col-sm-7" type="text" />
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-4 center">
-                                                    重复间隔
+                                                <label class="col-sm-4 center" for="date-range-picker">时间</label>
+                                                <div class="col-sm-8 input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar bigger-110"></i>
+                                                    </span>
+                                                    <input class="form-control" type="text" name="date-range-picker" required="required" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-5 center">
+                                                    重复间隔数值
                                                 </label>
-                                                <div class="form-group col-sm-8">
-                                                    <select name="repeat-time-num" class="form-control">
-                                                        <option value="" disabled selected>数值</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
-                                                        <option value="13">13</option>
-                                                        <option value="14">14</option>
-                                                        <option value="15">15</option>
-                                                        <option value="16">16</option>
-                                                        <option value="17">17</option>
-                                                        <option value="18">18</option>
-                                                        <option value="19">19</option>
-                                                        <option value="20">20</option>
-                                                        <option value="21">21</option>
-                                                        <option value="22">22</option>
-                                                        <option value="23">23</option>
-                                                        <option value="24">24</option>
-                                                        <option value="25">25</option>
-                                                        <option value="26">26</option>
-                                                        <option value="27">27</option>
-                                                        <option value="28">28</option>
-                                                        <option value="29">29</option>
-                                                        <option value="30">30</option>
-                                                    </select>
+                                                <input class="form-group col-sm-7" type="number" min="1" max="12" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-5 center">
+                                                    重复间隔时间区段
+                                                </label>
+                                                <div class="form-group col-sm-7">
                                                     <select name="repeat-time-unit" class="form-control">
-                                                        <option value="" disabled selected>时间区段</option>
                                                         <option value="month">月</option>
                                                         <option value="year">年</option>
                                                     </select>
@@ -794,15 +788,17 @@
                             <table id="scheduled-discharge-list-table" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>时间</th>
-                                        <th>城市</th>
-                                        <th>通信站</th>
+                                        <th>所在城市</th>
+                                        <th>站名</th>
                                         <th>蓄电池组</th>
                                         <th>放电深度</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>1</td>
                                         <td>05/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>中山站</td>
@@ -810,6 +806,7 @@
                                         <td>30%</td>
                                     </tr>
                                     <tr>
+                                        <td>2</td>
                                         <td>06/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>西岗站</td>
@@ -817,6 +814,7 @@
                                         <td>35%</td>
                                     </tr>
                                     <tr>
+                                        <td>3</td>
                                         <td>06/18/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>沙河口站</td>
@@ -824,6 +822,7 @@
                                         <td>40%</td>
                                     </tr>
                                     <tr>
+                                        <td>4</td>
                                         <td>07/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>甘井子站</td>
@@ -831,6 +830,7 @@
                                         <td>45%</td>
                                     </tr>
                                     <tr>
+                                        <td>5</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>和平站</td>
@@ -838,6 +838,7 @@
                                         <td>50%</td>
                                     </tr>
                                     <tr>
+                                        <td>6</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>沈河站</td>
@@ -845,6 +846,7 @@
                                         <td>55%</td>
                                     </tr>
                                     <tr>
+                                        <td>7</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>大东站</td>
@@ -852,6 +854,7 @@
                                         <td>60%</td>
                                     </tr>
                                     <tr>
+                                        <td>8</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>皇姑站</td>
@@ -859,6 +862,7 @@
                                         <td>65%</td>
                                     </tr>
                                     <tr>
+                                        <td>9</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>铁东站</td>
@@ -866,6 +870,7 @@
                                         <td>70%</td>
                                     </tr>
                                     <tr>
+                                        <td>10</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>铁西站</td>
@@ -873,6 +878,7 @@
                                         <td>75%</td>
                                     </tr>
                                     <tr>
+                                        <td>11</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>立山站</td>
@@ -880,6 +886,7 @@
                                         <td>80%</td>
                                     </tr>
                                     <tr>
+                                        <td>12</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>千山站</td>
@@ -887,6 +894,7 @@
                                         <td>85%</td>
                                     </tr>
                                     <tr>
+                                        <td>13</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>新抚站</td>
@@ -894,6 +902,7 @@
                                         <td>90%</td>
                                     </tr>
                                     <tr>
+                                        <td>14</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>东洲站</td>
@@ -901,6 +910,7 @@
                                         <td>95%</td>
                                     </tr>
                                     <tr>
+                                        <td>15</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>望花站</td>
@@ -908,6 +918,7 @@
                                         <td>100%</td>
                                     </tr>
                                     <tr>
+                                        <td>16</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>顺城站</td>
@@ -944,6 +955,9 @@
     </script>
     <script src="js/ace/bootstrap.js"></script>
     <!-- page specific plugin scripts -->
+    <!-- data ranger picker -->
+    <script src="js/ace/date-time/moment.js"></script>
+    <script src="js/ace/date-time/daterangepicker.js"></script>
     <!-- dataTable -->
     <script src="js/ace/dataTables/jquery.dataTables.js"></script>
     <script src="js/ace/dataTables/jquery.dataTables.bootstrap.js"></script>

@@ -56,6 +56,12 @@
             <!-- navbar buttons -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+                    <li class="green">
+                        <a href="index.html">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="navbar-menu-text-size">返回首页</span>
+                        </a>
+                    </li>
                     <li class="red">
                         <a href="discharge.html">
                             <i class="fa fa-bolt fa-2x"></i>
@@ -83,20 +89,20 @@
                         </a>
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="discharge-report.html">
-                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="system-report.html">
+                                <a href="status-report.html">
                                     <i class="ace-icon fa fa-list-alt"></i> 总体情况报表
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="normal-report.html">
+                                <a href="errorfree-report.html">
                                     <i class="ace-icon fa fa-thumbs-o-up"></i> 正常状态报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="discharge-report.html">
+                                    <i class="ace-icon fa fa-file-text-o"></i> 核对性放电报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -107,8 +113,14 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="alarm-report.html">
+                                <a href="unsolved-report.html">
                                     <i class="ace-icon fa fa-exclamation-circle"></i> 报警未处理报表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="capacity-report.html">
+                                    <i class="ace-icon fa fa-pie-chart"></i> 电池组容量统计报表
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -119,8 +131,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="capacity-report.html">
-                                    <i class="ace-icon fa fa-pie-chart"></i> 电池容量统计报表
+                                <a href="repaired-report.html">
+                                    <i class="ace-icon fa fa-recycle"></i> 可再生修复蓄电池报表
                                 </a>
                             </li>
                         </ul>
@@ -140,7 +152,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="sync-rate.html">
-                                    <i class="ace-icon fa fa-clock-o"></i> 数据上传间隔设定
+                                    <i class="ace-icon fa fa-clock-o"></i> 数据采集间隔设定
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -157,8 +169,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="network.html">
-                                    <i class="ace-icon fa fa-laptop"></i> 网络设定
+                                <a href="backup.html">
+                                    <i class="ace-icon fa fa-database"></i> 数据库备份与还原
                                 </a>
                             </li>
                         </ul>
@@ -749,15 +761,17 @@
                             <table id="discharge-list-table" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>时间</th>
-                                        <th>城市</th>
-                                        <th>通信站</th>
+                                        <th>所在城市</th>
+                                        <th>站名</th>
                                         <th>蓄电池组</th>
                                         <th>放电深度</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>1</td>
                                         <td>05/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>中山站</td>
@@ -765,6 +779,7 @@
                                         <td>30%</td>
                                     </tr>
                                     <tr>
+                                        <td>2</td>
                                         <td>06/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>西岗站</td>
@@ -772,6 +787,7 @@
                                         <td>35%</td>
                                     </tr>
                                     <tr>
+                                        <td>3</td>
                                         <td>06/18/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>沙河口站</td>
@@ -779,6 +795,7 @@
                                         <td>40%</td>
                                     </tr>
                                     <tr>
+                                        <td>4</td>
                                         <td>07/03/2015 10:00</td>
                                         <td>大连市</td>
                                         <td>甘井子站</td>
@@ -786,6 +803,7 @@
                                         <td>45%</td>
                                     </tr>
                                     <tr>
+                                        <td>5</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>和平站</td>
@@ -793,6 +811,7 @@
                                         <td>50%</td>
                                     </tr>
                                     <tr>
+                                        <td>6</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>沈河站</td>
@@ -800,6 +819,7 @@
                                         <td>55%</td>
                                     </tr>
                                     <tr>
+                                        <td>7</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>大东站</td>
@@ -807,6 +827,7 @@
                                         <td>60%</td>
                                     </tr>
                                     <tr>
+                                        <td>8</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>沈阳市</td>
                                         <td>皇姑站</td>
@@ -814,6 +835,7 @@
                                         <td>65%</td>
                                     </tr>
                                     <tr>
+                                        <td>9</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>铁东站</td>
@@ -821,6 +843,7 @@
                                         <td>70%</td>
                                     </tr>
                                     <tr>
+                                        <td>10</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>铁西站</td>
@@ -828,6 +851,7 @@
                                         <td>75%</td>
                                     </tr>
                                     <tr>
+                                        <td>11</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>立山站</td>
@@ -835,6 +859,7 @@
                                         <td>80%</td>
                                     </tr>
                                     <tr>
+                                        <td>12</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>鞍山市</td>
                                         <td>千山站</td>
@@ -842,6 +867,7 @@
                                         <td>85%</td>
                                     </tr>
                                     <tr>
+                                        <td>13</td>
                                         <td>07/18/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>新抚站</td>
@@ -849,6 +875,7 @@
                                         <td>90%</td>
                                     </tr>
                                     <tr>
+                                        <td>14</td>
                                         <td>08/03/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>东洲站</td>
@@ -856,6 +883,7 @@
                                         <td>95%</td>
                                     </tr>
                                     <tr>
+                                        <td>15</td>
                                         <td>08/18/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>望花站</td>
@@ -863,6 +891,7 @@
                                         <td>100%</td>
                                     </tr>
                                     <tr>
+                                        <td>16</td>
                                         <td>09/03/2015 10:00</td>
                                         <td>抚顺市</td>
                                         <td>顺城站</td>

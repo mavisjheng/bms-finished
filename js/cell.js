@@ -20,7 +20,7 @@ $(document).ready(function() {
     // dataTable initialization
     $('#cell-alarm-table').dataTable({
         lengthMenu: [ [5, 10, 20, 30, 50, -1], [5, 10, 20, 30, 50, "所有"] ],
-        ordering: false,
+        ordering: true,
         paging: true,
         info: true,
         filter: true,
