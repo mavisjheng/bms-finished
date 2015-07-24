@@ -17,6 +17,20 @@ $(document).ready(function() {
         $(this).next().focus();
     });
 
+    // single-date-picker
+    $('input[name=single-date-picker]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        locale: {
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            firstDay: 1
+        }
+    }).prev().on(ace.click_event, function() {
+        $(this).next().focus();
+    });
+
     // morris chart
     var initData = prepareDemoCellData();
     
@@ -188,34 +202,10 @@ $(document).ready(function() {
         lineColors: ['purple']
     });
 
+    var vData = prepareVData();
     var currentVoltage = new Morris.Bar({
         element: 'current-voltage',
-        data: [
-            { x: '电池1', y: 2.23 },
-            { x: '电池2', y: 2.24 },
-            { x: '电池3', y: 2.25 },
-            { x: '电池4', y: 2.26 },
-            { x: '电池5', y: 2.27 },
-            { x: '电池6', y: 2.28 },
-            { x: '电池7', y: 2.23 },
-            { x: '电池8', y: 2.25 },
-            { x: '电池9', y: 2.27 },
-            { x: '电池10', y: 2.28 },
-            { x: '电池11', y: 2.24 },
-            { x: '电池12', y: 2.27 },
-            { x: '电池13', y: 2.23 },
-            { x: '电池14', y: 2.26 },
-            { x: '电池15', y: 2.24 },
-            { x: '电池16', y: 2.28 },
-            { x: '电池17', y: 2.26 },
-            { x: '电池18', y: 2.23 },
-            { x: '电池19', y: 2.27 },
-            { x: '电池20', y: 2.24 },
-            { x: '电池21', y: 2.27 },
-            { x: '电池22', y: 2.26 },
-            { x: '电池23', y: 2.28 },
-            { x: '电池24', y: 2.25 },
-        ],
+        data: vData,
         xkey: 'x',
         ykeys: ['y'],
         ymax: 2.28,
@@ -223,6 +213,24 @@ $(document).ready(function() {
         labels: ['即时电压'],
         barColors: ['#1c77bd']
     });
+    
+    function prepareVData() {
+        var data = [];
+        for(var startYear = 1; startYear <= 24; startYear ++){
+            var currentYear = "電池" + startYear;
+
+            var max = 2.2;
+            var min = 1;
+
+            var value = Math.random()*max+min;
+            var dataPoint = {
+                x: currentYear.toString(),
+                y: value
+            };
+            data.push(dataPoint);
+        }
+        return data;
+    }
 
     var currentCapacity = new Morris.Bar({
         element: 'current-capacity',

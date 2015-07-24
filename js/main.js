@@ -14,4 +14,12 @@ $(document).ready(function() {
         $('.breadcrumb li.active').text(currentTabText);
     });*/
 
+    $(".city-setting").click(function() {
+        window.location.href = "city-setting.html";
+    });
+
+    $(".station-setting").click(function() {
+        window.location.href = "station-setting.html";
+    });
+
 });

@@ -351,6 +351,9 @@ div[id$="table_paginate"], div[id$="table_filter"] {
   margin-top: 3px;
 }
 
+#add-battery-form label {
+  margin-right: 10px;
+}
 
 /* -----------------------------------------
   Discharge Report Page
@@ -364,4 +367,19 @@ div[id$="table_paginate"], div[id$="table_filter"] {
 #row2-voltage,
 #row3-voltage {
   font-size: 16px;
+}
+
+/* -----------------------------------------
+  Cell Type Page
+----------------------------------------- */
+#add-cell-type-form label {
+  margin-right: 15px;
+}
+
+
+/* -----------------------------------------
+  Station Setting Page
+----------------------------------------- */
+.pad-btm-10 {
+  margin-bottom: 12px;
 }
